@@ -1,101 +1,65 @@
-Login Cidadão
-=============
+docker-symfony
+==============
 
-[![Join the chat at https://gitter.im/PROCERGS/login-cidadao](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/PROCERGS/login-cidadao?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://secure.travis-ci.org/eko/docker-symfony.png?branch=master)](http://travis-ci.org/eko/docker-symfony)
 
-This is the source code for the 'Login Cidadão' (Citizen's Login) project.
 
-This project's main objective is to provide a way for citizens to authenticate against official online services, eliminating the need to create and maintain several credentials on several services.
+Just a litle Docker POC in order to have a complete stack for running Symfony into Docker containers using docker-compose tool.
 
-It also allows government agencies to better understand its citizen's needs and learn how to interact more effectively with them.
+# Installation
 
-*Note*: Since this project is just on it's initial stages, it's not recommended to fork it just yet.
+First, clone this repository:
 
-Dependencies
-============
+```bash
+$ git clone git@github.com:eko/docker-symfony.git
+```
 
- * PHP >=5.4
- * composer
- * node.js
- * memcached
+Next, put your Symfony application into `symfony` folder and do not forget to add `symfony.dev` in your `/etc/hosts` file.
 
- PHP Extensions
-  * php5-curl
-  * php5-intl
-  * php5-mysql or php5-pgsql or your preferred driver
-  * php5-memcache (you can use php5-memcached instead, just remember to change the `Memcache` classes to `Memcached`)
- 
- System Configuration
-  * php timezone (date.timezone = America/Sao_Paulo)
-  * write permission to app/cache app/logs web/uploads
+Then, run:
 
-Docs
-====
+```bash
+$ docker-compose up
+```
 
-[ Read the docs ](app/Resources/doc/index.md)
+You are done, you can visite your Symfony application on the following URL: `http://symfony.dev` (and access Kibana on `http://symfony.dev:81`)
 
-Setup - Development
-===================
+_Note :_ you can rebuild all Docker images by running:
 
-Setting up on Linux
--------------------
+```bash
+$ docker-compose build
+```
 
-### Requirements
- * Sudoer user
- * PHP CLI
- * ACL-enabled filesystem
- * Composer
+# How it works?
 
-### Before you start
-It's highly recommended to create your `app/config/parameters.yml` before installing to avoid database connection problems.
+Here are the `docker-compose` built images:
 
-You can start by using `app/config/parameters.yml.dist` as a template by simply copying it to the same folder but naming it as `parameters.yml`, then edit the default values.
+* `application`: This is the Symfony application code container,
+* `db`: This is the MySQL database container (can be changed to postgresql or whatever in `docker-compose.yml` file),
+* `php`: This is the PHP-FPM container in which the application volume is mounted,
+* `nginx`: This is the Nginx webserver container in which application volume is mounted too,
+* `elk`: This is a ELK stack container which uses Logstash to collect logs, send them into Elasticsearch and visualize them with Kibana.
 
-### Running the script
-Check if your environment meets Symfony's prerequesites:
-    `php app/check.php`
-Just execute the `install.sh` script and follow instructions in case of errors or warnings.
-Run:
-	`php app/console server:run`
-Test on default: http://localhost:8000
+This results in the following running containers:
 
-### Using Vagrant
-## Requirements
-* virtualbox
-* [vagrant](https://www.vagrantup.com/)
-* vagrant plugin [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest) for port forward
+```bash
+> $ docker-compose ps
+        Name                      Command               State              Ports
+        -------------------------------------------------------------------------------------------
+        docker_application_1   /bin/bash                        Up
+        docker_db_1            /entrypoint.sh mysqld            Up      0.0.0.0:3306->3306/tcp
+        docker_elk_1           /usr/bin/supervisord -n -c ...   Up      0.0.0.0:81->80/tcp
+        docker_nginx_1         nginx                            Up      443/tcp, 0.0.0.0:80->80/tcp
+        docker_php_1           php5-fpm -F                      Up      9000/tcp
+```
 
-## Before you start
-It's highly recommended to create your `app/config/parameters.yml` before installing to avoid database connection problems.
+# Read logs
 
-You can start by using `app/config/parameters.yml.vagrant` as a template by simply copying it to the same folder but naming it as `parameters.yml`, then edit the default values. Do not edit database values if you want to use the default vm database.
+You can access Nginx and Symfony application logs in the following directories into your host machine:
 
-## Run
-	`vagrant up`
-	
-Setting up on Windows
----------------------
-Currently we do not have a setup script for Windows, but it should be pretty straightforward to convert the install.sh to be Windows compatible.
+* `logs/nginx`
+* `logs/symfony`
 
-General Steps for Installation
-------------------------------
+# Use Kibana!
 
-1. Make sure the following directories are writeable by your http/PHP user via ACL permissions ([you can read more here](http://symfony.com/doc/current/book/installation.html)):
-  * app/cache
-  * app/logs
-  * web/uploads
-2. Make sure you have all dependencies and needed PHP extensions installed.
-3. Check if your environment meets Symfony's prerequesites:
-
-    `$ php app/check.php`
-
-4. Run `$ composer install`
-5. Create the database if you didn't do it yet:
-
-    `$ php app/console doctrine:database:create`
-
-6. Create the schema:
-
-    `$ php app/console doctrine:schema:create`
-
-7. Point your server's Document Root to the /web folder and make sure app.php is your index. Symfony already comes with .htaccess to do it for you on Apache.
+You can also use Kibana to visualize Nginx & Symfony logs by visiting `http://symfony.dev:81`.

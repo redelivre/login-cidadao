@@ -10,6 +10,11 @@ use Doctrine\ORM\EntityManager;
 interface PersonInterface extends EncoderAwareInterface
 {
 
+    /**
+     * @return integer
+     */
+    public function getId();
+
     public function getEmail();
 
     public function setEmail($email);

@@ -411,19 +411,34 @@ Adicione `/app_dev.php` na URL.
 Assume-se que as estapas 1 e 2 dos [Primeiros passos pós-instalação](#pos-instalacao) tenham sido cumpridos para seguir estes comandos.
  
 * Limpar o cache  
-    `prod cache:clear`  
-    `dev cache:clear`  
-    se não funcionar, em última instância use  
-    `rm -rf app/cache/*`
+
+  prod cache:clear`  
+  dev cache:clear`  
+
+Se não funcionar, em última instância use  
+
+  $ rm -rf app/cache/*
+  
 * Criar ou atualizar os assets  
-    `prod assets:install`  
-    `prod assetic:dump`
+  $ prod assets:install
+  $ prod assetic:dump
+  
 * Criar ou atualizar os vendors (útil, por exemplo, quando se muda de branch)  
-    `composer install`
- 
+  $ composer install
+  
+* Fazer a instalação (deploy):
+
+  $ prod lc:deploy
+  
 ## Adicionando serviços
  
 em breve
+
+## Algumas customizações rápidas
+
+Para mudar o atual layout, você pode customizar o index em:
+
+  $ vi src/LoginCidadao/CoreBundle/Resources/views/Default/
  
 ## Integrando com o Mapas Culturais
  

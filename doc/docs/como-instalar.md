@@ -363,6 +363,12 @@ Copie o scritp padrão para o repositório de seu nginx
 ```
 
 Faça as alterações necessárias! 
+
+
+
+```
+
+ 
  
 * Em `DocumentRoot` é preciso apontar para o diretório `web`, neste exemplo o caminho completo é `/var/www/login-cidadao/web`.
  
@@ -405,19 +411,34 @@ Adicione `/app_dev.php` na URL.
 Assume-se que as estapas 1 e 2 dos [Primeiros passos pós-instalação](#pos-instalacao) tenham sido cumpridos para seguir estes comandos.
  
 * Limpar o cache  
-    `prod cache:clear`  
-    `dev cache:clear`  
-    se não funcionar, em última instância use  
-    `rm -rf app/cache/*`
+
+  prod cache:clear`  
+  dev cache:clear`  
+
+Se não funcionar, em última instância use  
+
+  $ rm -rf app/cache/*
+  
 * Criar ou atualizar os assets  
-    `prod assets:install`  
-    `prod assetic:dump`
+  $ prod assets:install
+  $ prod assetic:dump
+  
 * Criar ou atualizar os vendors (útil, por exemplo, quando se muda de branch)  
-    `composer install`
- 
+  $ composer install
+  
+* Fazer a instalação (deploy):
+
+  $ prod lc:deploy
+  
 ## Adicionando serviços
  
-Veja em detalhe como configurar cada rede social utilizada pelo LC em [configurando servicos de terceiros](adicionando-servicos)
+em breve
+
+## Algumas customizações rápidas
+
+Para mudar o atual layout, você pode customizar o index em:
+
+  $ vi src/LoginCidadao/CoreBundle/Resources/views/Default/
  
 ## Integrando com o Mapas Culturais
  

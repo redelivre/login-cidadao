@@ -558,9 +558,10 @@ footer a:hover {
 .logo_gov {
     color: #FFF;
     float: right;
-    /*
-    background-image: url('../images/logo-gov-federal.png');
-    width: 107px;
-    height: 49px;
-    */
+    text-indent: -9999999px;
+    background-image: url('../images/governo_temer.png');
+    background-size: 100%;
+    width: 145px;
+    height: 65px;
+    margin-top: -10px;
 }

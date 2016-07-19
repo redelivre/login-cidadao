@@ -538,3 +538,29 @@ footer li a {
 footer a:hover {
     color: #074542;
 }
+
+.gov_federal {
+    width: 100%;
+    min-height: 70px;
+    background-color: #074542;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.acesso_info {
+    color: #FFF;
+    text-indent: -9999999px;
+    background-image: url('../images/acesso-a-informacao.png');
+    width: 107px;
+    height: 49px;
+    
+}
+.logo_gov {
+    color: #FFF;
+    float: right;
+    /*
+    background-image: url('../images/logo-gov-federal.png');
+    width: 107px;
+    height: 49px;
+    */
+}

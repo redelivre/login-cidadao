@@ -4,6 +4,8 @@ namespace LoginCidadao\CoreBundle\EventListener;
 
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
+use LoginCidadao\CoreBundle\Service\RegisterRequestedScope;
+use LoginCidadao\NotificationBundle\Handler\NotificationHandler;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -25,8 +27,14 @@ class RegisterListner implements EventSubscriberInterface
 
     /** \Symfony\Component\HttpFoundation\Session\Session * */
     private $session;
+
+    /** @var TranslatorInterface */
     private $translator;
+
+    /** @var MailerInterface */
     private $mailer;
+
+    /** @var TokenGeneratorInterface */
     private $tokenGenerator;
 
     /** @var NotificationsHelper */
@@ -34,26 +42,35 @@ class RegisterListner implements EventSubscriberInterface
     private $emailUnconfirmedTime;
     protected $em;
     private $lcSupportedScopes;
+
+    /** @var NotificationHandler */
     private $notificationHandler;
 
-    public function __construct(UrlGeneratorInterface $router,
-                                SessionInterface $session,
-                                TranslatorInterface $translator,
-                                MailerInterface $mailer,
-                                TokenGeneratorInterface $tokenGenerator,
-                                NotificationsHelper $notificationsHelper,
-                                $emailUnconfirmedTime, $lcSupportedScopes,
-                                $notificationHandler)
-    {
-        $this->router               = $router;
-        $this->session              = $session;
-        $this->translator           = $translator;
-        $this->mailer               = $mailer;
-        $this->tokenGenerator       = $tokenGenerator;
-        $this->notificationsHelper  = $notificationsHelper;
+    /** @var RegisterRequestedScope */
+    private $registerRequestedScope;
+
+    public function __construct(
+        UrlGeneratorInterface $router,
+        SessionInterface $session,
+        TranslatorInterface $translator,
+        MailerInterface $mailer,
+        TokenGeneratorInterface $tokenGenerator,
+        NotificationsHelper $notificationsHelper,
+        $emailUnconfirmedTime,
+        $lcSupportedScopes,
+        NotificationHandler $notificationHandler,
+        RegisterRequestedScope $registerRequestedScope
+    ) {
+        $this->router = $router;
+        $this->session = $session;
+        $this->translator = $translator;
+        $this->mailer = $mailer;
+        $this->tokenGenerator = $tokenGenerator;
+        $this->notificationsHelper = $notificationsHelper;
         $this->emailUnconfirmedTime = $emailUnconfirmedTime;
-        $this->lcSupportedScopes    = $lcSupportedScopes;
-        $this->notificationHandler  = $notificationHandler;
+        $this->lcSupportedScopes = $lcSupportedScopes;
+        $this->notificationHandler = $notificationHandler;
+        $this->registerRequestedScope = $registerRequestedScope;
     }
 
     /**
@@ -64,7 +81,7 @@ class RegisterListner implements EventSubscriberInterface
         return array(
             FOSUserEvents::REGISTRATION_SUCCESS => 'onRegistrationSuccess',
             FOSUserEvents::REGISTRATION_COMPLETED => 'onRegistrationCompleted',
-            FOSUserEvents::REGISTRATION_CONFIRM => 'onEmailConfirmed'
+            FOSUserEvents::REGISTRATION_CONFIRM => 'onEmailConfirmed',
         );
     }
 
@@ -76,12 +93,6 @@ class RegisterListner implements EventSubscriberInterface
             $user->setConfirmationToken($this->tokenGenerator->generateToken());
             $user->setEmailExpiration(new \DateTime("+$this->emailUnconfirmedTime"));
         }
-        if ($this->em->getRepository('LoginCidadaoCoreBundle:Person')->findOneBy(array(
-                'emailCanonical' =>
-                $user->getEmailCanonical()
-            ))) {
-            throw new LcEmailException('registration.email.registered');
-        }
 
         $key = '_security.main.target_path';
         if ($this->session->has($key)) {
@@ -89,7 +100,7 @@ class RegisterListner implements EventSubscriberInterface
             return $event->setResponse(new RedirectResponse($this->router->generate('lc_home')));
         }
 
-        $email    = explode('@', $user->getEmailCanonical(), 2);
+        $email = explode('@', $user->getEmailCanonical(), 2);
         $username = $email[0];
         if (!UsernameValidator::isUsernameValid($username)) {
             $url = $this->router->generate('lc_update_username');
@@ -114,6 +125,8 @@ class RegisterListner implements EventSubscriberInterface
         if (strlen($user->getPassword()) == 0) {
             $this->notificationsHelper->enforceEmptyPasswordNotification($user);
         }
+
+        $this->registerRequestedScope->clearRequestedScope($event->getRequest());
     }
 
     public function onEmailConfirmed(GetResponseUserEvent $event)
@@ -121,11 +134,16 @@ class RegisterListner implements EventSubscriberInterface
         $event->getUser()->setEmailConfirmedAt(new \DateTime());
         $event->getUser()->setEmailExpiration(null);
 
-        $this->session->getFlashBag()->add('success',
-            $this->translator->trans('registration.confirmed',
+        $this->session->getFlashBag()->add(
+            'success',
+            $this->translator->trans(
+                'registration.confirmed',
                 array(
-                '%username%' => $event->getUser()->getFirstName()
-                ), 'FOSUserBundle'));
+                    '%username%' => $event->getUser()->getFirstName(),
+                ),
+                'FOSUserBundle'
+            )
+        );
         $this->session->getFlashBag()->get('alert.unconfirmed.email');
 
         $url = $this->router->generate('fos_user_profile_edit');

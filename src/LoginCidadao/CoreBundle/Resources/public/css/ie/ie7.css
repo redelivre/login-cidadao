@@ -1,0 +1,56 @@
+/*@media (min-width: 1200px) {
+    .ie-7 .col-lg-offset-1 {
+        margin-left: 0!important;
+    }
+}*/
+
+#body > .container {
+    padding-bottom: 0;
+}
+
+.navbar-default {
+    background-color: #ACA799;
+}
+
+.services.well{
+    background-color: #333;
+    filter:none;
+}
+
+.footer-login, .footer-login {
+    background-color: #000;
+}
+
+#register-aside, #sign-up {
+    background-color: #F1F1F1;
+    margin: 0 30px;
+    width: 460px;
+}
+
+.lc-box .connect {
+    width: 100px!important;
+}
+
+
+.form-control {
+    line-height: 44px;
+    padding: 0 6px;
+    vertical-align: middle;
+    width: 96%;
+}
+
+form .input-error {
+    padding: 0 12px;
+}
+
+#applications {
+    width: 50%
+}
+
+/* Display labels */
+label.sr-only {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    position: relative !important;
+}

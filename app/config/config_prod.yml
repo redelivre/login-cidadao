@@ -1,9 +1,12 @@
 imports:
     - { resource: config.yml }
 
-#framework:
-#    validation:
-#        cache: apc
+parameters:
+    base_path: ''
+
+framework:
+    translator:
+        logging: false
 
 #doctrine:
 #    orm:

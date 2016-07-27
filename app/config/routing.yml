@@ -1,7 +1,53 @@
+# Monitor
+_monitor:
+    resource: "@LiipMonitorBundle/Resources/config/routing.xml"
+    prefix: /monitor/health
+
+#Nelmio Security
+nelmio_security:
+    path:     /nelmio/csp/report
+    defaults: { _controller: nelmio_security.csp_reporter_controller:indexAction }
+    methods:  [POST]
+
+# OpenID Connect
+oauth2_server:
+    resource: "@OAuth2ServerBundle/Controller/"
+    type:     annotation
+    prefix:   /openid/connect/
+
+lc_oidc_dr:
+    type:     rest
+    resource: LoginCidadao\OpenIDBundle\Controller\ClientRegistrationController
+
+lc_oidc_discovery:
+    type:     rest
+    resource: LoginCidadao\OpenIDBundle\Controller\WellKnownController
+
+lc_oidc:
+    resource: "@LoginCidadaoOpenIDBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+fos_oauth_server_authorize:
+    path: /oauth/v2/auth
+    methods:  [GET]
+    defaults:  { _controller: LoginCidadaoOpenIDBundle:Authorize:validateAuthorize }
+
+fos_oauth_server_authorize_post:
+    path: /oauth/v2/auth
+    methods:  [POST]
+    defaults:  { _controller: LoginCidadaoOpenIDBundle:Authorize:handleAuthorize }
+
+# Terms of Service
+tos:
+    resource: "@LoginCidadaoTOSBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 # Notifications
-procergs_login_cidadao_notification:
+lc_notification:
     type: rest
-    resource: "@PROCERGSLoginCidadaoNotificationBundle/Resources/config/routing.yml"
+    resource: "@LoginCidadaoNotificationBundle/Resources/config/routing.yml"
     prefix:   /
 
 #HWI OAuth
@@ -18,15 +64,15 @@ hwi_oauth_redirect:
     prefix:   /connect
 
 twitter_login:
-    pattern: /login/check-twitter
+    path: /login/check-twitter
 
 google_login:
-    pattern: /login/check-google
+    path: /login/check-google
 
 #API
-procergs_login_cidadao_api:
+lc_api:
     type: rest
-    resource: "@PROCERGSLoginCidadaoAPIBundle/Resources/config/routing.yml"
+    resource: "@LoginCidadaoAPIBundle/Resources/config/routing.yml"
     prefix:   /api/v1
 
 # API Doc
@@ -35,18 +81,17 @@ NelmioApiDocBundle:
     prefix:   /api/doc
 
 # login-cidadao
-procergs_generic_locale:
-    resource: "@PROCERGSGenericLocaleBundle/Controller/"
+lc_locale:
+    resource: "@LoginCidadaoLocaleBundle/Controller/"
     type:     annotation
     prefix:   /locale
 
-procergs_login_cidadao_core:
-    resource: "@PROCERGSLoginCidadaoCoreBundle/Controller/"
-    type:     annotation
+lc_core:
+    resource: "@LoginCidadaoCoreBundle/Resources/config/routing.yml"
     prefix:   /
 lc_home:
     defaults: { _controller: FOSUserBundle:Security:login }
-    pattern:   /
+    path:   /
 
 # Audit
 simple_things_entity_audit:
@@ -54,15 +99,12 @@ simple_things_entity_audit:
     prefix: /audit
 
 # OAuth Routes
-procergso_auth:
-    resource: "@PROCERGSOAuthBundle/Resources/config/routing.yml"
-    prefix:   /auth
+lc_oauth:
+    resource: "@LoginCidadaoOAuthBundle/Resources/config/routing.yml"
+    prefix:   /
 
 fos_oauth_server_token:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
-
-fos_oauth_server_authorize:
-    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
 
 # UserBundle
 fos_user_security:
@@ -86,28 +128,28 @@ fos_user_change_password:
 
 # FOSFacebook
 _security_check_facebook:
-    pattern:   /facebook/login_check
-    defaults:  { _controller: PROCERGSLoginCidadaoCoreBundle:Person:loginFb }
+    path:   /facebook/login_check
+    defaults:  { _controller: LoginCidadaoCoreBundle:Person:loginFb }
 
 _security_facebook_logout:
-  pattern:  /facebook/logout
+  path:  /facebook/logout
 
 fos_facebook_channel:
     resource: "@FOSFacebookBundle/Resources/config/routing.xml"
 
 user_couple_fb_with_account:
-    pattern: /user/couple/facebook
-    defaults: { _controller: PROCERGSLoginCidadaoCoreBundle:Person:connectFacebookWithAccount }
+    path: /user/couple/facebook
+    defaults: { _controller: LoginCidadaoCoreBundle:Person:connectFacebookWithAccount }
 
 # Static Pages
 lc_about:
     path: /about
     defaults:
         _controller: FrameworkBundle:Template:template
-        template:    'PROCERGSLoginCidadaoCoreBundle:Info:about.html.twig'
+        template:    'LoginCidadaoCoreBundle:Info:about.html.twig'
 
 lc_privacy:
     path: /privacy
     defaults:
         _controller: FrameworkBundle:Template:template
-        template:    'PROCERGSLoginCidadaoCoreBundle:Info:privacy.html.twig'
+        template:    'LoginCidadaoCoreBundle:Info:privacy.html.twig'

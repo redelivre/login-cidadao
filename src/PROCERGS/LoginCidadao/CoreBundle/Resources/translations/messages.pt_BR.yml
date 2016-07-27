@@ -1,6 +1,6 @@
 Hello!: Olá!
 Welcome!: Bem-vindo!
-'Welcome to the Citizen''s Login service.': 'Seja bem-vindo ao ID Cultura.'
+'Welcome to the Citizen''s Login service.': 'Seja bem-vindo ao Login Cidadão.'
 'Here you''ll find all you need to know about the service.': 'Aqui você encontrará tudo que você precisa saber sobre esse serviço.'
 'You might start by logging in or %link_start%registering%link_end%.': 'Você pode começar acessando o sistema ou %link_start%cadastrando-se%link_end%.'
 security.login.username: 'CPF, nome de usuário ou email'
@@ -37,10 +37,10 @@ Revoked: Revogado
 'Captcha is invalid.': 'Captcha invalido.'
 'Wasn''t possible to disable this service.': 'Não foi possível desativar este serviço.'
 'Access Denied.': 'Acesso negado.'
-'Citizen''s Login': 'ID Cultura'
+'Citizen''s Login': 'Login Cidadão'
 'One account. All the Government.': 'Um cadastro. Acesso por todo o Governo'
-'%link_start%Create your account%link_end%': '%link_start%Crie seu ID Cultura%link_end%'
-'Sign in with your Citizen''s Login': 'Acesse com seu ID Cultura'
+'%link_start%Create your account%link_end%': '%link_start%Crie seu Login Cidadão%link_end%'
+'Sign in with your Citizen''s Login': 'Acesse com seu Login Cidadão'
 'Government of Rio Grande do Sul - Promoting equality makes the difference': 'Governo do Rio Grande do Sul - Promover a igualdade faz a diferença'
 'One account. All that the Government offers.': 'Uma conta. Tudo o que o Governo oferece.'
 'Need help?': 'Não consegue conectar?'
@@ -52,11 +52,11 @@ Help: Ajuda
 'Logo Nota Fiscal Gaúcha': 'Logo Nota Fiscal Gaúcha'
 'We''re almost done!': 'Quase pronto!'
 'Your account is created, but we recommend you choose a better username.': 'Sua conta foi criada, mas recomendamos que escolha um nome de usuário melhor.'
-'Your username will be used to quickly refer to yourself on Citizen''s Login, just like Twitter''s @ replies.': 'Seu nome de usuário será usado para se referir a você rapidamente no ID Cultura, da mesma forma que as citações com @ do Twitter.'
+'Your username will be used to quickly refer to yourself on Citizen''s Login, just like Twitter''s @ replies.': 'Seu nome de usuário será usado para se referir a você rapidamente no Login Cidadão, da mesma forma que as citações com @ do Twitter.'
 'Username:': 'Username:'
 Save: Salvar
 'You''ll need a password': 'Você precisa de uma senha'
-'To make sure that you can access the Citizen''s Login even if you lose access to your Facebook or Twitter account, please define a password.': 'Para garantir que você consiga acessar seu ID Cultura mesmo que você perca acesso às suas contas do Facebook ou do Twitter, por favor defina uma senha.'
+'To make sure that you can access the Citizen''s Login even if you lose access to your Facebook or Twitter account, please define a password.': 'Para garantir que você consiga acessar seu Login Cidadão mesmo que você perca acesso às suas contas do Facebook ou do Twitter, por favor defina uma senha.'
 'Type in your password here:': 'Digite sua senha aqui:'
 'And then confirm it here:': 'E confirme ela aqui:'
 'Save username and password': 'Salvar nome de usuário e senha'
@@ -74,8 +74,8 @@ CEP: CEP
 'Authorize Application': 'Autorizar Aplicação'
 'The application <strong>%client_name%</strong> wants to access the following information about you:': 'A aplicação <strong>%client_name%</strong> deseja acessar as seguintes informações sobre você:'
 'Edit profile': 'Editar informações'
-cpf_reminder.subject: 'Você não tem um CPF associado no ID Cultura'
-cpf_reminder.message: "Olá, %name%\n\nNós notamos que sua conta não tem um CPF associado a ela ainda.\n\nPor favor, visite o ID Cultura até o dia %date% para completar essa informação. Após essa data, sua conta poderá ser suspensa.\n"
+cpf_reminder.subject: 'Você não tem um CPF associado no Login Cidadão'
+cpf_reminder.message: "Olá, %name%\n\nNós notamos que sua conta não tem um CPF associado a ela ainda.\n\nPor favor, visite o Login Cidadão até o dia %date% para completar essa informação. Após essa data, sua conta poderá ser suspensa.\n"
 Activated: Ativado
 Active: Ativado
 Deactivated: Desativado
@@ -110,7 +110,7 @@ Applications: Aplicativos
 email-confirmation.resent: 'As instruções para confirmação de email foram reenviadas.'
 notification.unconfirmed.email.title: 'Email não confirmado!'
 notification.unconfirmed.email.shortText: 'Caso não confirme seu email em prazo hábil, sua conta será removida. Siga as instruções enviadas por email. <a href="%url%">Reenviar email</a>'
-notification.unconfirmed.email.text: "<p>Para utilizar o ID Cultura, é necessário que você utilize um endereço de email válido.</p> <p>Caso você não confirme seu endereço de email acessando o link que lhe foi enviado, sua conta será excluída.</p>\n"
+notification.unconfirmed.email.text: "<p>Para utilizar o Login Cidadão, é necessário que você utilize um endereço de email válido.</p> <p>Caso você não confirme seu endereço de email acessando o link que lhe foi enviado, sua conta será excluída.</p>\n"
 notification.empty.password.title: 'Você não tem uma senha!'
 notification.empty.password.shortText: 'Para melhorar sua segurança e reduzir o risco de ficar sem acesso à sua conta, crie uma senha'
 notification.empty.password.text: ''
@@ -136,15 +136,15 @@ cpf.profile.nfg.check.invite: 'Você deseja reforçar seu cpf ainda mais?'
 cpf.profile.nfg.check.button: 'Verifique com a Nota Fiscal Gaúcha!'
 'Active Services': 'Serviços Ativos'
 'Other Services': 'Demais serviços'
-'Log in using your Citizen''s Login': 'Entre usando seu ID Cultura'
-'This service is already active in your Citizen''s Login account': 'Este serviço já está ativo na sua conta do ID Cultura'
-'This service is not active in your Citizen''s Login account': 'Este serviço não está ativo na sua conta do ID Cultura'
+'Log in using your Citizen''s Login': 'Entre usando seu Login Cidadão'
+'This service is already active in your Citizen''s Login account': 'Este serviço já está ativo na sua conta do Login Cidadão'
+'This service is not active in your Citizen''s Login account': 'Este serviço não está ativo na sua conta do Login Cidadão'
 'Activate this service': 'Ativar este serviço'
 'Deactivate this service': 'Desativar este serviço'
 'Do you really want to disable this service?': 'Você quer mesmo desativar este serviço?'
 Yes: Sim
 No: Não
-'This service uses the following data from your Login Citizen account': 'Este serviço utiliza os seguintes dados da sua conta do ID Cultura'
+'This service uses the following data from your Login Citizen account': 'Este serviço utiliza os seguintes dados da sua conta do Login Cidadão'
 'Mark as read': 'Marcar como lido'
 social-networks.unlink.no-password: 'Você não pode desvincular uma rede social sem definir uma senha antes.'
 social-networks.unlink.facebook.success: 'Facebook desvinculado com sucesso.'
@@ -175,7 +175,7 @@ Create: Criar
 'Public Id': 'Identificador Público'
 registration.email.registered: 'Esse e-mail já está sendo utilizado'
 nfg.missing.token: 'Está faltando a token de acesso da Nota Fiscal Gaúcha'
-nfg.missing.required.fields: 'Para utilizar o ID Cultura você precisa autorizar no mínimo os campos Nome, E-mail e CPF na Nota Fiscal Gaúcha'
+nfg.missing.required.fields: 'Para utilizar o login cidadão você precisa autorizar no mínimo os campos Nome, E-mail e CPF na Nota Fiscal Gaúcha'
 notification.nfg.already.bind.but.weak: 'Essa conta da Nota Fiscal Gaúcha já está vinculada em uma conta do login cidadao, todavia ainda é possivel vincula-la na sua conta, caso você complemente mais ainda seus dados na sua conta da Nota Fiscal Gaúcha'
 notification.nfg.revoked.cpf.title: 'Revogação do seu CPF'
 notification.nfg.revoked.cpf.message.short: 'Foi retirado o CPF da sua conta'
@@ -195,8 +195,8 @@ client.suggestion.registered: 'Sua sugestão foi registrada'
 'Your last suggested Services': 'Seus últimos serviços sugeridos'
 Send: Enviar
 'Meu RS': 'Meu RS'
-'Login Cidadão': 'ID Cultura'
-'About Citizen''s Login': 'Sobre o ID Cultura'
+'Login Cidadão': 'Login Cidadão'
+'About Citizen''s Login': 'Sobre o Login Cidadão'
 'This service is not available yet. Stay tuned for the launch date.': 'Esse serviço ainda não está ativo. Aguarde a data de lançamento.'
 recaptcha.instructions.image: 'Digite o texto:'
 recaptcha.instructions.audio: 'Digite o que você ouve:'
@@ -208,7 +208,7 @@ recaptcha.instructions.img: 'Imagem de desafio reCAPTCHA'
 'With only one account, the citizen will be able to use government''s digital services.': 'Com apenas um cadastro, o cidadão poderá utilizar os serviços digitais do governo.'
 'One account. The entire Government.': 'Uma conta. O Governo Inteiro.'
 'Creative commons': Licença creative commons
-lc.html.title: 'ID Cultura'
+lc.html.title: 'Login Cidadão'
 form.published: 'Publicado'
 form.visible: 'Visivel'
 grid.search.noresult: 'Nenhum registro encontrado'
@@ -524,8 +524,8 @@ YEMEN: Iêmen
 SOUTH AFRICA: África do Sul
 ZAMBIA: Zâmbia
 ZIMBABWE: Zimbabwe
-'This is the Citizen Login': 'Esse é o ID Cultura'
-'To enjoy all the benefits of Citizen Login, please check your information and submit the following form.': 'Para aproveitar todos os benefícios do ID Cultura, por favor verifique seus dados no formulário de cadastro e clique em Criar conta.'
+'This is the Citizen Login': 'Esse é o Login Cidadão'
+'To enjoy all the benefits of Citizen Login, please check your information and submit the following form.': 'Para aproveitar todos os benefícios do Login Cidadão, por favor verifique seus dados no formulário de cadastro e clique em Criar conta.'
 'After registering you''ll receive a confirmation email to proceed the activation of your account.': 'Depois de enviar o formulário você receberá um email de confirmação para proceder com a ativação da sua conta.'
 'Complement' : 'Complemento'
 'Send' : 'Enviar'
@@ -609,7 +609,7 @@ Click here to <strong>add an ID Card</strong>: Clique aqui para <strong>adiciona
 Two-Factor Authentication: Autenticação por Dois Fatores
 Enter the code generated by your code generator device.: Digite o código gerado pelo seu dispositivo gerador de códigos.
 Authentication Code: Código de Autenticação
-View this notification on Citizen Login: Abra essa notificação no ID Cultura
+View this notification on Citizen Login: Abra essa notificação no Login Cidadão
 'Postal code' : 'Código postal'
 scope.id_cards : 'Documentos de Identidade'
 scope.state: 'Estado'
@@ -691,7 +691,7 @@ You don't have any active service.: Você não tem nenhum serviço ativo.
 Check the services available: Conheça os serviços disponíveis
 Dashboard: 'Início'
 badges.list.title: 'O que são as medalhas?'
-badges.list.description: 'Medalhas são os indicadores de validações que sua identidade virtual possui. Elas permitem que os demais sistemas integrados ao ID Cultura possam melhorar a sua experiência ao utilizar os serviços ofertados.'
+badges.list.description: 'Medalhas são os indicadores de validações que sua identidade virtual possui. Elas permitem que os demais sistemas integrados ao Login Cidadão possam melhorar a sua experiência ao utilizar os serviços ofertados.'
 Login Log: Registro de acesso
 'Login by <span class="label label-info">%ip%</span> at <span class="label label-info">%date%</span>': 'Acessado por <span class="label label-info">%ip%</span> em <span class="label label-info">%date%</span>'
 log.date.format: 'd/m/Y H:i:s'

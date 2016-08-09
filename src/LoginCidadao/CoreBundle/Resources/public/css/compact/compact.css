@@ -18,6 +18,13 @@ html {
     align-items: center;
 }
 
+.vertical-center-with-footer {
+    min-height: 90%;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
 .container-fluid {
     padding-left: 0;
     padding-right: 0;
@@ -73,6 +80,12 @@ html {
 
 .panel-compact > .panel-footer {
     background-color: transparent;
+}
+
+footer {
+    border-top: 1px solid #e8e8e8;
+    background-color: #fff;
+    padding-top: 30px;
 }
 
 footer ul.dashed {

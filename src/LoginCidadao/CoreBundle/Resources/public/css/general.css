@@ -502,25 +502,3 @@ form .has-feedback .sr-only ~ .form-control-feedback {
     color: #474747;
     text-shadow: 1px 1px 1px #D8D8D8;
 }
-
-/* IdCultura */
-a {
-    color: #00918C;
-}
-
-.form-control {
-    background-color: #FFFF;
-}
-
-footer h3 {
-    color: #000;
-    text-shadow: none;
-}
-
-footer li a {
-    color: #000;
-}
-
-footer a:hover {
-    color: #074542;
-}

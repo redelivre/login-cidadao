@@ -1,3 +1,27 @@
+
+/* IdCultura */
+a {
+    color: #00918C;
+}
+
+.form-control {
+    background-color: #FFFF;
+}
+
+footer h3 {
+    color: #000;
+    text-shadow: none;
+}
+
+footer li a {
+    color: #000;
+}
+
+footer a:hover {
+    color: #074542;
+}
+
+
 .limit-960>.gov_federal {
   max-width: none;
 }

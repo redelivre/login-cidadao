@@ -95,12 +95,14 @@ assetic:
       lc_base_css:
         inputs:
           - '@bootstrap_css'
-          - 'bundles/idcultura/css/general.css'
           - 'bundles/logincidadaocore/css/general.css'
           - 'bundles/logincidadaocore/css/navbar.css'
           - 'bundles/logincidadaocore/css/ac.widget.css'
           - 'bundles/logincidadaocore/css/common.grid.css'
           - 'bundles/logincidadaocore/css/list.buttons.css'
+          - 'bundles/idcultura/css/general.css'
+          - 'bundles/idcultura/css/home/home.css'
+          - 'bundles/idcultura/css/navbar.css'
       lc_logged_css:
         inputs:
           - '@lc_base_css'

@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new LoginCidadao\OAuthBundle\LoginCidadaoOAuthBundle(),
             new LoginCidadao\CoreBundle\LoginCidadaoCoreBundle(),
+            new LoginCidadao\IdCulturaBundle\IdCulturaBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
 
@@ -40,10 +41,10 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
-            
+
             new LoginCidadao\BadgesControlBundle\LoginCidadaoBadgesControlBundle(),
             new LoginCidadao\BadgesBundle\LoginCidadaoBadgesBundle(),
-            
+
             new Scheb\TwoFactorBundle\SchebTwoFactorBundle(),
             new LoginCidadao\ValidationControlBundle\LoginCidadaoValidationControlBundle(),
 

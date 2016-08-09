@@ -1,0 +1,54 @@
+
+/* IdCultura */
+a {
+    color: #00918C;
+}
+
+.form-control {
+    background-color: #FFFF;
+}
+
+footer h3 {
+    color: #000;
+    text-shadow: none;
+}
+
+footer li a {
+    color: #000;
+}
+
+footer a:hover {
+    color: #074542;
+}
+
+
+.limit-960>.gov_federal {
+  max-width: none;
+}
+
+.gov_federal {
+    width: 100%;
+    min-height: 70px;
+    background-color: #074542;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.acesso_info {
+    color: #FFF;
+    text-indent: -9999999px;
+    background-image: url('../images/acesso-a-informacao.png');
+    width: 107px;
+    height: 49px;
+
+}
+.logo_gov {
+    color: #FFF;
+    float: right;
+    text-indent: -9999999px;
+    background-image: url('../images/governo_temer.png');
+    background-size: 100%;
+    width: 145px;
+    height: 65px;
+    margin-top: -10px;
+}

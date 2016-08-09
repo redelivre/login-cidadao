@@ -1,0 +1,94 @@
+{% extends 'LoginCidadaoCoreBundle::base.html.twig' %}
+
+{% block body %}
+
+    {% block notificationExtreme %}
+        {{ include("LoginCidadaoCoreBundle::notification_extreme.html.twig", { columns: 'col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3' } ) }}
+    {% endblock %}
+
+    <div class="row">
+        <div class="col-xs-12 text-center header-shadows">
+            <h1>{% trans %}Citizen's Login{% endtrans %}</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="general-content col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+            <h1>{% trans %}Privacy and Terms of Service{% endtrans %}</h1>
+
+            <div class="text">
+              <p><strong>Atenção</strong>: Leia atentamente estes termos antes de utilizar este site. O uso deste site indica que você aceita estes termos. Caso não aceite estes termos, não utilize este site.</p>
+            </div>
+
+            <div class="text">
+              <strong>Introdução</strong>
+              <p>Estes Termos de Uso descrevem as condições de uso do serviço ID da Cultura, incluindo os direitos e deveres de seus participantes e a política de uso de seus dados pessoais.</p>
+
+              <p>O ID da Cultura é um serviço de autenticação e identificação para os cidadãos que utilizem serviços digitais oferecidos pelo Ministério da Cultura por meio da Coordenação Geral de Tecnologia da Informação.</p>
+
+              <p>O serviço ID da Cultura é gratuito e sua utilização é uma faculdade do cidadão que, ao utilizá-lo, adere aos termos aqui dispostos e concorda em se submeter integralmente às suas condições.</p>
+
+              <p><strong>Serviços disponíveis por meio do ID da Cultura</strong></p>
+
+              <p>Novos serviços poderão ser disponibilizados a qualquer momento. Os serviços existentes poderão ser removidos mediante comunicação aos seus participantes.</p>
+
+              <p><strong>Deveres dos participantes do ID da Cultura</strong></p>
+
+              <p>O cidadão que utilizar o sistema ID da Cultura (doravante denominado participante) deve ser pessoa natural.</p>
+
+              <p>O ID da Cultura somente pode ser utilizado para fins pessoais, não sendo permitida a utilização em nome de terceiros ou com a finalidade de obter informações de terceiros.</p>
+
+              <p>O participante é responsável pela veracidade e pela atualização dos dados pessoais que informar ao ID da Cultura, bem como aos serviços disponíveis por meio dele. O fornecimento de informação falsa pode causar desde resultados falsos e indesejados em relação aos serviços, bem como motivar a suspensão ou cancelamento do acesso ao sistema.</p>
+
+              <p>O participante deverá manter suas informações de acesso ao ID da Cultura, seja qual for a forma pelo qual ele for oferecido - login, senha, token, certificado digital, frase de acesso ou outros - estritamente sob seu controle pessoal, não franqueando em nenhuma circunstância seu acesso a terceiros.</p>
+
+              <p>O participante deverá comunicar imediatamente ao gestor do ID da Cultura acerca de qualquer suspeita de acesso indevido ao sistema, de falha de segurança ou do comprometimento de suas informações de acesso.</p>
+
+              <p>A utilização do ID da Cultura somente pode se dar para propósitos lícitos e de modo a não afetar os direitos ou possibilidades de uso do sistema por terceiros. Não serão toleradas condutas ilícitas, imorais ou que possam molestar ou ser inconvenientes para os administradores do sistema, para os serviços disponibilizados ou para terceiros. Da mesma forma, o ID da Cultura não pode ser utilizado para difamar, abusar, assediar, perseguir, ameaçar ou violar quaisquer direitos individuais ou para a transmissão de conteúdo ilícito.</p>
+
+              <p>A não observância pelo participante dos seus deveres previstos nestes Termos de Uso ou em qualquer outra legislação aplicável, poderá acarretar a suspensão ou cancelamento do seu acesso ao ID da Cultura,ou a um ou mais serviços disponibilizados, além de outras sanções previstas em lei.</p>
+
+              <p>Direitos do participante do ID da Cultura e responsabilidades de seus administradores</p>
+
+              <p>O Ministério da Cultura é responsável pela segurança das informações coletadas, armazenadas e processadas pelo ID da Cultura, bem como pela segurança das informações transmitidas aos serviços disponibilizados através do ID da Cultura por outros órgãos do governo. O gestor do ID da Cultura utilizará as medidas adequadas, de acordo com o estado da tecnologia, para garantir a segurança e integridade das informações pessoais sob sua custódia e evitar qualquer modalidade de acesso indevido.</p>
+
+              <p>Quando da transferência de informações para serviços disponibilizados por outros órgãos do governo, estes serão responsáveis pela segurança de seus respectivos sistemas.</p>
+
+              <p>As informações pessoais dos participantes somente poderão ser acessadas por servidores ou pessoal ligados ao gestor do ID da Cultura que disponham de autorização explícita para efetuar este acesso e o façam estritamente por necessidades ligadas ao seu trabalho. Os acesso a informações pessoais serão auditados e monitorados pelo gestor do ID da Cultura.</p>
+
+              <p><strong>Política de uso de dados pessoais</p></strong>
+
+              <p>As informações pessoais fornecidas pelo participante e tratadas pelo ID da Cultura serão utilizadas para o fornecimento do serviço, com suas funcionalidades descritas nestes Termos de Uso e em documentação suplementar, se houver.</p>
+
+              <p>Estas informações poderão ser utilizadas pelo gestor do ID da Cultura ou transferidas a outros órgãos do governo, sempre que o participante tiver autorizado ou quando a legislação o autorizar ou requerer.</p>
+
+              <p>As informações pessoais serão utilizadas somente para os propósitos previamente comunicados ao participante por ocasião da coleta de dados pelo ID da Cultura, exceto quando a legislação autorizar a sua utilização para uma determinada finalidade.</p>
+              <p>Ao associar a conta do ID da Cultura a um dos serviços disponibilizados para autenticação ou identificação, o participante será informado previamente sobre quais as informações pessoais serão necessariamente repassadas ao gestor deste serviço e também poderá optar por fornecer informações adicionais.</p>
+
+              <p>O participante poderá, a qualquer momento, consultar quais os serviços disponibilizados estão associados à sua conta no ID da Cultura, bem como quais dados estão sendo repassados a estes serviços.</p>
+
+              <strong><p>Condições gerais</p></strong>
+
+              <p>As informações fornecidas pelo participante do ID da Cultura somente poderão ser visualizadas e, quando necessário, modificadas por meio do sítio web do sistema, mediante o uso das informações de acesso fornecidas ao participante.</p>
+
+              <p>Caso o participante tenha perdido as suas informações de acesso, ele poderá utilizar um dos serviços de recuperação de acesso disponibilizados no sítio web do ID da Cultura.</p>
+
+              <p>O Ministério da Cultura buscará promover junto ao Governo Federal a uniformidade e compatibilidade entre os termos de uso e políticas de uso de dados pessoais do ID da Cultura com os dos serviços por meio dele disponibilizados. O gestor do ID da Cultura, no entanto, não é responsável por nenhum aspecto da operação destes serviços.</p>
+
+              <strong><p>Alteração dos termos de uso</p></strong>
+
+              <p>As condições especificadas nestes Termos de Uso poderão ser modificadas a qualquer momento. Caso estas modificações sejam significativas ou afetem, de forma concreta, os direitos e deveres dos participantes do sistema, estas lhe serão apresentadas, de forma clara, na próxima vez que realizar acesso, momento em que lhe será questionada a concordância com os novos termos antes que continue utilizando o sistema.</p>
+
+              <p><strong>Suspensão ou término da disponibilização do ID da Cultura</strong></p>
+
+              <p>O ID da Cultura poderá ser suspenso ou ter sua disponibilização cessada a qualquer momento, mediante comunicação aos seus participantes.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets_custom %}
+    {% stylesheets '@lc_base_css' filter='cssrewrite' filter='?uglifycss' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}

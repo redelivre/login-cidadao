@@ -31,13 +31,3 @@ body {
   text-shadow: none;
   color: #000;
 }
-
-.btn-success {
-  background-color: #00918C;
-  border: none;
-}
-
-.btn-success:hover {
-  background-color: #074542;
-  border: none;
-}

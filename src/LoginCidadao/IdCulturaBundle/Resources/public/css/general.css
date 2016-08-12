@@ -8,6 +8,10 @@ a {
     background-color: #FFFF;
 }
 
+footer {
+    padding: 30px 0;
+}
+
 footer h3 {
     color: #000;
     text-shadow: none;

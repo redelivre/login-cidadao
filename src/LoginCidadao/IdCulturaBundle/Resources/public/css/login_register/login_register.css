@@ -1,0 +1,52 @@
+/*
+ * This file is part of the login-cidadao project or it's bundles.
+ *
+ * (c) Guilherme Donato <guilhermednt on github>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+
+.panel-compact {
+    background: #fcfcfc;
+}
+
+.panel-compact > .panel-heading {
+    background-color: #f1f1f1;
+}
+
+.btn.btn-home-register {
+    background-color: #00918C;
+}
+
+.btn.btn-home-register:hover {
+    background-color: #074542;
+}
+
+.panel-3rd-party-login > .panel-heading h2 {
+    font-weight: bold;
+}
+
+.panel-3rd-party-login > .panel-heading {
+    background-color: #fcfcfc;
+}
+
+.panel-3rd-party-login > .panel-body {
+    background-color: #fcfcfc;
+}
+
+.panel-3rd-party-login {
+    border: none;
+    box-shadow: none;
+}
+
+.btn-success {
+  background: #00918C !important;
+  border: none;
+}
+
+.btn-success:hover {
+  background: #074542 !important;
+  border: none;
+}

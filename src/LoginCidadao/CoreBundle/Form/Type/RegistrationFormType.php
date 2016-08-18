@@ -102,7 +102,7 @@ class RegistrationFormType extends BaseType
             case 'cpf':
                 $builder->add(
                     'cpf',
-                    null,
+                    'LoginCidadao\CoreBundle\Form\Type\TelType',
                     [
                         'required' => false,
                         'attr' => [
@@ -128,7 +128,7 @@ class RegistrationFormType extends BaseType
             case 'birthdate':
                 $builder->add(
                     'birthdate',
-                    'birthday',
+                    'LoginCidadao\CoreBundle\Form\Type\BirthdayTelType',
                     [
                         'required' => true,
                         'format' => 'dd/MM/yyyy',
@@ -136,7 +136,7 @@ class RegistrationFormType extends BaseType
                         'label' => 'form.birthdate',
                         'translation_domain' => 'FOSUserBundle',
                         'attr' => [
-                            'pattern' => '[0-9/]*',
+                            'type' => 'tel',
                             'class' => 'form-control birthdate',
                             'placeholder' => 'person.form.birthdate.placeholder',
                         ],

@@ -88,6 +88,10 @@ footer {
     padding-top: 30px;
 }
 
+footer ul {
+    padding: 0;
+}
+
 footer ul.dashed {
     list-style-type: none;
 }
@@ -110,4 +114,10 @@ footer ul.dashed > li:before {
     background-color: transparent;
     color: #fff;
     font-weight: bold;
+}
+
+.btn-outline {
+    background-color: transparent !important;
+    text-shadow: none !important;
+    outline: none !important;
 }

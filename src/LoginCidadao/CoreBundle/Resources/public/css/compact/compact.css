@@ -7,7 +7,12 @@
  * file that was distributed with this source code.
  */
 
+<<<<<<< HEAD
 html {
+=======
+html, body {
+    font-family: "Open Sans", Arial, sans-serif;
+>>>>>>> 5dab871f82ebfa07644b5df1d202de9a4a6be7c8
     background-color: #f9f9f9;
 }
 
@@ -77,6 +82,12 @@ html {
 .panel-compact .panel-body p {
     text-align: justify;
 }
+.panel-compact .panel-body p.text-center {
+    text-align: center;
+}
+.panel-compact .panel-body p.text-right {
+    text-align: right;
+}
 
 .panel-compact > .panel-footer {
     background-color: transparent;
@@ -117,7 +128,12 @@ footer ul.dashed > li:before {
 }
 
 .btn-outline {
-    background-color: transparent !important;
+    background: none !important;
     text-shadow: none !important;
     outline: none !important;
+}
+.btn-outline.btn-danger {
+    color: #ac0000;
+    border-width: 2px;
+    border-color: #ac0000;
 }

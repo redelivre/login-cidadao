@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Usando a API - Login Cidadão</title>
+  
+
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Usando a API";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Login Cidadão</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Sobre a plataforma</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_deploy/">Instalação</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Configurações</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config/">Configurações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_logout_remote/">Configurando Logout Remote</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_ssl/">Configurando SSL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_third_part_services/">Configurando Serviços Terceiros</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Usando a API</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#rest-api">REST API</a></li>
+                
+                    <li><a class="toctree-l4" href="#autenticacao">Autenticação</a></li>
+                
+                    <li><a class="toctree-l4" href="#veja-tambem">Veja também</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api_sending_notifications/">Enviando notificações</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Desenvolvimento</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_integration/">Integração com outras aplicações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_java_aplications/">Desenvolvimento com aplicações Java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.2_applications/">Desenvolvimento com aplicações php 5.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.3_applications/">Desenvolvimento com aplicações php 5.3</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_scopes/">Scopes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Login Cidadão</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API &raquo;</li>
+        
+      
+    
+    <li>Usando a API</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="rest-api">REST API</h1>
+<p>Nesse documento você encontra informações básicas para usar nossa REST API.</p>
+<p>Uma melhor descrição e documentação dos recursos disponíveis na API podem ser encontrados em <code>http://&lt;DOMÍNIO DO LOGIN CIDADÃO&gt;/api/doc/</code>.</p>
+<h2 id="autenticacao">Autenticação</h2>
+<p>Nossa REST API usa OAuth 2 para autenticação através do uso de Access Tokens. Você pode ler mais sobre isso <a href="http://tools.ietf.org/html/rfc6749">aqui (RFC 6749)</a> e <a href="http://tools.ietf.org/html/rfc6750">aqui (RFC 6750)</a>.</p>
+<h3 id="obtendo-um-access-token">Obtendo um Access Token</h3>
+<p><a name="refreshTokenNote"></a><strong>MUITO IMPORTANTE: O que fazer ao receber uma resposta de token</strong></p>
+<p>Isto é <strong>MUITO IMPORTANTE</strong>: Toda vez que você receber uma resposta a uma solicitação de token, independentemente do grant type utilizado, você receberá o Access Token, obviamente, mas também um Refresh Token e um tempo de expiração do Access Token. Você <strong>PRECISA</strong> armazenar essas informações para que consiga solicitar um novo Access Token quando o que você recebeu expirar. Se você não fizer isso, dependerá de interação do usuário para receber um novo Access Token, o que é claramente <em>péssimo</em> quando se está no meio de um cron job, por exemplo.</p>
+<p>Você pode, eventualmente, ser <strong>punido</strong> por solicitar novos Access Tokens em vez de renovar os que você já possui.</p>
+<p>Além do processo normal de obtenção de Access Token através do grant type <code>authorization_code</code>, que lhe retorna um token específico para um usuário, você pode receber um token relativo ao seu Client OAuth através do uso de Client Credentials com o grant type <code>client_credentials</code>. Isso é especialmente útil quando se está fazendo diversas chamadas à API para vários usuários diferentes que já autorizaram sua aplicação.</p>
+<h4 id="client-credentials">Client Credentials</h4>
+<p>Client Credentials é uma forma de obter um Access Token relativo ao seu próprio Client OAuth, em vez de um referente a um usuário.</p>
+<p>Naturalmente seu uso dependerá de como a sua biblioteca OAuth 2 foi implementada, mas basicamente ela fará, na primeira vez, quando você ainda não tem um Access Token, uma requisição POST para o endpoint de tokens (<code>/oauth/v2/token</code>) com os seguintes parâmetros:</p>
+<ul>
+<li>grant_type: precisa ser <code>client_credentials</code></li>
+<li>client_id: sua chave pública</li>
+<li>client_secret: sua chave privada (também conhecida como secret/segredo)</li>
+</ul>
+<p>A resposta deve ser algo como:</p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="s2">&quot;access_token&quot;</span><span class="o">:</span> <span class="s2">&quot;YjcxOWZkNj...NDIxYTMzNg&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expires_in&quot;</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
+    <span class="s2">&quot;token_type&quot;</span><span class="o">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;scope&quot;</span><span class="o">:</span> <span class="s2">&quot;public_profile ...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;refresh_token&quot;</span><span class="o">:</span> <span class="s2">&quot;MGE1OTQ4Yz...NDYyMTc1YQ&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Depois disso, por favor lembre-se de armazenar o <strong>Refresh Token</strong> recebido conforme instruído <a href="#refreshTokenNote">aqui</a>.</p>
+<h4 id="refresh-token">Refresh Token</h4>
+<p>Um Access Token pode ser obtido usando um Refresh Token enviando uma requisição POST ao endpoint de tokens <code>/oauth/v2/token</code> conforme os parâmetros:</p>
+<ul>
+<li>grant_type: precisa ser <code>refresh_token</code></li>
+<li>client_id: sua chave pública</li>
+<li>client_secret: sua chave privada (também conhecida como secret/segredo)</li>
+<li>refresh_token: seu refresh token</li>
+</ul>
+<p>E como resposta você deve receber:</p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="s2">&quot;access_token&quot;</span><span class="o">:</span> <span class="s2">&quot;OTk2OTM3OT...ZDAzNGNkMg&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expires_in&quot;</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
+    <span class="s2">&quot;token_type&quot;</span><span class="o">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;scope&quot;</span><span class="o">:</span> <span class="s2">&quot;public_profile ...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;refresh_token&quot;</span><span class="o">:</span> <span class="s2">&quot;ZGY4ZDJiNm...ZGI1NzRlNw&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Nesse momento seu antigo Refresh Token não pode mais ser usado, portanto você deve armazenar o novo token recebido da mesma maneira que faria ao solicitar o Access Token pela primeira vez (<a href="#refreshTokenNote">nota importante</a>).</p>
+<h3 id="exemplos">Exemplos</h3>
+<p>A seguir você encontrará exemplos dos dois métodos mais comuns de acessar uma API protegida por OAuth 2.</p>
+<h4 id="usando-o-campo-authorization-do-header-da-requisicao">Usando o campo Authorization do Header da Requisição</h4>
+<div class="codehilite"><pre><span class="nf">GET</span> <span class="nn">/api/v1/person.json</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">meu.rs.gov.br</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer YTY4ZDA0M2...YTU3ZjI3Ng</span>
+</pre></div>
+
+
+<h4 id="usando-um-parametro-na-uri">Usando um parâmetro na URI</h4>
+<div class="codehilite"><pre><span class="nf">GET</span> <span class="nn">/api/v1/person.json?access_token=YTY4ZDA0M2...YTU3ZjI3Ng</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">meu.rs.gov.br</span>
+</pre></div>
+
+
+<h2 id="veja-tambem">Veja também</h2>
+<p><a href="../lc_api_sending_notifications/">Enviando Notificações</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lc_api_sending_notifications/" class="btn btn-neutral float-right" title="Enviando notificações"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../lc_config_third_part_services/" class="btn btn-neutral" title="Configurando Serviços Terceiros"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Licenciado através da <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL V3</a>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lc_config_third_part_services/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../lc_api_sending_notifications/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

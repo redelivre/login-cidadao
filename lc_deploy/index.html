@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Instalação - Login Cidadão</title>
+  
+
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Instalação";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Login Cidadão</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Sobre a plataforma</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Instalação</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#instalacao-login-cidadao">Instalação Login Cidadão</a></li>
+                
+                    <li><a class="toctree-l4" href="#server-user">Server User</a></li>
+                
+                    <li><a class="toctree-l4" href="#instalando-dependencias">Instalando Dependências</a></li>
+                
+                    <li><a class="toctree-l4" href="#cheque-os-requisitos-do-php">Cheque os requisitos do PHP</a></li>
+                
+                    <li><a class="toctree-l4" href="#configurando-base-de-dados">Configurando base de dados</a></li>
+                
+                    <li><a class="toctree-l4" href="#instalando-composer">Instalando Composer</a></li>
+                
+                    <li><a class="toctree-l4" href="#obtendo-o-login-cidadao">Obtendo o Login Cidadão</a></li>
+                
+                    <li><a class="toctree-l4" href="#parametrizando-a-aplicacao-pre-instalacao">Parametrizando a aplicação - pré-instalação</a></li>
+                
+                    <li><a class="toctree-l4" href="#acertando-permissoes-de-acesso">Acertando permissões de acesso</a></li>
+                
+                    <li><a class="toctree-l4" href="#baixando-dependencias-via-composer">Baixando dependencias via Composer</a></li>
+                
+                    <li><a class="toctree-l4" href="#parametrizando-manualmente">Parametrizando manualmente</a></li>
+                
+                    <li><a class="toctree-l4" href="#configurando-ngix">Configurando Ngix</a></li>
+                
+                    <li><a class="toctree-l4" href="#certificado-ssl">Certificado SSL</a></li>
+                
+                    <li><a class="toctree-l4" href="#envio-de-email_1">Envio de email</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuracoes-de-servicos">Configurações de serviços</a></li>
+                
+                    <li><a class="toctree-l4" href="#arquivo-de-configuracao-parametersyml">Arquivo de configuração parameters.yml</a></li>
+                
+                    <li><a class="toctree-l4" href="#configurando-nginx">Configurando Nginx</a></li>
+                
+                    <li><a class="toctree-l4" href="#navegando-em-modo-de-desenvolvimento">Navegando em modo de desenvolvimento</a></li>
+                
+                    <li><a class="toctree-l4" href="#alguns-comandos-praticos">Alguns comandos práticos</a></li>
+                
+                    <li><a class="toctree-l4" href="#adicionando-servicos">Adicionando serviços</a></li>
+                
+                    <li><a class="toctree-l4" href="#integrando-com-o-mapas-culturais">Integrando com o Mapas Culturais</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Configurações</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config/">Configurações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_logout_remote/">Configurando Logout Remote</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_ssl/">Configurando SSL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_third_part_services/">Configurando Serviços Terceiros</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api/">Usando a API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api_sending_notifications/">Enviando notificações</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Desenvolvimento</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_integration/">Integração com outras aplicações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_java_aplications/">Desenvolvimento com aplicações Java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.2_applications/">Desenvolvimento com aplicações php 5.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.3_applications/">Desenvolvimento com aplicações php 5.3</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_scopes/">Scopes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Login Cidadão</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deploy &raquo;</li>
+        
+      
+    
+    <li>Instalação</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="instalacao-login-cidadao">Instalação <a href="https://github.com/PROCERGS/login-cidadao">Login Cidadão</a></h1>
+<p>Esta documentação foi baseada em um servidor GNU/Linux Debian 8.1. Se sua intenção é instalar em sistema de base diferente algumas adaptações podem ser necessárias. </p>
+<h2 id="server-user">Server User</h2>
+<p>Para instalar a aplicação é necessário ter acesso a dois usuários: um usuário padrão e um usuário com poderes de sudo. Você pode usar o usuário padrão de costume de seu servidor e o root, mas recomendamos criar um usuário só para o gerenciamente do Login Cidadão, facilitando assim o controle e o registro de logs do sistema. </p>
+<div class="codehilite"><pre>    // logado como root, crie o novo user:
+    <span class="c"># useradd --create-home --groups sudo -s /bin/bash login-cidadao</span>
+    // Insira uma senha para o novo user
+    <span class="c"># passwd login-cidadao</span>
+</pre></div>
+
+
+<h2 id="instalando-dependencias">Instalando Dependências</h2>
+<p>Para que o Login Cidadão funcione corretamente será necessário que estejam instaladas as seguintes dependências: 
+<em> Apache ou Nginx
+</em> PHP &gt;=5.4
+<em> memcached
+</em> postgres ou mysql
+<em> composer
+</em> node.js
+* PHP Extensions
+  * php5-curl
+  * php5-intl
+  * php5-mysql ou php5-pgsql ou integração de base de dados de sua preferência
+  * php5-memcache (Também é possível usar php5-memcached mas será necessário mudar algumas classes de Memcache para Memcached)</p>
+<div class="codehilite"><pre>    // Atualize a lista de pacotes <span class="k">do</span> seu servidor
+    <span class="nv">$ </span>sudo apt-get update
+
+    // Instale o servidor Nginx 
+    <span class="nv">$ </span>sudo apt-get install nginx
+    //obs: se o apache estiver instalado ele pode dar conflito com o Nginx. 
+    // Fique atento para a necessidade de desinstalá-lo. 
+
+    //Caso tenha algum gerenciador de bases de dados<span class="o">(</span>mysql ou postgres<span class="o">)</span> você poderá usá-lo. 
+    //Se não tiver, instale o banco que quer usar. Optamos aqui por postgres
+    <span class="nv">$ </span>sudo apt-get install postgresql postgresql-client
+
+    // Instale o git para auxiliá-lo no processo de obtenção <span class="k">do</span> código da aplicação
+    <span class="nv">$ </span>sudo apt-get install git
+
+    // Instalando pacote <span class="k">do</span> server memcached 
+    <span class="nv">$ </span>sudo apt-get install memcached
+
+    // Instalando pacotes <span class="k">do</span> php. 
+    // Observe que aqui vamos optar por usar o postgres, mas é possível usar mysql sem problemas
+    <span class="nv">$ </span>sudo apt-get install php5 php5-cli php5-fpm php5-curl php5-intl php5-pgsql php5-memcache
+
+    // Instalando nodejs
+    <span class="nv">$ </span>sudo curl -sL https://deb.nodesource.com/setup_5.x <span class="p">|</span> bash -
+    <span class="nv">$ </span>sudo apt-get install --yes nodejs
+</pre></div>
+
+
+<h2 id="cheque-os-requisitos-do-php">Cheque os requisitos do PHP</h2>
+<p>Verifique se todas os requisitos estão sendo cumpridos antes de iniciar a instalação
+    <code>php app/check.php</code></p>
+<h2 id="configurando-base-de-dados">Configurando base de dados</h2>
+<p>Crie um usuário no postgres e depois uma base. Sugerimos usar o mesmo nome. </p>
+<div class="codehilite"><pre>  //Como root, crie um usuário que funcionará via socket
+  # sudo -u postgres psql -c &quot;CREATE USER logincidadao&quot;
+  // Em seguinda, crie a base de dados
+  # sudo -u postgres createdb --owner mapas mapas
+</pre></div>
+
+
+<h2 id="instalando-composer">Instalando Composer</h2>
+<p>O Login Cidadão usa o Composer, um gerenciador de dependências PHP. Ele permite que você declare bibliotecas como dependências no projeto que irá gerenciar. Para saber mais, acesse: https://getcomposer.org/doc/00-intro.md</p>
+<p>Para instalar:</p>
+<div class="codehilite"><pre>    // Instalando Composer
+    <span class="nv">$ </span>sudo curl -sS https://getcomposer.org/installer <span class="p">|</span> php
+    <span class="nv">$ </span>sudo mv composer.phar /usr/local/bin/composer
+</pre></div>
+
+
+<h2 id="obtendo-o-login-cidadao">Obtendo o Login Cidadão</h2>
+<p>Após instalar as dependências, clone o repositório da aplicação e mude as permissões dos arquivos para operar com apache ou nginx. Recomendamos fazer isso com o usuário criado e dentro de uma estrutura de diretórios padrão /var/www/login-cidadao, mas é possível adaptar para qualquer contexto. <strong><em>O branch ativo para deploy neste repositório (rede livre) é o master</em></strong>. </p>
+<div class="codehilite"><pre>    //Logado como login-cidadao user, vá para o diretório /var/www
+    $ cd /var/www
+    // Dentro do diretório, clone o repositório da aplicação
+    $ sudo git clone https://github.com/redelivre/login-cidadao.git
+</pre></div>
+
+
+<h2 id="parametrizando-a-aplicacao-pre-instalacao">Parametrizando a aplicação - pré-instalação</h2>
+<p>Agora vamos instalar as dependências. Após esse processo você deverá preencher os parametros relativos a sua instalação. Portanto é necessário que você tenha as seguintes informações em mãos: </p>
+<h4 id="informacoes-de-acesso-ao-banco-de-dados">Informações de acesso ao banco de dados</h4>
+<ul>
+<li>Endereço do host da base de dados</li>
+<li>Porta de acesso</li>
+<li>Usuário</li>
+<li>Senha</li>
+<li>Schema (Nome do banco)</li>
+</ul>
+<h4 id="loadbalance">Loadbalance</h4>
+<ul>
+<li>IPs dos servidores de load balance (Para mais informações consulta a <a href="http://symfony.com/doc/2.8/cookbook/request/load_balancer_reverse_proxy.html">documentação do Symfony</a> sobre o assunto).</li>
+</ul>
+<h4 id="acesso-de-desenvolvimento-e-monitoramento">Acesso de desenvolvimento e monitoramento</h4>
+<ul>
+<li>IPs com acesso ao ambiente de desenvolvimento</li>
+<li>IPs com acesso as páginas de monitoria (endpoints)</li>
+</ul>
+<h4 id="memcache-e-sessoes">Memcache e sessões</h4>
+<ul>
+<li>Endereços (IP e porta) usados no memcache</li>
+<li>Prefixo da sessão</li>
+<li>Tempo de vida da sessão</li>
+</ul>
+<h4 id="envio-de-email">Envio de email</h4>
+<ul>
+<li>Essas informações variam de acordo com o tipo de serviço escolhido. 
+Ver <a href="http://symfony.com/doc/2.8/cookbook/email/email.html">Documentação Symfony</a></li>
+</ul>
+<h4 id="secret">Secret</h4>
+<p>Gere uma string secreta para composição de cifragem</p>
+<p>Ex.:</p>
+<div class="codehilite"><pre>    secret:            CrieSuaStringAleatoria
+</pre></div>
+
+
+<h4 id="chaves-de-apis-de-terceiros">Chaves de APIs de terceiros</h4>
+<ul>
+<li>Facebook</li>
+<li>Google</li>
+<li>Twitter</li>
+<li>Recaptcha</li>
+</ul>
+<h4 id="dominio-e-contatos">Dominio e contatos</h4>
+<ul>
+<li>domínio da instalação</li>
+<li>Endereço do remetente de emails da aplicação (Ex.: noreply@seu-dominio.com)</li>
+</ul>
+<h2 id="acertando-permissoes-de-acesso">Acertando permissões de acesso</h2>
+<p>É necessário que as permissões do diretório estejam de acordo com as permissões do Nginx para que os arquivos sejam acessados publicamente. </p>
+<div class="codehilite"><pre>    // Entre no diretório criado 
+    $ cd login-cidadao
+    // Mude a permissão dos arquivos. Pode ser necessário fazer isso no final do processo novamente.
+    $ sudo chown -R login-cidadao:www-data *
+    $ sudo chown -R login-cidadao:www-data .*
+</pre></div>
+
+
+<p>Depois de efetuar as mudanças no permissionamento dos arquivos, aplique o comando de listagem de arquivos no diretório para verificar se foi aplicado com sucesso. Seu diretório deve estar assim:</p>
+<div class="codehilite"><pre>    // aplicando o comando de listagem de arquivos e permissões, você deverá ver algo como isso:
+
+    login-cidadao@localhost:/var/www/login-cidadao$ ls -la
+    drwxr-xr-x  9 login-cidadao www-data   4096 Dec 15 20:32 .
+    drwxr-xr-x  3 login-cidadao www-data   4096 Dec 15 20:26 ..
+    drwxr-xr-x  7 login-cidadao www-data   4096 Dec 15 20:46 app
+    drwxr-xr-x  2 login-cidadao www-data   4096 Dec 15 20:26 batch
+    drwxr-xr-x  2 login-cidadao www-data   4096 Dec 15 20:33 bin
+    -rw-r--r--  1 login-cidadao www-data     42 Dec 15 20:26 .bowerrc
+    -rw-r--r--  1 login-cidadao www-data   4320 Dec 15 20:26 composer.json
+    -rw-r--r--  1 login-cidadao www-data 159040 Dec 15 20:26 composer.lock
+    drwxr-xr-x  8 login-cidadao www-data   4096 Dec 15 20:26 .git
+    -rw-r--r--  1 login-cidadao www-data    315 Dec 15 20:26 .gitignore
+    -rwxr-xr-x  1 login-cidadao www-data   3991 Dec 15 20:26 install.sh
+    -rw-r--r--  1 login-cidadao www-data  34521 Dec 15 20:26 LICENSE
+    -rw-r--r--  1 login-cidadao www-data    332 Dec 15 20:26 lvp_mock.bat
+    -rw-r--r--  1 login-cidadao www-data   3602 Dec 15 20:26 README.md
+    drwxr-xr-x  4 login-cidadao www-data   4096 Dec 15 20:26 src
+    -rw-r--r--  1 login-cidadao www-data    106 Dec 15 20:26 .travis.yml
+    -rw-r--r--  1 login-cidadao www-data   1308 Dec 15 20:26 UPGRADE-2.2.md
+    -rw-r--r--  1 login-cidadao www-data   1962 Dec 15 20:26 UPGRADE-2.3.md
+    -rw-r--r--  1 login-cidadao www-data   8495 Dec 15 20:26 UPGRADE.md
+    -rw-r--r--  1 login-cidadao www-data   2470 Dec 15 20:26 Vagrantfile
+    drwxr-xr-x 38 login-cidadao www-data   4096 Dec 15 20:46 vendor
+    drwxr-xr-x  5 login-cidadao www-data   4096 Dec 15 20:33 web
+</pre></div>
+
+
+<h2 id="baixando-dependencias-via-composer">Baixando dependencias via Composer</h2>
+<p>// Certifique-se de estar dentro do diretório raiz do projeto
+  $ cd /var/www/login-cidadao
+  // Quando estiver rodando o composer, o arquivo parameters.yml (arquivo de parametros da instância) 
+  // será preenchido automaticamente. Fique atento as informações inseridas
+  // Instalando as dependências
+  $ composer install</p>
+<h2 id="parametrizando-manualmente">Parametrizando manualmente</h2>
+<p>Caso a parametrização via composer seja interrompida ou tenha dados que precisem ser completados, você pode alterar manualmente no arquivo <code>parameters.yml</code> a partir do template contido em <code>app/config/parameters.yml.dist</code>. </p>
+<h2 id="configurando-ngix">Configurando Ngix</h2>
+<div class="codehilite"><pre><span class="nt">server</span> <span class="p">{</span>
+
+  <span class="err">#</span> <span class="k">url</span> <span class="n">do</span> <span class="n">site</span>
+  <span class="n">server_name</span>  <span class="n">http</span><span class="o">://</span><span class="n">logindacultura</span><span class="o">.</span><span class="n">sp</span><span class="o">.</span><span class="n">gov</span><span class="o">.</span><span class="n">br</span><span class="p">;</span>
+
+  <span class="err">#</span> <span class="n">diret</span><span class="err">ó</span><span class="n">rio</span> <span class="n">raiz</span> <span class="n">da</span> <span class="n">aplica</span><span class="err">çã</span><span class="n">o</span>
+  <span class="n">root</span>  <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">login</span><span class="o">-</span><span class="n">cidadao</span><span class="o">/</span><span class="n">web</span><span class="p">;</span>
+
+  <span class="err">#</span> <span class="n">arquivos</span> <span class="n">de</span> <span class="n">log</span> <span class="n">de</span> <span class="n">erro</span> <span class="n">da</span> <span class="n">aplica</span><span class="err">çã</span><span class="n">o</span>
+  <span class="err">#</span> <span class="n">access_log</span>   <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">login</span><span class="o">-</span><span class="n">cidadao</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">access</span><span class="o">.</span><span class="n">log</span><span class="p">;</span>
+  <span class="err">#</span> <span class="n">error_log</span>    <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">login</span><span class="o">-</span><span class="n">cidadao</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">log</span><span class="p">;</span>
+
+  <span class="n">listen</span> <span class="m">80</span> <span class="n">default_server</span><span class="p">;</span>
+  <span class="n">listen</span> <span class="cp">[</span><span class="p">::</span><span class="cp">]</span><span class="o">:</span><span class="m">80</span> <span class="n">ipv6only</span><span class="o">=</span><span class="n">on</span> <span class="n">default_server</span><span class="p">;</span>
+  <span class="n">listen</span> <span class="cp">[</span><span class="p">::</span><span class="cp">]</span><span class="o">:</span><span class="m">443</span> <span class="n">default_server</span> <span class="n">ssl</span> <span class="n">spdy</span> <span class="n">ipv6only</span><span class="o">=</span><span class="n">off</span><span class="p">;</span>
+
+  <span class="n">add_header</span> <span class="n">Strict</span><span class="o">-</span><span class="n">Transport</span><span class="o">-</span><span class="n">Security</span> <span class="n">max</span><span class="o">-</span><span class="n">age</span><span class="o">=</span><span class="m">63072000</span><span class="p">;</span>
+  <span class="n">ssl_session_timeout</span> <span class="m">5</span><span class="n">m</span><span class="p">;</span>
+  <span class="n">ssl_protocols</span>  <span class="n">TLSv1</span> <span class="n">TLSv1</span><span class="o">.</span><span class="m">1</span> <span class="n">TLSv1</span><span class="o">.</span><span class="m">2</span><span class="p">;</span>
+  <span class="n">ssl_ciphers</span>  <span class="s1">&#39;AES256+EECDH:AES256+EDH&#39;</span><span class="p">;</span>
+  <span class="n">ssl_prefer_server_ciphers</span>   <span class="n">on</span><span class="p">;</span>
+  <span class="n">ssl_session_cache</span>           <span class="n">shared</span><span class="o">:</span><span class="n">SSL</span><span class="o">:</span><span class="m">10</span><span class="n">m</span><span class="p">;</span>
+  <span class="n">ssl_dhparam</span>                 <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">certs</span><span class="o">/</span><span class="n">dhparam</span><span class="o">.</span><span class="n">pem</span><span class="p">;</span>
+
+  <span class="err">#</span> <span class="n">Caminho</span> <span class="n">do</span> <span class="n">certificado</span>
+  <span class="n">ssl_certificate</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">/</span><span class="n">live</span><span class="o">/</span><span class="n">logindacultura</span><span class="o">.</span><span class="n">sp</span><span class="o">.</span><span class="n">gov</span><span class="o">.</span><span class="n">br</span><span class="o">/</span><span class="n">fullchain</span><span class="o">.</span><span class="n">pem</span><span class="p">;</span>
+  <span class="n">ssl_certificate_key</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">letsencrypt</span><span class="o">/</span><span class="n">live</span><span class="o">/</span><span class="n">logindacultura</span><span class="o">.</span><span class="n">sp</span><span class="o">.</span><span class="n">gov</span><span class="o">.</span><span class="n">br</span><span class="o">/</span><span class="n">privkey</span><span class="o">.</span><span class="n">pem</span><span class="p">;</span>
+
+
+  <span class="err">#</span> <span class="n">arquivos</span> <span class="n">ativos</span> <span class="n">que</span> <span class="n">a</span> <span class="n">aplica</span><span class="err">çã</span><span class="n">o</span> <span class="n">tem</span> <span class="n">de</span> <span class="n">responder</span>
+  <span class="n">index</span> <span class="n">index</span><span class="o">.</span><span class="n">php</span> <span class="n">index</span><span class="o">.</span><span class="n">html</span> <span class="n">index</span><span class="o">.</span><span class="n">htm</span><span class="p">;</span>
+
+  <span class="n">rewrite</span> <span class="o">^/</span><span class="n">app</span><span class="err">\</span><span class="o">.</span><span class="n">php</span><span class="o">/?</span><span class="p">(</span><span class="o">.*</span><span class="p">)</span><span class="err">$</span> <span class="o">/</span><span class="err">$</span><span class="m">1</span> <span class="n">permanent</span><span class="p">;</span>
+
+  <span class="n">try_files</span> <span class="err">$</span><span class="n">uri</span> <span class="o">@</span><span class="n">rewriteapp</span><span class="p">;</span>
+
+  <span class="n">location</span> <span class="o">@</span><span class="n">rewriteapp</span> <span class="err">{</span>
+    <span class="n">rewrite</span> <span class="o">^</span><span class="p">(</span><span class="o">.*</span><span class="p">)</span><span class="err">$</span> <span class="o">/</span><span class="n">app</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="err">$</span><span class="m">1</span> <span class="n">last</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="err">#</span> <span class="nt">location</span> <span class="o">/</span> <span class="p">{</span>
+  <span class="err">#</span>     <span class="n">try_files</span> <span class="err">$</span><span class="n">uri</span> <span class="err">$</span><span class="n">uri</span><span class="o">/</span> <span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">php</span><span class="o">?</span><span class="err">$</span><span class="n">args</span><span class="p">;</span>
+  <span class="err">#</span> <span class="p">}</span>
+
+<span class="err">#</span>  <span class="nt">location</span> <span class="o">~*</span> <span class="err">\</span><span class="o">.(</span><span class="nt">js</span><span class="o">|</span><span class="nt">css</span><span class="o">|</span><span class="nt">png</span><span class="o">|</span><span class="nt">jpg</span><span class="o">|</span><span class="nt">jpeg</span><span class="o">|</span><span class="nt">gif</span><span class="o">|</span><span class="nt">ico</span><span class="o">|</span><span class="nt">woff</span><span class="o">)$</span> <span class="p">{</span>
+<span class="err">#</span>           <span class="n">expires</span> <span class="m">1</span><span class="n">w</span><span class="p">;</span>
+<span class="err">#</span>           <span class="n">log_not_found</span> <span class="n">off</span><span class="p">;</span>
+<span class="err">#</span>  <span class="p">}</span>
+
+  <span class="err">#</span> <span class="nt">Deny</span> <span class="nt">all</span> <span class="o">.</span> <span class="nt">files</span>
+  <span class="nt">location</span> <span class="o">~</span> <span class="o">/</span><span class="err">\</span><span class="nc">.ht</span> <span class="p">{</span>
+          <span class="n">deny</span> <span class="n">all</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="err">#</span> <span class="nt">PHP</span>
+  <span class="nt">location</span> <span class="o">~</span> <span class="o">^/(</span><span class="nt">app</span><span class="o">|</span><span class="nt">app_dev</span><span class="o">|</span><span class="nt">memcached</span><span class="o">)</span><span class="err">\</span><span class="nc">.php</span><span class="o">(/|$)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="n">fastcgi_split_path_info</span> <span class="o">^</span><span class="p">(</span><span class="o">.+</span><span class="err">\</span><span class="o">.</span><span class="n">php</span><span class="p">)(</span><span class="o">/.*</span><span class="p">)</span><span class="err">$</span><span class="p">;</span>
+        <span class="err">#</span> <span class="n">fastcgi_buffers</span> <span class="m">4</span> <span class="m">256</span><span class="n">k</span><span class="p">;</span>
+        <span class="err">#</span> <span class="n">fastcgi_buffer_size</span> <span class="m">128</span><span class="n">k</span><span class="p">;</span>
+        <span class="err">#</span> <span class="n">fastcgi_busy_buffers_size</span> <span class="m">256</span><span class="n">k</span><span class="p">;</span>
+        <span class="n">include</span> <span class="n">fastcgi_params</span><span class="p">;</span>
+        <span class="n">fastcgi_param</span>  <span class="n">SCRIPT_FILENAME</span> <span class="err">$</span><span class="n">document_root</span><span class="err">$</span><span class="n">fastcgi_script_name</span><span class="p">;</span>
+        <span class="n">fastcgi_pass</span> <span class="n">unix</span><span class="o">:/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">php5</span><span class="o">-</span><span class="n">fpm</span><span class="o">-</span><span class="n">logincidadao</span><span class="o">.</span><span class="n">sock</span><span class="p">;</span>
+        <span class="n">client_max_body_size</span> <span class="m">0</span><span class="p">;</span>
+        <span class="n">fastcgi_index</span> <span class="n">app</span><span class="o">.</span><span class="n">php</span><span class="p">;</span>
+        <span class="err">#</span> <span class="n">send_timeout</span> <span class="m">1800</span><span class="p">;</span>
+        <span class="err">#</span> <span class="n">fastcgi_read_timeout</span> <span class="m">1800</span><span class="p">;</span>
+        <span class="err">#</span> <span class="n">proxy_cache_lock</span> <span class="n">off</span><span class="p">;</span>
+        <span class="err">#</span> <span class="n">fastcgi_pass</span> <span class="m">127</span><span class="o">.</span><span class="m">0</span><span class="o">.</span><span class="m">0</span><span class="o">.</span><span class="m">1</span><span class="o">:</span><span class="m">9000</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="err">#</span> <span class="nt">Statics</span>
+        <span class="nt">location</span> <span class="o">/(</span><span class="nt">bundles</span><span class="o">|</span><span class="nt">media</span><span class="o">)</span> <span class="p">{</span>
+                <span class="n">access_log</span> <span class="n">off</span><span class="p">;</span>
+                <span class="n">expires</span> <span class="m">30</span><span class="n">d</span><span class="p">;</span>
+
+                <span class="n">try_files</span> <span class="err">$</span><span class="n">uri</span> <span class="o">@</span><span class="n">rewriteapp</span><span class="p">;</span>
+        <span class="p">}</span>
+  <span class="nt">charset</span> <span class="nt">utf-8</span><span class="o">;</span>
+<span class="err">}</span>
+
+<span class="err">#</span> <span class="nt">server</span> <span class="p">{</span>
+<span class="err">#</span>   <span class="n">listen</span> <span class="o">*:</span><span class="m">80</span><span class="p">;</span>
+<span class="err">#</span>   <span class="n">server_name</span> <span class="n">http</span><span class="o">://</span><span class="n">logindacultura</span><span class="o">.</span><span class="n">sp</span><span class="o">.</span><span class="n">gov</span><span class="o">.</span><span class="n">br</span><span class="p">;</span>
+<span class="err">#</span>   <span class="n">return</span> <span class="m">301</span> <span class="err">$</span><span class="n">scheme</span><span class="o">://</span><span class="n">logindacultura</span><span class="o">.</span><span class="n">sp</span><span class="o">.</span><span class="n">gov</span><span class="o">.</span><span class="n">br</span><span class="o">/</span><span class="err">$</span><span class="n">request_uri</span><span class="p">;</span>
+<span class="err">#</span> <span class="p">}</span>
+</pre></div>
+
+
+<p>//Faça um link simbólico para o arquivo
+  $ sudo ln -s /etc/nginx/sites-available/login-cidadao.conf /etc/nginx/sites-enabled/login-cidadao.conf</p>
+<h2 id="certificado-ssl">Certificado SSL</h2>
+<p>Ver "Usando Certificado SSL"</p>
+<h2 id="envio-de-email_1">Envio de email</h2>
+<h2 id="configuracoes-de-servicos">Configurações de serviços</h2>
+<ul>
+<li>Ver Configurações</li>
+</ul>
+<div class="codehilite"><pre>    // Copiando o arquivo de template para o arquivo default
+    $ sudo cp /var/www/login-cidadao/app/config/parameters.yml.dist /var/www/login-cidadao/app/config/parameters.yml
+</pre></div>
+
+
+<p>Fique atento aos seguintes pontos: </p>
+<p>3.1. Conectando a base de dados: </p>
+<p>Se você estiver usando </p>
+<p>3.2. Configurações memcached</p>
+<p>3.3. Configurações de envio de email (smtp)</p>
+<p>3.4. Configurações de token</p>
+<div class="codehilite"><pre><span class="n">locale</span><span class="o">:</span>            <span class="n">en</span>
+<span class="n">secret</span><span class="o">:</span>            <span class="n">ThisTokenIsNotSoSecretChangeIt</span>
+
+
+<span class="n">locale</span><span class="o">:</span>            <span class="n">pt_BR</span>
+<span class="n">secret</span><span class="o">:</span>            <span class="n">cALL</span><span class="o">-</span><span class="n">g83trinzafederuserall</span><span class="err">#</span><span class="n">set900</span><span class="err">@</span><span class="n">set8</span><span class="o">**</span>
+</pre></div>
+
+
+<ol>
+<li>Se a verificação for bem sucedida inicie a instalação
+    <code>./install.sh</code></li>
+</ol>
+<h2 id="arquivo-de-configuracao-parametersyml">Arquivo de configuração <code>parameters.yml</code></h2>
+<p><code>locale:</code> -&gt; substitua pelo seu locale (ex. pt_BR)</p>
+<p><code>secret:</code> -&gt; substitua por uma longa cadeia de letras, números e símbolos</p>
+<p><code>site_domain:</code> -&gt; substitua pelo seu domínio/subdomínio</p>
+<p><code>recaptcha_public_key:</code> e <code>recaptcha_private_key:</code> -&gt; gere essas chaves em https://www.google.com/recaptcha/</p>
+<p><code>registration.cpf.empty_time:</code> e <code>registration.email.unconfirmed_time:</code> -&gt; define quanto tempo deve ser dado para que o usuário confirme o CPF e o email, respectivamente</p>
+<p><code>brute_force_threshold:</code> -&gt; quantas tentativas devem ser toleradas antes de considerar um ataque de força bruta</p>
+<h2 id="configurando-nginx">Configurando Nginx</h2>
+<p>Copie o scritp padrão para o repositório de seu nginx</p>
+<div class="codehilite"><pre>    $ sudo cp /var/www/login-cidadao/batch/nginx-login-cidadao.conf /etc/nginx/sites-available/login-cidadao.conf
+</pre></div>
+
+
+<p>Faça as alterações necessárias! </p>
+<ul>
+<li>
+<p>Em <code>DocumentRoot</code> é preciso apontar para o diretório <code>web</code>, neste exemplo o caminho completo é <code>/var/www/login-cidadao/web</code>.</p>
+</li>
+<li>
+<p>ServerName deve ser preenchido com o domínio (ex. dominio.com.br) ou subdomínio completo (ex. sub.dominio.com.br)</p>
+</li>
+</ul>
+<h3 id="primeiros-passos-pos-instalacao"><a href="id:pos-instalacao">Primeiros passos pós-instalação</a></h3>
+<p>Adicione os seguintes aliases ao seu arquivo <code>.bashrc</code> (que fica no home de seu usuário).</p>
+<div class="codehilite"><pre>  //Abra o arquivo
+  $ nano ~./bashrc
+  //Adicione as linhas abaixo no final do arquivo
+
+    alias prod=&#39;php app/console --env=prod&#39;
+    alias dev=&#39;php app/console --env=dev&#39;
+
+  //Atualize o perfil do terminal  
+  $ source ~/.bashrc
+  // Obs.: Etapa desnecessária para logins futuros já que o .bashrc será executado no processo de login.
+</pre></div>
+
+
+<ol>
+<li>
+<p>Processe e ative todos os assets<br />
+<code>prod assets:install</code><br />
+<code>prod assetic:dump</code></p>
+</li>
+<li>
+<p>Dar poderes de super administrador para o primeiro usuário<br />
+<code>prod fos:user:promote &lt;username&gt; ROLE_SUPER_ADMIN</code></p>
+<ul>
+<li>
+<p>Obs. 1: Substitua "<username>" pelo nome do usuário como mostrado na área superior direita da página, geralmente o que precede o '@' do email usado na hora da criação do usuário.</p>
+</li>
+<li>
+<p>Obs. 2: Para confirmar visualmente o novo papel de super administrador faça um logout e depois um login. Junto ao nome deverá haver um campo 'impersonate', ver esse campo é a confirmação.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="navegando-em-modo-de-desenvolvimento">Navegando em modo de desenvolvimento</h2>
+<p>Adicione <code>/app_dev.php</code> na URL.</p>
+<h2 id="alguns-comandos-praticos">Alguns comandos práticos</h2>
+<p>Assume-se que as estapas 1 e 2 dos <a href="#pos-instalacao">Primeiros passos pós-instalação</a> tenham sido cumpridos para seguir estes comandos.</p>
+<ul>
+<li>Limpar o cache<br />
+<code>prod cache:clear</code><br />
+<code>dev cache:clear</code><br />
+    se não funcionar, em última instância use<br />
+<code>rm -rf app/cache/*</code></li>
+<li>Criar ou atualizar os assets<br />
+<code>prod assets:install</code><br />
+<code>prod assetic:dump</code></li>
+<li>Criar ou atualizar os vendors (útil, por exemplo, quando se muda de branch)<br />
+<code>composer install</code></li>
+</ul>
+<h2 id="adicionando-servicos">Adicionando serviços</h2>
+<p>Veja em detalhe como configurar cada rede social utilizada pelo LC em <a href="../adicionando-servicos">configurando servicos de terceiros</a></p>
+<h2 id="integrando-com-o-mapas-culturais">Integrando com o Mapas Culturais</h2>
+<div class="codehilite"><pre>&#39;auth.provider&#39; =&gt; &#39;OpauthLoginCidadao&#39;,
+&#39;auth.config&#39; =&gt; array(
+    &#39;client_id&#39; =&gt; &#39;minha_chave_publica&#39;,
+    &#39;client_secret&#39; =&gt; &#39;minha_chave_privada&#39;,
+    &#39;auth_endpoint&#39; =&gt; &#39;https://sub.dominio/oauth/v2/auth&#39;,
+    &#39;token_endpoint&#39; =&gt; &#39;https://sub.dominio/oauth/v2/token&#39;,
+    &#39;user_info_endpoint&#39; =&gt; &#39;https://sub.dominio/api/v1/person.json&#39;
+),
+</pre></div>
+
+
+<ul>
+<li>Obs. 1: As chaves pública e privada são geradas na adição do serviço.  </li>
+<li>Obs. 2: substituir o domínio/subdomínio das três últimas linhas.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lc_config/" class="btn btn-neutral float-right" title="Configurações"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Sobre a plataforma"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Licenciado através da <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL V3</a>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../lc_config/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

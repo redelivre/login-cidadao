@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Enviando notificações - Login Cidadão</title>
+  
+
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Enviando notificações";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Login Cidadão</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Sobre a plataforma</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_deploy/">Instalação</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Configurações</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config/">Configurações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_logout_remote/">Configurando Logout Remote</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_ssl/">Configurando SSL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_third_part_services/">Configurando Serviços Terceiros</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api/">Usando a API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Enviando notificações</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#exemplos-da-api-rest">Exemplos da API REST</a></li>
+                
+                    <li><a class="toctree-l4" href="#enviando-notificacoes">Enviando Notificações</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Desenvolvimento</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_integration/">Integração com outras aplicações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_java_aplications/">Desenvolvimento com aplicações Java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.2_applications/">Desenvolvimento com aplicações php 5.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.3_applications/">Desenvolvimento com aplicações php 5.3</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_scopes/">Scopes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Login Cidadão</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API &raquo;</li>
+        
+      
+    
+    <li>Enviando notificações</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="exemplos-da-api-rest">Exemplos da API REST</h1>
+<h2 id="enviando-notificacoes">Enviando Notificações</h2>
+<p>Enviar notificações pelo Login Cidadão é tão fácil quanto fazer uma requisição POST autenticada por OAuth 2.</p>
+<h3 id="autenticacao">Autenticação</h3>
+<p>Você pode autenticar via Client Credentials ou informando diretamente o Access Token de uma pessoa. Se você está enviando mais de uma notificação e faz algum tempo desde que o Access Token foi emitido, então usar Client Credentials é altamente recomendado e é uma ideia melhor já que você economizará seu limite da API visto que não terá que solicitar novos Access Tokens para diversas pessoas.</p>
+<h3 id="enviando-uma-notificacao">Enviando uma Notificação</h3>
+<p>Para criar uma notificação basta fazer uma requisição POST para nossa API de Notificações, autenticada com OAuth 2 com um Access Token e informando, pelo menos, estes parâmetros:</p>
+<ul>
+<li>title: o título da notificação</li>
+<li>shortText: uma breve descrição</li>
+<li>person: o Identificador Único do destinatário</li>
+<li>sender: o Identificador Único do seu Client OAuth</li>
+<li>category: o Identificador Único da categoria da notificação</li>
+<li>placeholders: os Placeholders da notificação</li>
+</ul>
+<p>Um exemplo de requisição POST poderia ser o seguinte:</p>
+<div class="codehilite"><pre><span class="nf">POST</span> <span class="nn">/api/v1/person/notification.json</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">meu.rs.gov.br</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer M2M5YjgzNj...ZDg4OTJiNA</span>
+
+title=My+Nice+Title&amp;shortText=This+is+the+notification%27s+brief+description&amp;person=23521&amp;sender=42&amp;category=953&amp;placeholders%5Bname%5D=Fulano+de+Tal&amp;placeholders%5BextraInfo%5D=Something+here
+</pre></div>
+
+
+<p>Neste exemplo, estamos enviando os seguintes dados:</p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;My Nice Title&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;shortText&quot;</span><span class="o">:</span> <span class="s2">&quot;This is the notification&#39;s brief description&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;person&quot;</span><span class="o">:</span> <span class="mi">23521</span><span class="p">,</span>
+    <span class="s2">&quot;sender&quot;</span><span class="o">:</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="s2">&quot;category&quot;</span><span class="o">:</span> <span class="mi">953</span><span class="p">,</span>
+    <span class="s2">&quot;placeholders&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Fulano de Tal&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;extraInfo&quot;</span><span class="o">:</span> <span class="s2">&quot;Something here&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Como resposta, você receberá um status code HTTP 201, como qualquer API RESTful deveria, mas como cortesia nós também lhe retornaremos o ID da notificação recém criada como nesse exemplo:</p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">654</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="recebendo-o-retorno-de-leitura-da-notificacao">Recebendo o retorno de leitura da notificação</h3>
+<p>Para receber um aviso de que o destinatario da notificação leu a mensagem deve-se acrescentar na notificação o parâmentro <code>callbackUrl</code>:</p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="p">...</span>
+    <span class="s2">&quot;callbackUrl&quot;</span> <span class="o">:</span> <span class="s2">&quot;https://mysite/&quot;</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Caso tenha sido informado uma URL no parâmetro <code>callbackUrl</code> da notificação, no momento em que usuário ler a notificação será enviando um requisição para aquele endereço.
+A requisição será do tipo POST e devolverá dois parâmetros, o parametro <code>data</code> e o parâmetro <code>signature</code>.
+O parâmetro <code>data</code> é uma estrutura de dados serializada no formato JSON. Nessa estrutura temos os seguintes dados:</p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="c1">//o identificador único da notificação</span>
+    <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="c1">//o identificador único do usuário</span>
+    <span class="s1">&#39;person_id&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="c1">//a data e hora da leitura da notificação no formato Unix timestamp</span>
+    <span class="s1">&#39;read_date&#39;</span><span class="o">:</span> <span class="mi">1272509157</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>O parâmetro <code>signature</code> é uma assinatura do tipo <code>HMAC</code>, usando a função <code>sha256</code> sobre a informação contida no parâmetro <code>data</code>. A senha utilizada para fazer essa assinatura é a Chave privada (ou Secret) do Client OAuth. Dessa forma, é possivel garantir a autenticidade do mensagem enviada.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lc_develop_integration/" class="btn btn-neutral float-right" title="Integração com outras aplicações"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../lc_api/" class="btn btn-neutral" title="Usando a API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Licenciado através da <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL V3</a>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lc_api/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../lc_develop_integration/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

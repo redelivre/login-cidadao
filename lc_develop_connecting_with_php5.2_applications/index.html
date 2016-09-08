@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Desenvolvimento com aplicações php 5.2 - Login Cidadão</title>
+  
+
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Desenvolvimento com aplicações php 5.2";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Login Cidadão</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Sobre a plataforma</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_deploy/">Instalação</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Configurações</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config/">Configurações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_logout_remote/">Configurando Logout Remote</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_ssl/">Configurando SSL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_third_part_services/">Configurando Serviços Terceiros</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api/">Usando a API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api_sending_notifications/">Enviando notificações</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Desenvolvimento</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_integration/">Integração com outras aplicações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_java_aplications/">Desenvolvimento com aplicações Java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Desenvolvimento com aplicações php 5.2</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#exemplo-utilizando-php-52">Exemplo utilizando PHP 5.2</a></li>
+                
+                    <li><a class="toctree-l4" href="#antes-de-comecar">Antes de Começar</a></li>
+                
+                    <li><a class="toctree-l4" href="#comecando">Começando</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.3_applications/">Desenvolvimento com aplicações php 5.3</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_scopes/">Scopes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Login Cidadão</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Desenvolvimento &raquo;</li>
+        
+      
+    
+    <li>Desenvolvimento com aplicações php 5.2</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="exemplo-utilizando-php-52">Exemplo utilizando PHP 5.2</h1>
+<h2 id="antes-de-comecar">Antes de Começar</h2>
+<p>Certifique-se de que você tem todos os dados descritos <a href="../lc_develop_integration/#basic_info"> aqui </a> antes de seguir o tutorial.</p>
+<h3 id="dependencias">Dependências</h3>
+<p>Para conectar no Login Cidadão usando <code>PHP 5.2</code> utilizamos o cliente OAuth disponibilizado pelo site <a href="http://www.phpclasses.org/oauth-api">PHPCLASSES</a>.
+Essa implementação tem como dependência a classe <code>http-client</code> também disponível pelo site <a href="http://www.phpclasses.org/httpclient">PHPCLASSES</a>.</p>
+<h2 id="comecando">Começando</h2>
+<h3 id="arquivo-de-configuracao">Arquivo de configuração</h3>
+<p>Primeiramente criamos um arquivo de configuração <code>oauth_configuration.json</code> referente ao servidor OAuth que desejamos utilizar. Nesse arquivo, especificamos a versão do protocolo OAuth, o endereço para fazer a autenticação, com marcadores para fazer substituições de variáveis, e o endereço para obter o Access Token:</p>
+<div class="codehilite"><pre><span class="c1">// oauth_configuration.json</span>
+<span class="p">{</span>
+    <span class="s2">&quot;servers&quot;</span><span class="o">:</span>
+    <span class="p">{</span>
+        <span class="c1">// ATENÇÃO: Você deverá informar esse nome na próxima etapa, em $client-&gt;server</span>
+        <span class="s2">&quot;Meu&quot;</span><span class="o">:</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;oauth_version&quot;</span><span class="o">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dialog_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://meu.rs.gov.br/oauth/v2/auth?response_type=code&amp;client_id={CLIENT_ID}&amp;redirect_uri={REDIRECT_URI}&amp;state={STATE}&amp;scope={SCOPE}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;access_token_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://meu.rs.gov.br/oauth/v2/token&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="configurando-o-client-oauth">Configurando o Client OAuth</h3>
+<p>Primeiro instanciamos a classe <code>oauth_client_class</code>:</p>
+<div class="codehilite"><pre><span class="x">$client = new oauth_client_class();</span>
+<span class="x">//aqui especificamos o nome do servidor que vamos utilizar. Isso carregar as configurações extras do cliente OAuth</span>
+<span class="x">$client-&gt;server = &#39;Meu&#39;;</span>
+<span class="x">//colocamos um dos nossos endereços que autorizamos o Login Cidadão a retornar dados</span>
+<span class="x">$client-&gt;redirect_uri = &#39;&#39;;</span>
+<span class="x">//colocamos nossa chave pública aqui</span>
+<span class="x">$client-&gt;client_id = &#39;&#39;;</span>
+<span class="x">//colocamos nossa chave privada aqui</span>
+<span class="x">$client-&gt;client_secret = &#39;&#39;;</span>
+<span class="x">//colocamos a lista de escopos desejados *separados por espaços*</span>
+<span class="x">$client-&gt;scope = &#39;&#39;;</span>
+</pre></div>
+
+
+<p>Por padrão, o arquivo de configuração deve ser colocado no mesmo diretório que o nosso script está rodando, todavia é possível mudar esse diretório através do seguinte atributo:</p>
+<div class="codehilite"><pre><span class="x">$client-&gt;configuration_file=&#39;&#39;;</span>
+</pre></div>
+
+
+<h3 id="fazendo-a-magica-acontecer">Fazendo a mágica acontecer</h3>
+<p>Com os dados preenchidos, podemos inicializar a instância:</p>
+<div class="codehilite"><pre><span class="x">// aqui a classe vai carregar as informações extras do servidor</span>
+<span class="x">if (($success = $client-&gt;Initialize())) {</span>
+<span class="x">    // aqui ele vai processar os dados do $_REQUEST para descobrir se precisa realizar a autorização no gerenciador de identidades e/ou solicitar um Access Token</span>
+<span class="x">    if (($success = $client-&gt;Process())) {</span>
+<span class="x">        if (strlen($client-&gt;authorization_error)) {</span>
+<span class="x">            $client-&gt;error = $client-&gt;authorization_error;</span>
+<span class="x">            $success = false;</span>
+<span class="x">        } elseif (strlen($client-&gt;access_token)) {</span>
+<span class="x">            // quando conseguimos o Access Token podemos pegar os dados </span>
+<span class="x">            $success = $client-&gt;CallAPI(&#39;https://meu.rs.gov.br/api/v1/person&#39;, &#39;GET&#39;, array(), array(</span>
+<span class="x">                &#39;FailOnAccessError&#39; =&gt; true</span>
+<span class="x">            ), $user);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">    // aqui ele retorna o status das operações realizadas pela instância</span>
+<span class="x">    $success = $client-&gt;Finalize($success);</span>
+<span class="x">}</span>
+<span class="x">// caso a classe precise encerrar a execução desta pagina como, por exemplo, quando o gerenciador de identidades retorna dados para essa pagina, apos solicitar a autorização</span>
+<span class="x">if ($client-&gt;exit) {</span>
+<span class="x">    exit();</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>Uma vez obtido o Access Token podemos pegar os dados do usuário através da variável <code>$user</code> que estará populada com as informações solicitadas na propriedade <code>scope</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lc_develop_connecting_with_php5.3_applications/" class="btn btn-neutral float-right" title="Desenvolvimento com aplicações php 5.3"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../lc_develop_connecting_with_java_aplications/" class="btn btn-neutral" title="Desenvolvimento com aplicações Java"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Licenciado através da <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL V3</a>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lc_develop_connecting_with_java_aplications/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../lc_develop_connecting_with_php5.3_applications/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Desenvolvimento com aplicações php 5.3 - Login Cidadão</title>
+  
+
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Desenvolvimento com aplicações php 5.3";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Login Cidadão</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Sobre a plataforma</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_deploy/">Instalação</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Configurações</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config/">Configurações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_logout_remote/">Configurando Logout Remote</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_ssl/">Configurando SSL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_third_part_services/">Configurando Serviços Terceiros</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api/">Usando a API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api_sending_notifications/">Enviando notificações</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Desenvolvimento</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_integration/">Integração com outras aplicações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_java_aplications/">Desenvolvimento com aplicações Java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.2_applications/">Desenvolvimento com aplicações php 5.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Desenvolvimento com aplicações php 5.3</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#exemplo-utilizando-php-53">Exemplo utilizando PHP 5.3</a></li>
+                
+                    <li><a class="toctree-l4" href="#antes-de-comecar">Antes de Começar</a></li>
+                
+                    <li><a class="toctree-l4" href="#comecando">Começando</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_scopes/">Scopes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Login Cidadão</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Desenvolvimento &raquo;</li>
+        
+      
+    
+    <li>Desenvolvimento com aplicações php 5.3</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="exemplo-utilizando-php-53">Exemplo utilizando PHP 5.3</h1>
+<h2 id="antes-de-comecar">Antes de Começar</h2>
+<p>Certifique-se de que você tem todos os dados descritos <a href="../lc_develop_integration/#basic_info"> aqui </a> antes de seguir o tutorial.</p>
+<h3 id="dependencias">Dependências</h3>
+<p>Para conectar no Login Cidadão usando <code>PHP 5.3</code> é utilizado o cliente OAuth desenvolvido pelo <a href="https://github.com/fkooman/php-oauth-client">fkooman</a>. Uma vez que é usado php5.3 é possivel usar o <code>composer</code> para instalar o componente e suas dependecias. Primeiramente, é necessario instalar o <a href="https://getcomposer.org/">composer</a>.
+No arquivo <code>composer.json</code> basta adicionar a seguinte configuração:</p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;fkooman/php-oauth-client-example&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;require&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fkooman/guzzle-bearer-auth-plugin&quot;</span><span class="o">:</span> <span class="s2">&quot;dev-master&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;fkooman/php-oauth-client&quot;</span><span class="o">:</span> <span class="s2">&quot;dev-master&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Utilizando a linha de comando, no mesmo diretorio que esta o arquivo <code>composer.json</code> é possivel executar o seguinte comando: <code>composer install --prefer-dist</code>. Assim o <code>composer</code> instalará o componente desejado e suas dependencias.</p>
+<h2 id="comecando">Começando</h2>
+<h3 id="arquivo-de-configuracao">Arquivo de configuração</h3>
+<p>Primeiramente criamos um arquivo de configuração <code>config.ini</code> referente ao servidor OAuth que desejamos utilizar. Nesse arquivo, especificamos o endereço para fazer a autenticação, o endereço para obter o Access Token, o endereço para onde o gerenciador de identidades irá retornar os dados, a chave pública, a chave privada, o nome do servidor, os escopos desejados e o endereço para obter os dados do usuário:</p>
+<div class="codehilite"><pre><span class="k">[fkooman_client_config]</span>
+<span class="err">//endereço</span> <span class="err">para</span> <span class="err">fazer</span> <span class="err">a</span> <span class="err">autenticação</span>
+<span class="na">authorize_endpoint</span> <span class="o">=</span> <span class="s">&quot;https://meu.rs.gov.br/oauth/v2/auth&quot;;</span>
+<span class="err">//endereço</span> <span class="err">para</span> <span class="err">requerer</span> <span class="err">o</span> <span class="err">Access</span> <span class="err">Token</span>
+<span class="na">token_endpoint</span> <span class="o">=</span> <span class="s">&quot;https://meu.rs.gov.br/oauth/v2/token&quot;;</span>
+<span class="err">//endereço</span> <span class="err">para</span> <span class="err">retornar</span> <span class="err">os</span> <span class="err">dados</span>
+<span class="na">redirect_uri</span> <span class="o">=</span> <span class="s">&quot;http://localhost/callback.php&quot;;</span>
+<span class="err">//chave</span> <span class="err">pública</span>
+<span class="na">client_id</span> <span class="o">=</span> <span class="s">&quot;&quot;;</span>
+<span class="err">//chave</span> <span class="err">privada</span>
+<span class="na">client_secret</span> <span class="o">=</span> <span class="s">&quot;&quot;;</span>
+
+<span class="k">[fkooman_api_config]</span>
+<span class="err">//nome</span> <span class="err">do</span> <span class="err">servidor</span>
+<span class="na">api_context</span> <span class="o">=</span> <span class="s">&quot;Meu&quot;</span>
+<span class="err">//escopos</span>
+<span class="na">api_scopes</span> <span class="o">=</span> <span class="s">&quot;id username full_name cpf birthdate email city picture public_profile badges country state city addresses id_cards get_all_notifications notifications cep mobile&quot;;</span>
+<span class="err">//endereço</span> <span class="err">para</span> <span class="err">requerer</span> <span class="err">os</span> <span class="err">dados</span> <span class="err">do</span> <span class="err">usuário</span>
+<span class="na">api_url</span> <span class="o">=</span> <span class="s">&quot;https://meu.rs.gov.br/api/v1/person.json&quot;;</span>
+</pre></div>
+
+
+<h3 id="criando-um-script-de-autenticacao">Criando um script de autenticação</h3>
+<p>É necessário criar um script que oferece a possibilidade do usuario autenticar. Esse script tem que testar se o usuário ja esta autenticado. No momento que o script detectar que o usuário esta autenticado, ele que pegar as informação sobre esse usuário.</p>
+<div class="codehilite"><pre><span class="x">//primeiro carregamos as configurações</span>
+<span class="x">$config = parse_ini_file(&#39;config.ini&#39;);</span>
+<span class="x">if (false === $config) {</span>
+<span class="x">    die(&#39;please you need to have a config.ini file. Make one based on config.ini.dist&#39;);</span>
+<span class="x">}</span>
+<span class="x">//com as configurações é criado um instância das configurações do cliente</span>
+<span class="x">$clientConfig = new \fkooman\OAuth\Client\ClientConfig($config);</span>
+
+<span class="x">//criamos uma instância para armazenar os dados utilizados pelo Oauth</span>
+<span class="x">$tokenStorage = new \fkooman\OAuth\Client\SessionStorage();</span>
+<span class="x">//criamos uma instância para fazer a comunicação http</span>
+<span class="x">$httpClient = new \Guzzle\Http\Client();</span>
+<span class="x">//criamos uma instância para utilizar a API do nosso gerenciador de identidades </span>
+<span class="x">$api = new fkooman\OAuth\Client\Api($config[&#39;api_context&#39;], $clientConfig, $tokenStorage, $httpClient);</span>
+<span class="x">//configuramos o contexto da nossa API</span>
+<span class="x">$context = new \fkooman\OAuth\Client\Context($config[&#39;api_context&#39;], explode(&quot; &quot;, $config[&#39;api_scopes&#39;]));</span>
+<span class="x">//verificamos se já temos uma Access Token</span>
+<span class="x">$accessToken = $api-&gt;getAccessToken($context);</span>
+<span class="x">if (false === $accessToken) {</span>
+<span class="x">    //caso não tenhamos uma Access Token</span>
+<span class="x">    //se temos uma variável indicando que desejamos autenticar</span>
+<span class="x">    if ($_GET[&#39;authorize&#39;] == 1) {        </span>
+<span class="x">        //enviamos o usuario para a tela de autorização do gerenciador de identidades    </span>
+<span class="x">        header(&quot;HTTP/1.1 302 Found&quot;);</span>
+<span class="x">        header(&quot;Location: &quot; . $api-&gt;getAuthorizeUri($context));</span>
+<span class="x">    } else {</span>
+<span class="x">        //oferecemos a autenticação para o usuário</span>
+<span class="x">        echo &quot;&lt;a href=&#39;index.php?authorize=1&#39;&gt;Logar com o Login do Cidadao&lt;/a&gt;&quot;;</span>
+<span class="x">    }</span>
+<span class="x">    exit;</span>
+<span class="x">} else {</span>
+<span class="x">    //caso tenhamos a Access token podemos consultar a API e obter os dados dele</span>
+<span class="x">    try {</span>
+<span class="x">        $client = new \Guzzle\Http\Client();</span>
+<span class="x">        $bearerAuth = new \fkooman\Guzzle\Plugin\BearerAuth\BearerAuth($accessToken-&gt;getAccessToken());</span>
+<span class="x">        $client-&gt;addSubscriber($bearerAuth);</span>
+<span class="x">        $response = $client-&gt;get($config[&#39;api_url&#39;])-&gt;send();</span>
+<span class="x">        header(&quot;Content-Type: application/json&quot;);</span>
+<span class="x">        //o retorno da API é um no formato JSON, por isso temos que decodifica-la</span>
+<span class="x">        $json = json_decode($response-&gt;getBody(), true);</span>
+<span class="x">        if (false !== $json) {</span>
+<span class="x">            print_r($json);</span>
+<span class="x">        } else {</span>
+<span class="x">            print_r($response-&gt;getBody());</span>
+<span class="x">        }</span>
+<span class="x">    } catch (\fkooman\Guzzle\Plugin\BearerAuth\Exception\BearerErrorResponseException $e) {</span>
+<span class="x">        //caso tenhamos um erro de token inválida, jogamos essa token fora, tentamos autenticar novamente</span>
+<span class="x">        if (&quot;invalid_token&quot; === $e-&gt;getBearerReason()) {            </span>
+<span class="x">            $api-&gt;deleteAccessToken($context);</span>
+<span class="x">            $api-&gt;deleteRefreshToken($context);            </span>
+<span class="x">            header(&quot;HTTP/1.1 302 Found&quot;);</span>
+<span class="x">            header(&quot;Location: &quot; . $api-&gt;getAuthorizeUri($context));</span>
+<span class="x">            exit;</span>
+<span class="x">        }</span>
+<span class="x">        throw $e;</span>
+<span class="x">    } catch (\Exception $e) {</span>
+<span class="x">        die(sprintf(&#39;ERROR: %s&#39;, $e-&gt;getMessage()));</span>
+<span class="x">    }    </span>
+<span class="x">}</span>
+
+<span class="x">}</span>
+</pre></div>
+
+
+<h3 id="criando-um-script-que-recebe-o-retorno-do-gerenciador-de-identidades">Criando um script que recebe o retorno do gerenciador de identidades</h3>
+<p>Também é necessario criar um script que recebe os dados de retorno do gerenciador de identidades. Esse script quando receber os dados do servidor deve encaminhar para o script de autenticação</p>
+<div class="codehilite"><pre><span class="x">//primeiro carregamos as configurações</span>
+<span class="x">$config = parse_ini_file(&#39;config.ini&#39;);</span>
+<span class="x">if (false === $config) {</span>
+<span class="x">    die(&#39;please you need to have a config.ini file. Make one based on config.ini.dist&#39;);</span>
+<span class="x">}</span>
+<span class="x">//com as configurações é criado um instância das configurações do cliente</span>
+<span class="x">$clientConfig = new \fkooman\OAuth\Client\ClientConfig($config);</span>
+<span class="x">try {</span>
+<span class="x">    //criamos uma instância para armazenar os dados utilizados pelo Oauth</span>
+<span class="x">    $tokenStorage = new \fkooman\OAuth\Client\SessionStorage();</span>
+<span class="x">    //criamos uma instância para fazer a comunicação http</span>
+<span class="x">    $httpClient = new \Guzzle\Http\Client();</span>
+<span class="x">    //criamos uma instância para lidar com o retorno do gerenciador de identidades</span>
+<span class="x">    $cb = new \fkooman\OAuth\Client\Callback($config[&#39;api_context&#39;], $clientConfig, $tokenStorage, $httpClient);    </span>
+<span class="x">    $cb-&gt;handleCallback($_GET);</span>
+<span class="x">    //direcionamos para o script de autenticação</span>
+<span class="x">    header(&quot;HTTP/1.1 302 Found&quot;);</span>
+<span class="x">    header(&quot;Location: index.php&quot;);</span>
+<span class="x">    exit;</span>
+<span class="x">} catch (\fkooman\OAuth\Client\AuthorizeException $e) {</span>
+<span class="x">    die(sprintf(&quot;ERROR: %s, DESCRIPTION: %s&quot;, $e-&gt;getMessage(), $e-&gt;getDescription()));</span>
+<span class="x">} catch (\Exception $e) {</span>
+<span class="x">    die(sprintf(&quot;ERROR: %s&quot;, $e-&gt;getMessage()));</span>
+<span class="x">}</span>
+</pre></div>
+
+
+<p>Com esses dois script é possivel autenticar o usuário e recuperar suas informações do gerenciador de identidades</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lc_develop_scopes/" class="btn btn-neutral float-right" title="Scopes"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../lc_develop_connecting_with_php5.2_applications/" class="btn btn-neutral" title="Desenvolvimento com aplicações php 5.2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Licenciado através da <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL V3</a>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lc_develop_connecting_with_php5.2_applications/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../lc_develop_scopes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

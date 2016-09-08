@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configurando SSL - Login Cidadão</title>
+  
+
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Configurando SSL";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Login Cidadão</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Sobre a plataforma</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_deploy/">Instalação</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Configurações</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config/">Configurações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_logout_remote/">Configurando Logout Remote</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Configurando SSL</a>
+        
+            <ul>
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_third_part_services/">Configurando Serviços Terceiros</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api/">Usando a API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api_sending_notifications/">Enviando notificações</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Desenvolvimento</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_integration/">Integração com outras aplicações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_java_aplications/">Desenvolvimento com aplicações Java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.2_applications/">Desenvolvimento com aplicações php 5.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.3_applications/">Desenvolvimento com aplicações php 5.3</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_scopes/">Scopes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Login Cidadão</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Configurações &raquo;</li>
+        
+      
+    
+    <li>Configurando SSL</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>How To Secure Apache with Let's Encrypt on Ubuntu 14.04
+Posted Dec 18, 2015 180.7k views Security Apache Let's Encrypt Ubuntu
+Introduction</p>
+<p>This tutorial will show you how to set up a TLS/SSL certificate from Let’s Encrypt on an Ubuntu 14.04 server running Apache as a web server. We will also cover how to automate the certificate renewal process using a cron job.</p>
+<p>SSL certificates are used within web servers to encrypt the traffic between the server and client, providing extra security for users accessing your application. Let’s Encrypt provides an easy way to obtain and install trusted certificates for free.
+Prerequisites</p>
+<p>In order to complete this guide, you will need:</p>
+<div class="codehilite"><pre>An Ubuntu 14.04 server with a non-root sudo user, which you can set up by following our Initial Server Setup guide
+The Apache web server installed with one or more domain names properly configured
+</pre></div>
+
+
+<p>When you are ready to move on, log into your server using your sudo account.
+Step 1 — Install the Server Dependencies</p>
+<p>The first thing we need to do is to update the package manager cache with:</p>
+<div class="codehilite"><pre>sudo apt-get update
+</pre></div>
+
+
+<p>We will need git in order to download the Let’s Encrypt client. To install git, run:</p>
+<div class="codehilite"><pre>sudo apt-get install git
+</pre></div>
+
+
+<p>Step 2 — Download the Let’s Encrypt Client</p>
+<p>Next, we will download the Let’s Encrypt client from its official repository, placing its files in a special location on the server. We will do this to facilitate the process of updating the repository files when a new release is available. Because the Let’s Encrypt client is still in beta, frequent updates might be necessary to correct bugs and implement new functionality.</p>
+<p>We will clone the Let’s Encrypt repository under /opt, which is a standard directory for placing third-party software on Unix systems:</p>
+<div class="codehilite"><pre>sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
+</pre></div>
+
+
+<p>This will create a local copy of the official Let’s Encrypt repository under /opt/letsencrypt.
+Step 3 — Set Up the SSL Certificate</p>
+<p>Generating the SSL Certificate for Apache using the Let’s Encrypt client is quite straightforward. The client will automatically obtain and install a new SSL certificate that is valid for the domains provided as parameters.</p>
+<p>Access the letsencrypt directory:</p>
+<div class="codehilite"><pre>cd /opt/letsencrypt
+</pre></div>
+
+
+<p>To execute the interactive installation and obtain a certificate that covers only a single domain, run the letsencrypt-auto command with:</p>
+<div class="codehilite"><pre>./letsencrypt-auto --apache -d example.com
+</pre></div>
+
+
+<p>If you want to install a single certificate that is valid for multiple domains or subdomains, you can pass them as additional parameters to the command. The first domain name in the list of parameters will be the base domain used by Let’s Encrypt to create the certificate, and for that reason we recommend that you pass the bare top-level domain name as first in the list, followed by any additional subdomains or aliases:</p>
+<div class="codehilite"><pre>./letsencrypt-auto --apache -d example.com -d www.example.com
+</pre></div>
+
+
+<p>For this example, the base domain will be example.com.</p>
+<p>After the dependencies are installed, you will be presented with a step-by-step guide to customize your certificate options. You will be asked to provide an email address for lost key recovery and notices, and you will be able to choose between enabling both http and https access or force all requests to redirect to https.</p>
+<p>When the installation is finished, you should be able to find the generated certificate files at /etc/letsencrypt/live. You can verify the status of your SSL certificate with the following link (don’t forget to replace example.com with your base domain):</p>
+<p>https://www.ssllabs.com/ssltest/analyze.html?d=example.com&amp;latest</p>
+<p>You should now be able to access your website using a https prefix.
+Step 4 — Set Up Auto Renewal</p>
+<p>Let’s Encrypt certificates are valid for 90 days, but it’s recommended that you renew the certificates every 60 days to allow a margin of error. The Let's Encrypt client has a renew command that automatically checks the currently installed certificates and tries to renew them if they are less than 30 days away from the expiration date.</p>
+<p>To trigger the renewal process for all installed domains, you should run:</p>
+<p>./letsencrypt-auto renew</p>
+<p>Because we recently installed the certificate, the command will only check for the expiration date and print a message informing that the certificate is not due to renewal yet. The output should look similar to this:</p>
+<p>Checking for new version...
+Requesting root privileges to run letsencrypt...
+   /root/.local/share/letsencrypt/bin/letsencrypt renew
+Processing /etc/letsencrypt/renewal/example.com.conf</p>
+<p>The following certs are not due for renewal yet:
+  /etc/letsencrypt/live/example.com/fullchain.pem (skipped)
+No renewals were attempted.</p>
+<p>Notice that if you created a bundled certificate with multiple domains, only the base domain name will be shown in the output, but the renewal should be valid for all domains included in this certificate.</p>
+<p>A practical way to ensure your certificates won’t get outdated is to create a cron job that will periodically execute the automatic renewal command for you. Since the renewal first checks for the expiration date and only executes the renewal if the certificate is less than 30 days away from expiration, it is safe to create a cron job that runs every week or even every day, for instance.</p>
+<p>Let's edit the crontab to create a new job that will run the renewal command every week. To edit the crontab for the root user, run:</p>
+<div class="codehilite"><pre>sudo crontab -e
+</pre></div>
+
+
+<p>Include the following content, all in one line:</p>
+<p>crontab</p>
+<p>30 2 * * 1 /opt/letsencrypt/letsencrypt-auto renew &gt;&gt; /var/log/le-renew.log</p>
+<p>Save and exit. This will create a new cron job that will execute the letsencrypt-auto renew command every Monday at 2:30 am. The output produced by the command will be piped to a log file located at /var/log/le-renewal.log.</p>
+<p>For more information on how to create and schedule cron jobs, you can check our How to Use Cron to Automate Tasks in a VPS guide.
+Step 5 — Updating the Let’s Encrypt Client (optional)</p>
+<p>Whenever new updates are available for the client, you can update your local copy by running a git pull from inside the Let’s Encrypt directory:</p>
+<div class="codehilite"><pre>cd /opt/letsencrypt
+sudo git pull
+</pre></div>
+
+
+<p>This will download all recent changes to the repository, updating your client.
+Conclusion</p>
+<p>In this guide, we saw how to install a free SSL certificate from Let’s Encrypt in order to secure a website hosted with Apache. Because the Let’s Encrypt client is still in beta, we recommend that you check the official Let’s Encrypt blog for important updates from time to time.</p>
+<p>source: https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-14-04</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lc_config_third_part_services/" class="btn btn-neutral float-right" title="Configurando Serviços Terceiros"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../lc_config_logout_remote/" class="btn btn-neutral" title="Configurando Logout Remote"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Licenciado através da <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL V3</a>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lc_config_logout_remote/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../lc_config_third_part_services/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

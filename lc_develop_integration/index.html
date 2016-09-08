@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Integração com outras aplicações - Login Cidadão</title>
+  
+
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Integração com outras aplicações";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Login Cidadão</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Sobre a plataforma</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_deploy/">Instalação</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Configurações</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config/">Configurações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_logout_remote/">Configurando Logout Remote</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_ssl/">Configurando SSL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_third_part_services/">Configurando Serviços Terceiros</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api/">Usando a API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api_sending_notifications/">Enviando notificações</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Desenvolvimento</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Integração com outras aplicações</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#integracao">Integração</a></li>
+                
+                    <li><a class="toctree-l4" href="#introducao">Introdução</a></li>
+                
+                    <li><a class="toctree-l4" href="#antes-de-comecar">Antes de Começar</a></li>
+                
+                    <li><a class="toctree-l4" href="#exemplos">Exemplos</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_java_aplications/">Desenvolvimento com aplicações Java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.2_applications/">Desenvolvimento com aplicações php 5.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.3_applications/">Desenvolvimento com aplicações php 5.3</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_scopes/">Scopes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Login Cidadão</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Desenvolvimento &raquo;</li>
+        
+      
+    
+    <li>Integração com outras aplicações</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="integracao">Integração</h1>
+<h2 id="introducao">Introdução</h2>
+<p>Esta página descreve como fazer um integração básica com o Login Cidadao, um gerenciador de identidades que utiliza o protocolo OAuth 2.</p>
+<p>Caso queira mais informações sobre OAuth 2, por favor, leia <a href="http://oauth.net/2/"> a página do OAuth 2 </a> e também <a href="http://aaronparecki.com/articles/2012/07/29/1/oauth2-simplified"> este post de Aaron Parecki </a>.</p>
+<p>O protocolo OAuth 2 é complexo, por isso, a menos que você conheça profundamente tanto a <a href="http://tools.ietf.org/html/rfc6749"> RFC-6749 </a> quanto as melhores práticas em segurança, utilize alguma biblioteca implementada e mantida por alguém que conheça.</p>
+<h2 id="antes-de-comecar">Antes de Começar</h2>
+<h3 id="informacoes-basicas"><a name="basic_info"></a>Informações Básicas</h3>
+<p>São informações básicas e fundamentais para o funcionamento dos exemplos e do processo de autenticação:</p>
+<ul>
+<li>URLs do Login Cidadão</li>
+<li>URL de Autorização. Exemplo: <code>https://meu.rs.gov.br/oauth/v2/auth</code></li>
+<li>URL para solicitação de Access Token. Exemplo: <code>https://meu.rs.gov.br/oauth/v2/token</code></li>
+<li>URL com os dados do usuário autenticado. Exemplo: <code>https://meu.rs.gov.br/api/v1/person.json</code></li>
+<li>O conjunto de escopos que serão acessados</li>
+<li>Chave pública do Client OAuth</li>
+<li>Chave privada (ou Secret) do Client OAuth</li>
+<li>Precisamos especificar as URLs de Retorno que o gerenciador de identidades esta autorizado a retornar dados.</li>
+</ul>
+<p>Tanto as URLs do Login Cidadão quanto as chaves de acesso devem ser obtidas na instalação do Login Cidadão na qual você deseja autenticar-se enquanto as URLs de Retorno dependem do seu Client OAuth.</p>
+<h3 id="escopos">Escopos</h3>
+<p>Você pode solicitar quantos e quais escopos desejar, entretanto esteja ciente de que quanto mais informações você solicitar ao usuário menor será a probabilidade do mesmo lhe autorizar a recebê-las, portanto solicite apenas o <strong>absolutamente necessário</strong>.</p>
+<p>A lista dos escopos suportados pode ser encontrada <a href="../lc_develop_scopes/"> aqui </a>.</p>
+<h2 id="exemplos">Exemplos</h2>
+<p>No nosso branch <code>exemplos</code> demonstramos a integração utilizando <code>Java</code>, <code>PHP 5.2</code> e <code>PHP 5.3</code>.
+Em todos os exemplos é necessário ter as <a href="#basic_info"> Informações Básicas </a>.</p>
+<p>Para continuar escolha um dos seguintes exemplos para explicarmos como utilizar a autenticação:</p>
+<ul>
+<li><a href="../lc_develop_connecting_with_php5.2_applications/"> Exemplo utilizando PHP 5.2 </a></li>
+<li><a href="../lc_develop_connecting_with_php5.3_applications/"> Exemplo utilizando PHP 5.3 </a></li>
+<li><a href="./"> Exemplo utilizando Java </a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lc_develop_connecting_with_java_aplications/" class="btn btn-neutral float-right" title="Desenvolvimento com aplicações Java"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../lc_api_sending_notifications/" class="btn btn-neutral" title="Enviando notificações"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Licenciado através da <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL V3</a>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lc_api_sending_notifications/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../lc_develop_connecting_with_java_aplications/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

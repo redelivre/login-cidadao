@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Desenvolvimento com aplicações Java - Login Cidadão</title>
+  
+
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Desenvolvimento com aplicações Java";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Login Cidadão</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Sobre a plataforma</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_deploy/">Instalação</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Configurações</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config/">Configurações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_logout_remote/">Configurando Logout Remote</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_ssl/">Configurando SSL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_third_part_services/">Configurando Serviços Terceiros</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api/">Usando a API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api_sending_notifications/">Enviando notificações</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Desenvolvimento</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_integration/">Integração com outras aplicações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Desenvolvimento com aplicações Java</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#exemplo-utilizando-java">Exemplo utilizando Java</a></li>
+                
+                    <li><a class="toctree-l4" href="#antes-de-comecar">Antes de Começar</a></li>
+                
+                    <li><a class="toctree-l4" href="#comecando">Começando</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.2_applications/">Desenvolvimento com aplicações php 5.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.3_applications/">Desenvolvimento com aplicações php 5.3</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_scopes/">Scopes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Login Cidadão</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Desenvolvimento &raquo;</li>
+        
+      
+    
+    <li>Desenvolvimento com aplicações Java</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="exemplo-utilizando-java">Exemplo utilizando Java</h1>
+<h2 id="antes-de-comecar">Antes de Começar</h2>
+<p>Certifique-se de que você tem todos os dados descritos <a href="../lc_develop_integration/#basic_info"> aqui </a> antes de seguir o tutorial.</p>
+<h3 id="dependencias">Dependências</h3>
+<p>Para conectar no Login Cidadão usando <code>Java</code> é utilizado o cliente OAuth <a href="https://oltu.apache.org/">Apache Oltu</a>. Nesse exemplo, será utilizado o gerenciador de dependencias Maven. Assim, no <code>pom.xml</code> do projeto é necessario adicionar as seguintes dependencias:</p>
+<div class="codehilite"><pre>    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;oltu.oauth2.version&gt;</span>1.0.0<span class="nt">&lt;/oltu.oauth2.version&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="c">&lt;!-- idm deps --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>org.apache.oltu.oauth2.common<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.oltu.oauth2<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${oltu.oauth2.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.oltu.oauth2<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>org.apache.oltu.oauth2.client<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${oltu.oauth2.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.oltu.oauth2<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>org.apache.oltu.oauth2.jwt<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${oltu.oauth2.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.oltu.oauth2<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>org.apache.oltu.oauth2.dynamicreg.client<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${oltu.oauth2.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.oltu.oauth2<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>org.apache.oltu.oauth2.dynamicreg.common<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${oltu.oauth2.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>       
+        <span class="c">&lt;!-- json utils --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.codehaus.jackson<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>jackson-mapper-asl<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.9.13<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>       
+    <span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+
+
+<h2 id="comecando">Começando</h2>
+<h3 id="arquivo-de-configuracao">Arquivo de configuração</h3>
+<p>Primeiramente criamos um arquivo de configuração <code>oauth_configuration.properties</code> referente ao servidor OAuth que desejamos utilizar. Nesse arquivo, especificamos o tipo de aplicação que o Apache Oltu utilizará, especificamos o endereço para fazer a autenticação, o endereço para obter o Access Token, endereço para obter os dados do usuário, os escopos desejados, a chave pública, a chave privada e o endereço para onde o gerenciador de identidades irá retornar os dados :</p>
+<div class="codehilite"><pre>//tipo de aplicação que o Apache Oltu utilizará
+application=generic
+
+//endereço para fazer a autenticação
+authz_endpoint=https://meu.rs.gov.br/oauth/v2/auth
+
+//endereço para obter a Access Token
+token_endpoint=https://meu.rs.gov.br/oauth/v2/token
+
+//endereço para obter os dados do usuário
+resource_url=https://meu.rs.gov.br/api/v1/person
+
+//escopos desejados
+scope=
+
+//chave pública
+client_id=
+
+//chave privada
+client_secret=
+
+//endereço para onde o gerenciador de identidades irá retornar dados
+redirect_uri=
+</pre></div>
+
+
+<h3 id="criando-um-filtro-de-autenticacao">Criando um filtro de autenticação</h3>
+<p>É necessário criar um filtro utilizando <code>javax.servlet.Filter</code>. Para isso utilizamos o arquivo <code>src/main/java/br/gov/rs/meu/helper/AuthFilter.java</code> da seguinte forma:</p>
+<div class="codehilite"><pre><span class="c1">// src/main/java/br/gov/rs/meu/helper/AuthFilter.java</span>
+
+<span class="nd">@WebFilter</span><span class="o">(</span><span class="n">urlPatterns</span> <span class="o">=</span> <span class="o">{</span> <span class="n">Utils</span><span class="o">.</span><span class="na">REDIRECT_URI</span> <span class="o">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AuthFilter</span> <span class="kd">implements</span> <span class="n">Filter</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Na a anotação <code>@WebFilter</code> nos adicionamos como um dos endereços filtrados o endereço para aonde o gerenciador de identidades retornará dados.</p>
+<div class="codehilite"><pre><span class="c1">// src/main/java/br/gov/rs/meu/helper/AuthFilter.java</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doFilter</span><span class="o">(</span><span class="n">ServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">ServletResponse</span> <span class="n">response</span><span class="o">,</span>
+            <span class="n">FilterChain</span> <span class="n">chain</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ServletException</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">HttpServletRequest</span> <span class="n">req</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpServletRequest</span><span class="o">)</span> <span class="n">request</span><span class="o">;</span>
+            <span class="n">HttpServletResponse</span> <span class="n">res</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpServletResponse</span><span class="o">)</span> <span class="n">response</span><span class="o">;</span>
+            <span class="n">HttpSession</span> <span class="n">ses</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="na">getSession</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+
+            <span class="c1">// Guardamos o endereço que o usuário está tentando acessar</span>
+            <span class="n">String</span> <span class="n">reqURI</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">();</span>
+
+            <span class="c1">// Verificamos se o usuário já está autenticado nesta aplicação</span>
+            <span class="k">if</span> <span class="o">((</span><span class="n">ses</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">ses</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">||</span> <span class="n">reqURI</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">&quot;javax.faces.resource&quot;</span><span class="o">)</span> <span class="o">||</span> <span class="n">Utils</span><span class="o">.</span><span class="na">inArray</span><span class="o">(</span><span class="n">reqURI</span><span class="o">,</span> <span class="n">whiteList</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// Ele não está autenticado, mas pode estar em processo de autenticação</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">ses</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">ses</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">&quot;lc.oauthParams&quot;</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">// Obtemos os parâmetros de autenticação</span>
+                    <span class="n">OAuthParams</span> <span class="n">oauthParams</span> <span class="o">=</span> <span class="o">(</span><span class="n">OAuthParams</span><span class="o">)</span> <span class="n">ses</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">&quot;lc.oauthParams&quot;</span><span class="o">);</span>
+                    <span class="n">OAuthAuthzResponse</span> <span class="n">oar</span> <span class="o">=</span> <span class="n">OAuthAuthzResponse</span><span class="o">.</span><span class="na">oauthCodeAuthzResponse</span><span class="o">(</span><span class="n">req</span><span class="o">);</span>
+
+                    <span class="c1">// e verificamos se recebemos um Authorization Code</span>
+                    <span class="n">oauthParams</span><span class="o">.</span><span class="na">setAuthzCode</span><span class="o">(</span><span class="n">oar</span><span class="o">.</span><span class="na">getCode</span><span class="o">());</span>
+
+                    <span class="c1">// Solicitamos um Access Token</span>
+                    <span class="n">Utils</span><span class="o">.</span><span class="na">getAuthorizationToken</span><span class="o">(</span><span class="n">oauthParams</span><span class="o">);</span>
+
+                    <span class="c1">// e, em seguida, solicitamos os dados do usuário</span>
+                    <span class="n">Utils</span><span class="o">.</span><span class="na">getResource</span><span class="o">(</span><span class="n">oauthParams</span><span class="o">);</span>
+
+                    <span class="c1">// Para simplificar, armazenamos os dados em um Map</span>
+                    <span class="c1">// Naturalmente você deveria desserializar o JSON recebido</span>
+                    <span class="c1">// para um objeto apropriado</span>
+                    <span class="n">ObjectMapper</span> <span class="n">mapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectMapper</span><span class="o">();</span>                   
+                    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">person</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span>
+                            <span class="n">oauthParams</span><span class="o">.</span><span class="na">getResource</span><span class="o">(),</span>
+                            <span class="k">new</span> <span class="n">TypeReference</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;()</span> <span class="o">{</span>
+                            <span class="o">});</span>
+
+                    <span class="c1">// Nesse momento já possuimos os dados do usuário</span>
+                    <span class="c1">// É nesse ponto que você deve persistir o usuário juntamente com</span>
+                    <span class="c1">// Seus Access e Refresh Tokens</span>
+                    <span class="c1">// Como isto é apenas um exemplo vamos apenas salvar na sessão</span>
+                    <span class="n">ses</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">,</span> <span class="n">person</span><span class="o">);</span>
+
+                    <span class="c1">// Encaminhamos o usuário para onde ele tentou ir originalmente</span>
+                    <span class="n">res</span><span class="o">.</span><span class="na">sendRedirect</span><span class="o">((</span><span class="n">String</span><span class="o">)</span> <span class="n">ses</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">&quot;lc.origTarget&quot;</span><span class="o">));</span>
+                    <span class="n">ses</span><span class="o">.</span><span class="na">removeAttribute</span><span class="o">(</span><span class="s">&quot;lc.origTarget&quot;</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="c1">// O usuário não está autenticado nem está se autenticando</span>
+                    <span class="c1">// Então devemos encaminhá-lo para o gerenciador de identidade</span>
+
+                    <span class="c1">// É uma boa prática salvar a URL que o usuário tentou acessar</span>
+                    <span class="c1">// para encaminhá-lo depois da autorização e autenticação.</span>
+                    <span class="n">String</span> <span class="n">origTarget</span> <span class="o">=</span> <span class="n">Utils</span><span class="o">.</span><span class="na">getFullRequestURL</span><span class="o">(</span><span class="n">req</span><span class="o">);</span>
+
+                    <span class="c1">// Preparamos as configurações do gerenciador de identidade</span>
+                    <span class="n">OAuthParams</span> <span class="n">oauthParams</span> <span class="o">=</span> <span class="n">Utils</span><span class="o">.</span><span class="na">prepareOAuthParams</span><span class="o">(</span><span class="n">req</span><span class="o">);</span>
+                    <span class="n">OAuthClientRequest</span> <span class="n">oauthRequest</span> <span class="o">=</span> <span class="n">OAuthClientRequest</span>
+                            <span class="o">.</span><span class="na">authorizationLocation</span><span class="o">(</span>
+                                    <span class="n">oauthParams</span><span class="o">.</span><span class="na">getAuthzEndpoint</span><span class="o">())</span>
+                            <span class="o">.</span><span class="na">setClientId</span><span class="o">(</span><span class="n">oauthParams</span><span class="o">.</span><span class="na">getClientId</span><span class="o">())</span>
+                            <span class="o">.</span><span class="na">setRedirectURI</span><span class="o">(</span><span class="n">oauthParams</span><span class="o">.</span><span class="na">getRedirectUri</span><span class="o">())</span>
+                            <span class="o">.</span><span class="na">setResponseType</span><span class="o">(</span><span class="n">ResponseType</span><span class="o">.</span><span class="na">CODE</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span>
+                            <span class="o">.</span><span class="na">setScope</span><span class="o">(</span><span class="n">oauthParams</span><span class="o">.</span><span class="na">getScope</span><span class="o">())</span>
+                            <span class="o">.</span><span class="na">setState</span><span class="o">(</span><span class="n">oauthParams</span><span class="o">.</span><span class="na">getState</span><span class="o">())</span>
+                            <span class="o">.</span><span class="na">buildQueryMessage</span><span class="o">();</span>
+
+                    <span class="c1">// Salvemos na sessão as configurações do gerenciador de identidade</span>
+                    <span class="n">ses</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">&quot;lc.oauthParams&quot;</span><span class="o">,</span> <span class="n">oauthParams</span><span class="o">);</span>
+                    <span class="n">ses</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">&quot;lc.origTarget&quot;</span><span class="o">,</span> <span class="n">origTarget</span><span class="o">);</span>
+
+                    <span class="c1">// Redirecionamos o usuário para o gerenciador de identidades</span>
+                    <span class="n">res</span><span class="o">.</span><span class="na">sendRedirect</span><span class="o">(</span><span class="n">oauthRequest</span><span class="o">.</span><span class="na">getLocationUri</span><span class="o">());</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Throwable</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+</pre></div>
+
+
+<p>No arquivo <code>src/main/java/br/gov/rs/meu/helper/Utils.java</code> merece explicação dois metodos: <code>getAuthorizationToken</code> e o <code>getResource</code>.
+O metodo <code>getAuthorizationToken</code> é responsável por obter a Access Token:</p>
+<div class="codehilite"><pre><span class="kr">public</span> <span class="kr">static</span> <span class="k">void</span> <span class="nx">getAuthorizationToken</span><span class="p">(</span><span class="nx">OAuthParams</span> <span class="nx">oauthParams</span><span class="p">)</span> <span class="kr">throws</span> <span class="nx">OAuthSystemException</span><span class="p">,</span> <span class="nx">OAuthProblemException</span> <span class="p">{</span>
+    <span class="c1">//Preparamos as configurações do gerenciador de identidade</span>
+    <span class="nx">OAuthClientRequest</span> <span class="nx">oRequest</span> <span class="o">=</span> <span class="nx">OAuthClientRequest</span>
+            <span class="p">.</span><span class="nx">tokenLocation</span><span class="p">(</span><span class="nx">oauthParams</span><span class="p">.</span><span class="nx">getTokenEndpoint</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">setClientId</span><span class="p">(</span><span class="nx">oauthParams</span><span class="p">.</span><span class="nx">getClientId</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">setClientSecret</span><span class="p">(</span><span class="nx">oauthParams</span><span class="p">.</span><span class="nx">getClientSecret</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">setRedirectURI</span><span class="p">(</span><span class="nx">oauthParams</span><span class="p">.</span><span class="nx">getRedirectUri</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">setCode</span><span class="p">(</span><span class="nx">oauthParams</span><span class="p">.</span><span class="nx">getAuthzCode</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">setGrantType</span><span class="p">(</span><span class="nx">GrantType</span><span class="p">.</span><span class="nx">AUTHORIZATION_CODE</span><span class="p">).</span><span class="nx">buildBodyMessage</span><span class="p">();</span>
+
+    <span class="nx">OAuthClient</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OAuthClient</span><span class="p">(</span><span class="k">new</span> <span class="nx">URLConnectionClient</span><span class="p">());</span>
+
+    <span class="nx">OAuthAccessTokenResponse</span> <span class="nx">oauthResponse</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="c1">//definimos uma classe genérica para receber a Access Token</span>
+    <span class="nx">Class</span><span class="cp">&lt;?</span> <span class="k">extends</span> <span class="nx">OAuthAccessTokenResponse</span><span class="o">&gt;</span> <span class="nx">cl</span> <span class="o">=</span> <span class="nx">OAuthJSONAccessTokenResponse</span><span class="o">.</span><span class="nx">class</span><span class="p">;</span>
+    <span class="c1">//requisitamos ao gerenciador de identidade uma Access Token para</span>
+    <span class="nx">oauthResponse</span> <span class="o">=</span> <span class="nx">client</span><span class="o">.</span><span class="nx">accessToken</span><span class="p">(</span><span class="nx">oRequest</span><span class="p">,</span> <span class="nx">cl</span><span class="p">);</span>
+    <span class="c1">//salve a Access Token, a Refresh Token e a data de expiração</span>
+    <span class="nx">oauthParams</span><span class="o">.</span><span class="nx">setAccessToken</span><span class="p">(</span><span class="nx">oauthResponse</span><span class="o">.</span><span class="nx">getAccessToken</span><span class="p">());</span>
+    <span class="nx">oauthParams</span><span class="o">.</span><span class="nx">setExpiresIn</span><span class="p">(</span><span class="nx">oauthResponse</span><span class="o">.</span><span class="nx">getExpiresIn</span><span class="p">());</span>
+    <span class="nx">oauthParams</span><span class="o">.</span><span class="nx">setRefreshToken</span><span class="p">(</span><span class="nx">oauthResponse</span><span class="o">.</span><span class="nx">getRefreshToken</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>O metodo <code>getResource</code> é responsável por obter os dados do usuário:</p>
+<div class="codehilite"><pre>public static void getResource(OAuthParams oauthParams) throws OAuthSystemException, OAuthProblemException {
+    OAuthClientRequest request = null;
+    //escolhemos a forma que enviamos a nossa Access Token para o gerenciador de identidades
+    if (Utils.REQUEST_TYPE_QUERY.equals(oauthParams.getRequestType())) {
+        request = new OAuthBearerClientRequest(oauthParams.getResourceUrl())
+                .setAccessToken(oauthParams.getAccessToken())
+                .buildQueryMessage();
+    } else if (Utils.REQUEST_TYPE_HEADER.equals(oauthParams
+            .getRequestType())) {
+        request = new OAuthBearerClientRequest(oauthParams.getResourceUrl())
+                .setAccessToken(oauthParams.getAccessToken())
+                .buildHeaderMessage();
+    } else if (Utils.REQUEST_TYPE_BODY.equals(oauthParams.getRequestType())) {
+        request = new OAuthBearerClientRequest(oauthParams.getResourceUrl())
+                .setAccessToken(oauthParams.getAccessToken())
+                .buildBodyMessage();
+    }
+
+    OAuthClient client = new OAuthClient(new URLConnectionClient());
+    //requisitamos ao gerenciador de identidade os dados do usuário
+    OAuthResourceResponse resourceResponse = client.resource(request,
+            oauthParams.getRequestMethod(), OAuthResourceResponse.class);
+
+    //caso tenha uma resposta positiva do gerenciador de identidade salve a resposta
+    if (resourceResponse.getResponseCode() == 200) {
+        oauthParams.setResource(resourceResponse.getBody());
+    } else {
+        oauthParams.setErrorMessage(&quot;Could not access resource: &quot;
+                + resourceResponse.getResponseCode() + &quot; &quot;
+                + resourceResponse.getBody());
+    }
+}
+</pre></div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lc_develop_connecting_with_php5.2_applications/" class="btn btn-neutral float-right" title="Desenvolvimento com aplicações php 5.2"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../lc_develop_integration/" class="btn btn-neutral" title="Integração com outras aplicações"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Licenciado através da <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL V3</a>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lc_develop_integration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../lc_develop_connecting_with_php5.2_applications/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

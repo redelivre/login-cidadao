@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configurando Logout Remote - Login Cidadão</title>
+  
+
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Configurando Logout Remote";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Login Cidadão</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Sobre a plataforma</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Deploy</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_deploy/">Instalação</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Configurações</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config/">Configurações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Configurando Logout Remote</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#logout-remoto">Logout "Remoto"</a></li>
+                
+                    <li><a class="toctree-l4" href="#passos">Passos</a></li>
+                
+                    <li><a class="toctree-l4" href="#passos-detalhados">Passos Detalhados</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_ssl/">Configurando SSL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_config_third_part_services/">Configurando Serviços Terceiros</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api/">Usando a API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_api_sending_notifications/">Enviando notificações</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Desenvolvimento</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_integration/">Integração com outras aplicações</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_java_aplications/">Desenvolvimento com aplicações Java</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.2_applications/">Desenvolvimento com aplicações php 5.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_connecting_with_php5.3_applications/">Desenvolvimento com aplicações php 5.3</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lc_develop_scopes/">Scopes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Login Cidadão</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Configurações &raquo;</li>
+        
+      
+    
+    <li>Configurando Logout Remote</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="logout-remoto">Logout "Remoto"</h1>
+<p>Logout Remoto é o nome da funcionalidade que permite um Client OAuth, devidamente autorizado por um usuário, a gerar uma Logout Key. A Logout Key será usada para deslogar esse usuário com o simples acessar de um link.</p>
+<h2 id="passos">Passos</h2>
+<ol>
+<li>O Client OAuth (também conhecido como Serviço ou Aplicação de Terceiros) solicita, caso já não tenha, um Access Token atraves do grant type de Client Credentials. (<a href="http://aaronparecki.com/articles/2012/07/29/1/oauth2-simplified">Leia mais sobre OAuth</a>)</li>
+<li>O Client OAuth usa seu Access Token para solicitar a Logout Key para a pessoa que já autorizou, previamente, esse Client utilizando o escopo <code>logout</code>.</li>
+<li>O Client OAuth recebe a Logout Key e então redireciona o usuário para a URL de logout passando essa chave recém obtida.</li>
+<li>O Usuário é desconectado do Login Cidadão.</li>
+</ol>
+<p><strong>Nota:</strong> Cada Logout Key tem um tempo de vida de 5 minutos e só pode ser usada uma única vez.</p>
+<h2 id="passos-detalhados">Passos Detalhados</h2>
+<h3 id="obtendo-o-access-token">Obtendo o Access Token</h3>
+<p>Essa etapa é específica da sua linguagem de programação e biblioteca OAuth utilizadas, então cabe a você pesquisar como usar as ferramentas de sua escolha.</p>
+<h3 id="solicitando-uma-logout-key">Solicitando uma Logout Key</h3>
+<p>A Logout Key é obtida ao chamar a API do Login Cidadão <code>GET /api/v1/person/{personId}/logout-key.json</code> e autenticando usando o Access Token da sua aplicação.</p>
+<h4 id="exemplo">Exemplo:</h4>
+<p>Request:</p>
+<div class="codehilite"><pre><span class="err">GET /api/v1/person/1/logout-key.json</span>
+<span class="err">Authorization: Bearer ZTQzNWMzMWM...TY4M2JkNTdhZGFhMTFiZmYwZA</span>
+</pre></div>
+
+
+<p>Response:</p>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;7cfe184...4d71c6e&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://meu.rs.gov.br/logout/if-not-remembered/7cfe184...4d71c6e&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Observe que, para sua conveniência, nós já retornamos a URL completa para onde o usuário deve ser encaminhado.</p>
+<h3 id="redirecionando-o-usuario">Redirecionando o usuário</h3>
+<p>De posse da Logout Key e da URL você pode alternativamente redirectionar o usuário para essa URL ou abri-la em um frame escondido na sua página.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lc_config_ssl/" class="btn btn-neutral float-right" title="Configurando SSL"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../lc_config/" class="btn btn-neutral" title="Configurações"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Licenciado através da <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL V3</a>.</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../lc_config/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../lc_config_ssl/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -12,6 +12,12 @@ parameters:
     # Database password (use ~ for socket)
     database_password: logincidadao
 
+    # !! WARNING !!
+    # This *MUST* be 'https' in production!
+    # Change this value only in EXTREME circumstances AND if you _know_ what you are doing.
+    # You SHOULD be ALWAYS running this software using HTTPS, even in development environments!
+    required_channel: https
+
     # Trusted proxies (http://symfony.com/doc/current/cookbook/request/load_balancer_reverse_proxy.html)
     trusted_proxies: []
     # IPs allowed to access dev environment

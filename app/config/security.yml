@@ -156,41 +156,41 @@ security:
           anonymous:  true
 
     access_control:
-        - { path: ^/admin, role: [ROLE_SUPER], requires_channel: https }
-        - { path: ^/dev, role: [ROLE_DEV], requires_channel: https }
+        - { path: ^/admin, role: [ROLE_SUPER], requires_channel: %required_channel% }
+        - { path: ^/dev, role: [ROLE_DEV], requires_channel: %required_channel% }
 
-        - { path: ^/_error, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/_error, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
 
-        - { path: ^/api/v1/address/(cities|states|countries)/search, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/api/v1/address/cities/prefetch, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/api/v1/public/lc_consultaCep2, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ], requires_channel: https }
+        - { path: ^/api/v1/address/(cities|states|countries)/search, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
+        - { path: ^/api/v1/address/cities/prefetch, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
+        - { path: ^/api/v1/public/lc_consultaCep2, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
+        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ], requires_channel: %required_channel% }
 
-        - { path: ^/oauth$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/.well-known, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/openid/connect/(session|jwks|register|verify|token), role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/openid/connect/authorize, role: IS_AUTHENTICATED_REMEMBERED, requires_channel: https }
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/oauth$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
+        - { path: ^/.well-known, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
+        - { path: ^/openid/connect/(session|jwks|register|verify|token), role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
+        - { path: ^/openid/connect/authorize, role: IS_AUTHENTICATED_REMEMBERED, requires_channel: %required_channel% }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
 
-        - { path: ^/connect/twitter$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/connect/google$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/login/facebook$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/connect/twitter$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
+        - { path: ^/connect/google$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
+        - { path: ^/login/facebook$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
 
-        - { path: ^/monitor/health, role: IS_AUTHENTICATED_ANONYMOUSLY, ip: %allowed_monitors%, requires_channel: https }
+        - { path: ^/monitor/health, role: IS_AUTHENTICATED_ANONYMOUSLY, ip: %allowed_monitors%, requires_channel: %required_channel% }
 
         - { path: ^/nelmio/csp/report$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/(contact|privacy|about|help|register), role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/person/checkEmailAvailable, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/(contact|privacy|about|help|register), role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
+        - { path: ^/person/checkEmailAvailable, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
 
-        - { path: ^/job, role: ROLE_SUPER_ADMIN, requires_channel: https }
-        - { path: ^/external/navbar.js, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/job, role: ROLE_SUPER_ADMIN, requires_channel: %required_channel% }
+        - { path: ^/external/navbar.js, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
 
-        - { path: ^/logout/if-not-remembered, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/logout/if-not-remembered, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
+        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: %required_channel% }
 
-        - { path: ^/, roles: IS_AUTHENTICATED_REMEMBERED, requires_channel: https }
-        - { path: ^/profile/edit, roles: IS_AUTHENTICATED_FULLY, requires_channel: https }
-        - { path: ^/profile/change-username, roles: IS_AUTHENTICATED_FULLY, requires_channel: https }
-        - { path: ^/profile/change-password, roles: IS_AUTHENTICATED_FULLY, requires_channel: https }
-        - { path: ^/person, role: IS_AUTHENTICATED_REMEMBERED, requires_channel: https }
+        - { path: ^/, roles: IS_AUTHENTICATED_REMEMBERED, requires_channel: %required_channel% }
+        - { path: ^/profile/edit, roles: IS_AUTHENTICATED_FULLY, requires_channel: %required_channel% }
+        - { path: ^/profile/change-username, roles: IS_AUTHENTICATED_FULLY, requires_channel: %required_channel% }
+        - { path: ^/profile/change-password, roles: IS_AUTHENTICATED_FULLY, requires_channel: %required_channel% }
+        - { path: ^/person, role: IS_AUTHENTICATED_REMEMBERED, requires_channel: %required_channel% }

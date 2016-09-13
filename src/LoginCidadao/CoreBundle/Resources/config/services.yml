@@ -385,8 +385,10 @@ services:
         arguments:
             - "@doctrine.orm.entity_manager"
             - '%oauth_default_client.uid%'
+            - '%required_channel%'
         calls:
             - ["setCacheProvider", ["@?cache"]]
+            - ["setLogger", ["@?logger"]]
         tags:
             - { name: kernel.event_subscriber }
 

@@ -71,13 +71,11 @@ assetic:
                 - '@LoginCidadaoCoreBundle/Resources/public/js/jquery.placeholder.js'
                 - '@LoginCidadaoCoreBundle/Resources/public/js/jquery.infinitescroll.js'
                 - '@LoginCidadaoCoreBundle/Resources/public/js/jquery.infinitescroll.local.js'
-                - '@LoginCidadaoCoreBundle/Resources/public/js/jquery.visible.min.js'
                 - '@LoginCidadaoCoreBundle/Resources/public/js/jquery.preventDoubleSubmission.js'
                 - '@LoginCidadaoCoreBundle/Resources/public/js/general.js'
         bootstrap_css:
             inputs:
                 - 'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
-                - '@LoginCidadaoCoreBundle/Resources/public/bootstrap/3.3.1/css/bootstrap-theme.min.css'
                 - '@LoginCidadaoCoreBundle/Resources/public/bootstrap-switch/3.0.2/css/bootstrap3/bootstrap-switch.min.css'
         lc_compact_layout_css:
             inputs:

@@ -8,7 +8,7 @@
         <ul>
           <li><a href="{{ path('lc_about') }}">{% trans %}About Citizen's Login{% endtrans %}</a></li>
           <li><a href="{{ path('lc_privacy') }}">{% trans %}Privacy and Terms of Service{% endtrans %}</a></li>
-          <li><a href="https://github.com/PROCERGS/login-cidadao/" target="_blank">{% trans %}GitHub Repository{% endtrans %}</a></li>
+          <li><a href="https://github.com/culturagovbr/id-cultura/" target="_blank">{% trans %}GitHub Repository{% endtrans %}</a></li>
         </ul>
       </div>
 
@@ -37,18 +37,16 @@
       {% block credits %}{% endblock %}
     </div>
   </div>
-<div class="gov_federal">
-  <div class="content container">
-    <div class="row inner-row">
-          <div class="col-sm-12 col-lg-6">
-              <div class="acesso_info"> Acesso à Informação
-              </div>
-            </div>
-            <div class="col-sm-12 col-lg-6">
-              <div class="logo_gov">Logo Governo Federal
-              </div>
-            </div>
+  <div class="gov_federal">
+    <div class="content container {{columns}}">
+      <div class="row inner-row">
+        <div class="col-sm-12 col-lg-6">
+          <div class="acesso_info"> Acesso à Informação</div>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+          <div class="logo_gov">Logo Governo Federal</div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </footer>

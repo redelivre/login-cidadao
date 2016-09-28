@@ -46,7 +46,7 @@ class Person extends BaseUser implements PersonInterface, TwoFactorInterface, Ba
 
     /**
      * @JMS\Expose
-     * @JMS\Groups({"first_name","full_name","public_profile","given_name"})
+     * @JMS\Groups({"first_name","full_name","public_profile","given_name","name"})
      * @ORM\Column(type="string", nullable=true)
      * @Assert\NotBlank(message="Please enter your name.", groups={"Profile"})
      * @Assert\Length(
@@ -79,7 +79,6 @@ class Person extends BaseUser implements PersonInterface, TwoFactorInterface, Ba
     /**
      * @JMS\Expose
      * @JMS\Groups({"username","preferred_username"})
-     * @LCAssert\Username
      * @Assert\NotBlank
      * @Assert\Length(
      *     min="1",
@@ -147,6 +146,10 @@ class Person extends BaseUser implements PersonInterface, TwoFactorInterface, Ba
      * @JMS\Groups({"mobile","phone_number"})
      * @ORM\Column(type="string", nullable=true)
      * @JMS\Since("1.0")
+     * @LCAssert\E164PhoneNumber(
+     *     maxMessage="person.validation.mobile.length.max",
+     *     groups={"Registration", "LoginCidadaoRegistration", "Dynamic", "Profile"}
+     * )
      */
     protected $mobile;
 
@@ -445,7 +448,7 @@ class Person extends BaseUser implements PersonInterface, TwoFactorInterface, Ba
 
     public function setMobile($mobile)
     {
-        $mobile = preg_replace('/[^0-9]/', '', $mobile);
+        $mobile = preg_replace('/[^0-9+]/', '', $mobile);
         $this->mobile = $mobile;
     }
 
@@ -642,33 +645,6 @@ class Person extends BaseUser implements PersonInterface, TwoFactorInterface, Ba
         $terms['email'] = is_null($this->getConfirmationToken());
 
         return $terms;
-    }
-
-    /**
-     * @param array
-     */
-    public function setFBData($fbdata)
-    {
-        if (isset($fbdata['id'])) {
-            $this->setFacebookId($fbdata['id']);
-            $this->addRole('ROLE_FACEBOOK');
-        }
-        if (isset($fbdata['first_name']) && is_null($this->getFirstName())) {
-            $this->setFirstName($fbdata['first_name']);
-        }
-        if (isset($fbdata['last_name']) && is_null($this->getSurname())) {
-            $this->setSurname($fbdata['last_name']);
-        }
-        if (isset($fbdata['email']) && is_null($this->getEmail())) {
-            $this->setEmail($fbdata['email']);
-        }
-        if (isset($fbdata['birthday']) && is_null($this->getBirthdate())) {
-            $date = \DateTime::createFromFormat('m/d/Y', $fbdata['birthday']);
-            $this->setBirthdate($date);
-        }
-        if (isset($fbdata['username']) && is_null($this->getFacebookUsername())) {
-            $this->setFacebookUsername($fbdata['username']);
-        }
     }
 
     public function setCpf($cpf)

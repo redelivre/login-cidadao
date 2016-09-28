@@ -40,10 +40,10 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
-            
+
             new LoginCidadao\BadgesControlBundle\LoginCidadaoBadgesControlBundle(),
             new LoginCidadao\BadgesBundle\LoginCidadaoBadgesBundle(),
-            
+
             new Scheb\TwoFactorBundle\SchebTwoFactorBundle(),
             new LoginCidadao\ValidationControlBundle\LoginCidadaoValidationControlBundle(),
 
@@ -58,6 +58,8 @@ class AppKernel extends Kernel
             new Liip\MonitorBundle\LiipMonitorBundle(),
 
             new Donato\PathWellBundle\DonatoPathWellBundle(),
+
+            new LoginCidadao\IdCulturaBundle\IdCulturaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

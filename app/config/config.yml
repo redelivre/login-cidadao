@@ -36,7 +36,7 @@ twig:
         fos_csrf_provider: "@security.csrf.token_manager"
         facebook_app_id: "%facebook_app_id%"
         app_router: "@router"
-        postalcode_search_link: 
+        postalcode_search_link:
         third_party_login: %third_party_login%
 
 # Assetic Configuration
@@ -109,7 +109,7 @@ assetic:
         lc_base_css:
             inputs:
                 - '@bootstrap_css'
-                - 'bundles/logincidadaocore/css/general.css'
+                - 'bundles/idcultura/css/general.css'
                 - 'bundles/logincidadaocore/css/navbar.css'
                 - 'bundles/logincidadaocore/css/ac.widget.css'
                 - 'bundles/logincidadaocore/css/common.grid.css'

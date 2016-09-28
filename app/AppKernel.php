@@ -20,7 +20,6 @@ class AppKernel extends Kernel
             new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new LoginCidadao\OAuthBundle\LoginCidadaoOAuthBundle(),
             new LoginCidadao\CoreBundle\LoginCidadaoCoreBundle(),
-            new LoginCidadao\IdCulturaBundle\IdCulturaBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
@@ -60,7 +59,7 @@ class AppKernel extends Kernel
 
             new Donato\PathWellBundle\DonatoPathWellBundle(),
 
-            new LoginCidadao\IdCulturaBundle\IdCulturaBundle(),
+            new IdCultura\IdCulturaBundle\IdCulturaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

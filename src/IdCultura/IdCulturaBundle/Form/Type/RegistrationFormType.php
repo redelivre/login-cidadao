@@ -1,6 +1,6 @@
 <?php
 
-namespace LoginCidadao\IdCulturaBundle\Form\Type;
+namespace IdCultura\IdCulturaBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;

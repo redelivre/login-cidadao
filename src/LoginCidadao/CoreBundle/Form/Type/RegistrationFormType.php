@@ -56,29 +56,21 @@ class RegistrationFormType extends BaseType
                     ),
                     'invalid_message' => 'fos_user.password.mismatch',
                 )
-            )
-            ->add(
-                'firstName',
-                null,
-                [
-                    'required' => true,
-                    'label' => 'person.form.firstName.label',
-                    'attr' => [
-                        'placeholder' => 'person.form.firstName.placeholder',
-                    ],
-                ]
-            )
-            ->add(
-                'surname',
-                null,
-                [
-                    'required' => true,
-                    'attr' => [
-                        'placeholder' => 'person.form.surname.placeholder',
-                    ],
-                ]
             );
+
         if ($this->session->has('requested_scope')) {
+            $builder
+                ->add(
+                    'firstName',
+                    null,
+                    [
+                        'required' => true,
+                        'label' => 'person.form.firstName.label',
+                        'attr' => [
+                            'placeholder' => 'person.form.firstName.placeholder',
+                        ],
+                    ]
+                );
             $requestedScope = explode(' ', $this->session->get('requested_scope'));
             foreach ($requestedScope as $scope) {
                 $this->addDynamicField($builder, $scope);
@@ -94,6 +86,20 @@ class RegistrationFormType extends BaseType
     private function addDynamicField(FormBuilderInterface $builder, $scope)
     {
         switch ($scope) {
+            case 'name':
+            case 'surname':
+            case 'full_name':
+                $builder->add(
+                    'surname',
+                    null,
+                    [
+                        'required' => true,
+                        'attr' => [
+                            'placeholder' => 'person.form.surname.placeholder',
+                        ],
+                    ]
+                );
+                break;
             case 'cpf':
                 $builder->add(
                     'cpf',

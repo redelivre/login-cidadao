@@ -7,8 +7,12 @@
  * file that was distributed with this source code.
  */
 
+<<<<<<< HEAD
+html {
+=======
 html, body {
     font-family: "Open Sans", Arial, sans-serif;
+>>>>>>> 5dab871f82ebfa07644b5df1d202de9a4a6be7c8
     background-color: #f9f9f9;
 }
 

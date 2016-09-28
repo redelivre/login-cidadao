@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new LoginCidadao\OAuthBundle\LoginCidadaoOAuthBundle(),
             new LoginCidadao\CoreBundle\LoginCidadaoCoreBundle(),
+            new LoginCidadao\IdCulturaBundle\IdCulturaBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),

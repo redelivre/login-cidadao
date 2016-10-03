@@ -199,7 +199,7 @@ fos_user:
               address: %mailer_sender_mail%
               sender_name: %mailer_sender_name%
         form:
-            type: LoginCidadao\CoreBundle\Form\Type\RegistrationFormType
+            type: IdCultura\IdCulturaBundle\Form\Type\RegistrationFormType
             validation_groups:  [LoginCidadaoRegistration]
     profile:
         form:
@@ -290,6 +290,7 @@ parameters:
     organization.class: LoginCidadao\OAuthBundle\Entity\Organization
     oauth_client.class: LoginCidadao\OAuthBundle\Entity\Client
 
+    lc.person.registration.form.type.class: IdCultura\IdCulturaBundle\Form\Type\RegistrationFormType
 beelab_recaptcha2:
     site_key: "%recaptcha_public_key%"
     secret: "%recaptcha_private_key%"

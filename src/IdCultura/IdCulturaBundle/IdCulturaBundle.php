@@ -1,6 +1,8 @@
 <?php
-namespace LoginCidadao\IdCulturaBundle;
+namespace IdCultura\IdCulturaBundle;
+
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 class IdCulturaBundle extends Bundle
 {
     public function getParent()

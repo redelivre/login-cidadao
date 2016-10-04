@@ -109,14 +109,12 @@ assetic:
         lc_base_css:
             inputs:
                 - '@bootstrap_css'
-                - 'bundles/idcultura/css/general.css'
+                - 'bundles/logincidadaocore/css/general.css'
                 - 'bundles/logincidadaocore/css/navbar.css'
                 - 'bundles/logincidadaocore/css/ac.widget.css'
                 - 'bundles/logincidadaocore/css/common.grid.css'
                 - 'bundles/logincidadaocore/css/list.buttons.css'
                 - 'bundles/idcultura/css/general.css'
-                - 'bundles/idcultura/css/home/home.css'
-                - 'bundles/idcultura/css/navbar.css'
         lc_logged_css:
             inputs:
                 - '@lc_base_css'
@@ -449,6 +447,8 @@ nelmio_security:
                 - 'http://browser-update.org/'
                 - 'https://www.google.com/'
                 - 'https://www.gstatic.com/recaptcha/'
+                - 'http://barra.brasil.gov.br'
+                - 'http://www.google.com/recaptcha/'
                 - 'unsafe-inline'
                 - 'unsafe-eval'
                 - 'self'
@@ -459,8 +459,10 @@ nelmio_security:
                 - 'self'
             font-src:
                 - 'https://themes.googleusercontent.com/'
+                - 'http://barra.brasil.gov.br/static/'
                 - 'self'
             img-src:
+                - 'data:*'
                 - '*'
             frame-src:
                 - 'https://s-static.ak.facebook.com'
@@ -478,6 +480,8 @@ nelmio_security:
                 - 'https://www.google.com/'
                 - 'https://www.gstatic.com/recaptcha/'
                 - 'https://ajax.googleapis.com/'
+                - 'http://barra.brasil.gov.br'
+                - 'http://barra.brasil.gov.br/static/'
                 - 'unsafe-inline'
                 - 'unsafe-eval'
                 - 'self'

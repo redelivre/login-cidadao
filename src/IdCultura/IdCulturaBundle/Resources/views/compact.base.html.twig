@@ -6,7 +6,9 @@
 		<li><a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a></li>
 	</ul>
 </div>
-
+{% image '@IdCulturaBundle/Resources/public/images/slogan-id-cultura.png' %}
+	<img style="display: block; margin: 2em auto 0;" src="{{ asset_url }}" width="515" height="145">
+{% endimage %}
 {% endblock %}
 {% block footer %}
     {{ include('LoginCidadaoCoreBundle::compact.base.footer.html.twig') }}

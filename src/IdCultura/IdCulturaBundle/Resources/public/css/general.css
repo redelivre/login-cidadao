@@ -108,3 +108,9 @@ footer a:hover {
     height: 65px;
     margin-top: -10px;
 }
+
+
+.settings-nav {
+  position: relative;
+  top: auto;
+}

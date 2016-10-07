@@ -2,7 +2,6 @@
 
 {% block metatags %}
 {{ parent() }}
-<meta property="creator.productor" content="http://estruturaorganizacional.dados.gov.br/id/unidade-organizacional/102521">
 <meta property="og:site_name" content="{% trans %}Login Cidadão{% endtrans %}"/>
 <meta property="og:description" content="{% trans %}With only one account, the citizen will be able to use government's digital services.{% endtrans %}"/>
 {% image '@LoginCidadaoCoreBundle/Resources/public/images/facebook-image.png' %}
@@ -12,12 +11,6 @@
 {% endblock %}
 
 {% block header %}
-<div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;">
-	<ul id="menu-barra-temp" style="list-style:none;">
-		<li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED"><a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a></li>
-		<li><a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a></li>
-	</ul>
-</div>
 {{ include("LoginCidadaoCoreBundle::navbar.html.twig") }}
 {% endblock %}
 
@@ -73,5 +66,4 @@
         $('input[placeholder], textarea[placeholder]').placeholder();
         </script>
     <![endif]-->
-    <script defer="defer" src="http://barra.brasil.gov.br/barra.js" type="text/javascript"></script>
 {% endblock %}

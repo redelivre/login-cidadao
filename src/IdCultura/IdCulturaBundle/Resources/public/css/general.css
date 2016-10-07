@@ -114,3 +114,8 @@ footer a:hover {
   position: relative;
   top: auto;
 }
+
+.vertical-center-with-footer {
+    min-height: 85% !important;
+    min-height: 85vh !important;
+}

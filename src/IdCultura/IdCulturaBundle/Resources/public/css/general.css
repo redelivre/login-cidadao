@@ -108,3 +108,14 @@ footer a:hover {
     height: 65px;
     margin-top: -10px;
 }
+
+
+.settings-nav {
+  position: relative;
+  top: auto;
+}
+
+.vertical-center-with-footer {
+    min-height: 85% !important;
+    min-height: 85vh !important;
+}

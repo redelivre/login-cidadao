@@ -1,13 +1,7 @@
 {% extends 'IdCulturaBundle::base.html.twig' %}
 {% block header %}
-<div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;">
-	<ul id="menu-barra-temp" style="list-style:none;">
-		<li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED"><a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a></li>
-		<li><a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a></li>
-	</ul>
-</div>
 {% image '@IdCulturaBundle/Resources/public/images/slogan-id-cultura.png' %}
-	<img style="display: block; margin: 2em auto 0;" src="{{ asset_url }}" width="515" height="145">
+	<img style="display: block; margin: 2em auto 0;max-width: 100%; height: auto;" src="{{ asset_url }}" width="515" height="145">
 {% endimage %}
 {% endblock %}
 {% block footer %}
@@ -18,9 +12,6 @@
     <div class="vertical-center-with-footer">
         <div class="panel panel-compact center-block">
             <div class="panel-heading">
-                <div class="heading-container">
-                    {{ include('LoginCidadaoCoreBundle::common.compact.logo.html.twig') }}
-                </div>
                 <div class="heading-container buttons text-right">
                     {% block top_buttons %}
                         {% if app.user != null %}

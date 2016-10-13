@@ -20,10 +20,6 @@
     font-family: arial, helvetica, sans-serif;
 }
 
-body {
-  padding-top: 0;
-}
-
 /* IdCultura */
 
 
@@ -33,7 +29,6 @@ html {
 
 #body #lc-navbar {
   box-shadow: 0 17px 40px -17px #000 !important;
-  position: relative !important;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
@@ -110,9 +105,11 @@ footer a:hover {
 }
 
 
-.settings-nav {
-  position: relative;
-  top: auto;
+#body .settings-nav {
+  top: 0px;
+}
+#body .settings-nav .nav {
+  padding-top: 50px;
 }
 
 .vertical-center-with-footer {

@@ -23,7 +23,6 @@
 
 {% block stylesheets %}
 	{% block stylesheets_custom %}
-		<style>html{background-color:#fff;}</style>
 	    {% stylesheets '@lc_base_css' filter='cssrewrite' filter='?uglifycss' %}
 			<link rel="stylesheet" href="{{ asset_url }}" />
 	    {% endstylesheets %}
@@ -43,6 +42,7 @@
           <link rel="stylesheet" href="{{ asset_url }}" />
         <![endif]-->
     {% endstylesheets %}
+		<style>html{background-color:#fff;}</style>
 {% endblock %}
 
 {% block javascripts %}
@@ -60,8 +60,6 @@
           <script type="text/javascript" src="{{ asset_url }}"></script>
         <![endif]-->
     {% endjavascripts %}
-
-
     <!--[if lt IE 10]>
         <script type="text/javascript">
         $('input[placeholder], textarea[placeholder]').placeholder();

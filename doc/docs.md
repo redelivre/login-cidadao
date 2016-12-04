@@ -21,7 +21,7 @@ os componentes necessários que não sejam específicos do Login Cidadão
 visto que a configuração de cada um pode variar significativamente de
 acordo com as características e necessidades de segurança de cada
 organização. Além disso, por se tratar de softwares mantidos por terceiros,
-os passos necessários por sua instalação podem variar com o tempo ou com
+os passos necessários para sua instalação podem variar com o tempo ou com
 a versão escolhida.
 
 Portanto, você deve providenciar a instalação dos seguintes componentes:
@@ -30,42 +30,52 @@ Portanto, você deve providenciar a instalação dos seguintes componentes:
 Linux e, consequentemente, Mac. Você provavelmente conseguirá instalar em
 sistemas como *Microsoft Windows*, entretanto não oferecemos suporte para
 esse procedimento;
+
   * **Certificado para HTTPS**: o Login Cidadão **não suporta HTTP**, sendo 
 obrigatório o uso de HTTPS. Caso sua organização não tenha um provedor de
 certificados previamente acordado, recomendamos o uso do
 [Let's Encrypt](https://letsencrypt.org/), onde você poderá obter
 certificados válidos de forma totalmente gratuita. Seu uso é simples e
 os certificados podem ser renovados automaticamente;
+
   * [**nginx**](https://nginx.org/) ou [**Apache**](https://httpd.apache.org/):
 para receber as requisições HTTPS, você precisará de um desses dois
 softwares. Recomendamos o [**nginx**](https://nginx.org/) por apresentar
 boa performance;
+
   * **PHP 5** ou **7**: a forma mais simples de instalar o Login Cidadão é utilizando
 PHP 5. Caso você queira utilizar PHP 7 serão necessárias algumas modificações
 uma vez que certas extensões tais como a `memcache` (sem um 'd' no final)
 não estão disponíveis;
+
   * **PHP Extensions**: além do PHP, serão necessárias algumas extensões
 para o correto funcionamento do Login Cidadão, tais como `curl`,
 `intl`, `memcache`. Note que a disponibilidade de algumas extensões pode
 variar de acordo com a versão do PHP que você estiver usando;
+
   * [**php-fpm**](https://php-fpm.org/): esse será o componente responsável por processar as
 requisições PHP. Caso você escolha usar *Apache*, é possível fazer com que
-ele processe também as requisições PHP;
+ele processe também as requisições PHP sem a necessidade de um componente
+adicional;
+
   * [**PostgreSQL**](https://www.postgresql.org/) ou
 [**MySQL**](https://www.mysql.com/): as informações do Login Cidadão podem
 ser armazenadas em bancos de dados **PostgreSQL** ou **MySQL**. Escolha o
 que melhor lhe atende;
+
   * [**memcached**](https://memcached.org/): as informações de sessão e o
 cache do *Doctrine* são armazenados em um servidor **memcached**;
+
   * [**Git**](https://git-scm.com/): é o sistema de controle de versão
 utilizado no Login Cidadão. Você precisará dele para baixar e manter
 atualizado o código fonte;
+
   * [**composer**](http://getcomposer.org/): é um gerenciador de
 dependências para PHP. Recomendamos que você instale ele globalmente, de
 forma que ele seja acessível a partir de qualquer diretório do sistema;
-  * [**Node.js**](https://nodejs.org/en/): node é um runtime JavaScript
-e é utilizado pelo Login Cidadão para gerar assets tais como scripts e
-CSS.
+
+  * [**Node.js**](https://nodejs.org/en/): é um runtime JavaScript
+utilizado pelo Login Cidadão para gerar assets tais como scripts e CSS.
 
 ### Tipos de Instalação do Login Cidadão
 

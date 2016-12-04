@@ -30,7 +30,7 @@ Portanto, você deve providenciar a instalação dos seguintes componentes:
 Linux e, consequentemente, Mac. Você provavelmente conseguirá instalar em
 sistemas como *Microsoft Windows*, entretanto não oferecemos suporte para
 esse procedimento;
-  * **Certificado para HTTPS**: o Login Cidadão não suporta HTTP, sendo 
+  * **Certificado para HTTPS**: o Login Cidadão **não suporta HTTP**, sendo 
 obrigatório o uso de HTTPS. Caso sua organização não tenha um provedor de
 certificados previamente acordado, recomendamos o uso do
 [Let's Encrypt](https://letsencrypt.org/), onde você poderá obter
@@ -44,6 +44,10 @@ boa performance;
 PHP 5. Caso você queira utilizar PHP 7 serão necessárias algumas modificações
 uma vez que certas extensões tais como a `memcache` (sem um 'd' no final)
 não estão disponíveis;
+  * **PHP Extensions**: além do PHP, serão necessárias algumas extensões
+para o correto funcionamento do Login Cidadão, tais como `curl`,
+`intl`, `memcache`. Note que a disponibilidade de algumas extensões pode
+variar de acordo com a versão do PHP que você estiver usando;
   * [**php-fpm**](https://php-fpm.org/): esse será o componente responsável por processar as
 requisições PHP. Caso você escolha usar *Apache*, é possível fazer com que
 ele processe também as requisições PHP;
@@ -58,7 +62,10 @@ utilizado no Login Cidadão. Você precisará dele para baixar e manter
 atualizado o código fonte;
   * [**composer**](http://getcomposer.org/): é um gerenciador de
 dependências para PHP. Recomendamos que você instale ele globalmente, de
-forma que ele seja acessível a partir de qualquer diretório do sistema.
+forma que ele seja acessível a partir de qualquer diretório do sistema;
+  * [**Node.js**](https://nodejs.org/en/): node é um runtime JavaScript
+e é utilizado pelo Login Cidadão para gerar assets tais como scripts e
+CSS.
 
 ### Tipos de Instalação do Login Cidadão
 
@@ -140,3 +147,16 @@ no diretório `app/config`.
 
     $ ./app/console cache:clear
 
+Depois de configurar seu `parameters.yml` você já deve conseguir criar a
+estrutura necessária do banco de dados e, em seguida, popular com os dados
+iniciais.
+
+    $ ./app/console doctrine:schema:update --force
+    $ ./app/console lc:database:populate batch/
+
+Por último, execute o comando `lc:deploy` que irá preparar sua instalação
+para execução em produção. Esse comando limpará o cache de metadados do
+Doctrine, verificará se o banco de dados está atualizado e providenciará a
+geração dos assets necessários.
+
+    $ ./app/console lc:deploy

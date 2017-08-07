@@ -513,7 +513,7 @@ class Person extends BaseUser implements PersonInterface, TwoFactorInterface, Ba
     }
 
     /**
-     * @return Authorization[]
+     * @return Authorization[]|ArrayCollection
      */
     public function getAuthorizations($uidToIgnore = null)
     {
@@ -654,7 +654,7 @@ class Person extends BaseUser implements PersonInterface, TwoFactorInterface, Ba
      * @JMS\Groups({"full_name", "name"})
      * @JMS\VirtualProperty
      * @JMS\SerializedName("full_name")
-     * @return string
+     * @return string|null
      */
     public function getFullName()
     {
@@ -678,7 +678,7 @@ class Person extends BaseUser implements PersonInterface, TwoFactorInterface, Ba
      * @JMS\Groups({"full_name", "name"})
      * @JMS\VirtualProperty
      * @JMS\SerializedName("name")
-     * @return string
+     * @return string|null
      */
     public function getOIDCName()
     {
@@ -689,7 +689,7 @@ class Person extends BaseUser implements PersonInterface, TwoFactorInterface, Ba
      * @JMS\Groups({"badges", "public_profile"})
      * @JMS\VirtualProperty
      * @JMS\SerializedName("deprecated_badges")
-     * @return array
+     * @return array<string,boolean>
      */
     public function getDataValid()
     {
@@ -718,10 +718,10 @@ class Person extends BaseUser implements PersonInterface, TwoFactorInterface, Ba
     }
 
     /**
-     * @param \LoginCidadao\CoreBundle\Entity\City $city
-     * @return City
+     * @param null|City $city
+     * @return PersonInterface
      */
-    public function setCity(\LoginCidadao\CoreBundle\Entity\City $city = null)
+    public function setCity(City $city = null)
     {
         $this->city = $city;
 
@@ -729,7 +729,7 @@ class Person extends BaseUser implements PersonInterface, TwoFactorInterface, Ba
     }
 
     /**
-     * @return \LoginCidadao\CoreBundle\Entity\City
+     * @return City|null
      */
     public function getCity()
     {

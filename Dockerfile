@@ -21,7 +21,7 @@ RUN apt-get install -y libz-dev libmemcached-dev \
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 # Install XDebug
-RUN yes | pecl install xdebug
+RUN yes | pecl install xdebug-2.5.5
 
 # Configure XDebug
 RUN echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
@@ -33,7 +33,29 @@ RUN echo "date.timezone = America/Sao_Paulo" > /usr/local/etc/php/conf.d/php-tim
  && echo "memory_limit=256M" > /usr/local/etc/php/conf.d/memory_limit.ini \
  && echo "<VirTualHost *:80>" > /etc/apache2/conf-enabled/lc-docroot.conf \
  && echo "    DocumentRoot /var/www/html/web" >> /etc/apache2/conf-enabled/lc-docroot.conf \
- && echo "</VirtualHost>" >> /etc/apache2/conf-enabled/lc-docroot.conf
+ && echo "</VirtualHost>" >> /etc/apache2/conf-enabled/lc-docroot.conf \
+ && echo "<IfModule mod_ssl.c> " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "  <VirtualHost _default_:443> " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "      DocumentRoot /var/www/html/web " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "      SSLEngine on " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "      SSLCertificateFile  /etc/ssl/certs/ssl-cert-snakeoil.pem " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "      SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "      <FilesMatch \"\.(cgi|shtml|phtml|php)$\"> " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "          SSLOptions +StdEnvVars " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "      </FilesMatch> " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "      <Directory /usr/lib/cgi-bin> " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "          SSLOptions +StdEnvVars " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "      </Directory> " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "  </VirtualHost> " >> /etc/apache2/conf-enabled/lc-docroot.conf  \
+ && echo "</IfModule> " >> /etc/apache2/conf-enabled/lc-docroot.conf
+
+# Apache ssl
+RUN openssl req -new -x509 -nodes -days 365 -newkey rsa:4096 \
+ -keyout /etc/ssl/private/ssl-cert-snakeoil.key \
+ -out /etc/ssl/certs/ssl-cert-snakeoil.crt \
+ -subj "/C=BR/ST=PR/L=CURITIBA/O=Local/CN=localhost" \
+ && cat /etc/ssl/private/ssl-cert-snakeoil.key /etc/ssl/certs/ssl-cert-snakeoil.crt > /etc/ssl/certs/ssl-cert-snakeoil.pem \
+ && a2enmod ssl
 
 WORKDIR /var/www/html
 # Instal composer
@@ -47,7 +69,7 @@ RUN php composer.phar config cache-dir
 RUN php composer.phar install --no-interaction --no-scripts --no-autoloader
 COPY . /var/www/html
 RUN php composer.phar dump-autoload -d /var/www/html
-RUN chown -R www-data /var/www/html
+RUN chown -R www-data /var/www/html/app/logs /var/www/html/app/cache /var/www/html/web/uploads /var/www/html/app/config/jwks
 # RUN php app/console assets:install \
 #  && php app/console assets:install -e prod \
 #  && php app/console assetic:dump -e prod

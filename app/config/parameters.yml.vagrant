@@ -18,6 +18,11 @@ parameters:
     # Memcached cache prefix
     memcached_prefix: lc_cache_
 
+    # Redis connection string
+    redis_dsn: redis://localhost
+    # Redis namespace prefix
+    redis_namespace: lc_cache_
+
     session_prefix: lc_sess_
     session_lifetime: 86400
     # Session Remember Me Cookie Name

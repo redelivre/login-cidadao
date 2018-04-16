@@ -1,0 +1,39 @@
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: "%redis_dsn%"
+            logging: false
+    session:
+        client: default
+        prefix: "%session_prefix%"
+        ttl: "%session_lifetime%"
+    doctrine:
+        metadata_cache:
+            client: default
+            entity_manager: default
+            document_manager: default
+            namespace: "%redis_namespace%"
+        result_cache:
+            client: default
+            entity_manager: default
+            namespace: "%redis_namespace%"
+        query_cache:
+            client: default
+            entity_manager: default
+            namespace: "%redis_namespace%"
+        second_level_cache:
+            client: default
+            entity_manager: default
+            namespace: "%redis_namespace%"
+
+framework:
+    session:
+        handler_id: snc_redis.session.handler
+
+services:
+    cache:
+        class: Doctrine\Common\Cache\PredisCache
+        arguments:
+            - "@snc_redis.default"

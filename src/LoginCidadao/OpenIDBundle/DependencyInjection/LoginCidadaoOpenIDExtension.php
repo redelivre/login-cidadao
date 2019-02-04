@@ -28,6 +28,7 @@ class LoginCidadaoOpenIDExtension extends Extension implements ExtensionInterfac
 
     /**
      * {@inheritdoc}
+     * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -50,16 +51,18 @@ class LoginCidadaoOpenIDExtension extends Extension implements ExtensionInterfac
         $args[$key]['user_claims'] = new Reference('oauth2.storage.user_claims');
         $args[$key]['public_key'] = new Reference('oauth2.storage.public_key');
 
-        $args['oauth2.server.grant_types'] = [];
+        $definition->setArgument($key, $args[$key]);
 
-        $args['oauth2.server.response_types'] = [
+        $responseTypes = [
             'token' => new Reference('oauth2.response_types.token'),
             'code' => new Reference('oauth2.response_types.code'),
             'id_token' => new Reference('oauth2.response_types.id_token'),
             'id_token token' => new Reference('oauth2.response_types.id_token_token'),
             'code id_token' => new Reference('oauth2.response_types.code_id_token'),
         ];
-        $definition->setArguments($args);
+        foreach ($responseTypes as $key => $responseType) {
+            $definition->addMethodCall('addResponseType', [$responseType, $key]);
+        }
 
         if ($container->hasDefinition('gaufrette.jwks_fs_filesystem')) {
             $filesystem = new Reference('gaufrette.jwks_fs_filesystem');
@@ -87,7 +90,21 @@ class LoginCidadaoOpenIDExtension extends Extension implements ExtensionInterfac
 
         if ($container->hasDefinition('oauth2.storage.access_token')) {
             $subjectIdentifierService = $container->getDefinition('oidc.subject_identifier.service');
+            $clientManagerService = $container->getDefinition('lc.client_manager');
+
             $container->getDefinition('oauth2.storage.access_token')
+                ->addMethodCall('setSubjectIdentifierService', [$subjectIdentifierService])
+                ->addMethodCall('setClientManager', [$clientManagerService]);
+        }
+
+        if ($container->hasDefinition('oauth2.response_types.id_token')) {
+            $userManagerService = $container->getDefinition('lc.user_manager');
+            $clientManagerService = $container->getDefinition('lc.client_manager');
+            $subjectIdentifierService = $container->getDefinition('oidc.subject_identifier.service');
+
+            $container->getDefinition('oauth2.response_types.id_token')
+                ->addMethodCall('setUserManager', [$userManagerService])
+                ->addMethodCall('setClientManager', [$clientManagerService])
                 ->addMethodCall('setSubjectIdentifierService', [$subjectIdentifierService]);
         }
     }

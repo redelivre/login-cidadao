@@ -534,7 +534,17 @@ required.field.state: 'Obrigatório preencher campo sobre o nacionalidade - esta
 restrict.location.creation: 'Não é possivel criar nova localização'
 field.loader : 'Carregando...'
 Updated successfully! : 'Atualizado com sucesso'
-contact.form.sent: Sua mensagem foi enviada. Agradecemos por entrar em contato conosco.
+contact.form:
+    sent: "Sua mensagem foi enviada. Agradecemos por entrar em contato conosco."
+    captcha.error: "Marque a opção \"Não sou um robô\""
+    extra:
+        id: "Identificador Interno"
+        created_at: "Data de Criação da Conta"
+        email_confirmed_at: "Data de Confirmação de Email"
+        has_cpf:
+            label: "Tem CPF?"
+            yes: "Sim"
+            no: "Não"
 previous page: 'página anterior'
 statistics.list: 'Estatísticas'
 statistics.userByBadge: 'Estatísticas - Usuários por Medalha'
@@ -805,16 +815,28 @@ tasks.confirm_email:
     resent.alert: Mensagem reenviada
     success.alert: Email verificado com sucesso!
 Close: Fechar
-resetting.request.title: Recuperação de Senha
-resetting.request.description: Para alterar sua senha, digite seu email ou CPF a seguir e lhe enviaremos um email com instruções para criação de uma nova senha.
-resetting.request.invalid_username: '"%username%" não está cadastrado.'
-resetting.request.username.label: 'Email ou CPF:'
-resetting.request.username.placeholder: Digite seu email ou CPF
-resetting.request.submit: Recuperar senha
-resetting.check_email: Foi enviado um email com instruções para recuperação de senha para o endereço cadastrado. Acesse seu email e clique no link presente na mensagem enviada.
-resetting.reset.title: Criando Nova Senha
-resetting.reset.description: Preencha os campos a seguir para criar uma nova senha para sua conta.
-resetting.reset.submit: Alterar senha
+resetting:
+    request:
+        title: Recuperação de Senha
+        description: Para alterar sua senha, digite seu email ou CPF a seguir e lhe enviaremos um email com instruções para criação de uma nova senha.
+        invalid_username: '"%username%" não está cadastrado.'
+        username:
+            label: 'Email ou CPF:'
+            placeholder: Digite seu email ou CPF
+        submit: Recuperar senha
+    check_email: Foi enviado um email com instruções para recuperação de senha para o endereço cadastrado. Acesse seu email e clique no link presente na mensagem enviada.
+    reset:
+        title: Criando Nova Senha
+        description: Preencha os campos a seguir para criar uma nova senha para sua conta.
+        submit: Alterar senha
+    user_not_found:
+        body: |
+            Não encontramos uma conta com as informações informadas.
+
+            Certifique-se que não usou outro endereço de email para criar sua conta.
+
+            Se você digitou seu CPF, informe seu email pois sua conta pode não possuir um CPF cadastrado.
+        back_to_form: 'Voltar ao formulário'
 openid.session.end:
     title:
     logging_out: Sua sessão está sendo encerrada.
@@ -892,19 +914,44 @@ profile:
 scope_details.handle.title: O que é isso?
 flash_message.close: Fechar
 city_selector.no_javascript: 'Os campos referentes à sua Naturalidade não estão disponíveis pois seu navegador não está com JavaScript ativado.'
-lc.admin.person.metadata:
-    title: "Metadados"
-    date_format: "d/m/Y H:i:s"
-    createdAt: "Data de Criação da Conta"
-    emailConfirmedAt:
-        label: "Data de Confirmação de Email"
-        empty: "Email não confirmado"
-    lastLogin: "Último Login"
-    hasCpf:
-        label: "Cadastrou CPF?"
-        yes: "Sim"
-        no: "Não"
-    authorization.createdAt: "Data da Autorização"
+lc.admin.person:
+    alert:
+        blocked: "Essa conta está bloqueada!"
+    block:
+        enable_block: "Preparar bloqueio..."
+        button: "Bloquear Usuário"
+        failed: "Ocorreu um erro ao bloquear esse usuário"
+        success: "Usuário bloqueado!"
+        invalid_token: "Não foi possível bloquear esse usuário: o token de bloqueio não foi encontrado, é inválido ou expirou. Tente novamente."
+    impersonate:
+        button: "Impersonate"
+    general:
+        usersWithSamePhone:
+            label: "Pessoas com o mesmo telefone"
+            value: "{0} Nenhuma|{1} Apenas essa pessoa|]1,Inf[ %count% pessoas estão usando esse mesmo número!"
+    metadata:
+        title: "Metadados"
+        date_format: "d/m/Y H:i:s"
+        createdAt: "Data de Criação da Conta"
+        emailConfirmedAt:
+            label: "Data de Confirmação de Email"
+            empty: "Email não confirmado"
+        phoneVerifiedAt:
+            label: "Data de Verificação do Telefone"
+            empty: "Telefone não verificado!"
+        lastLogin: "Último Login"
+        hasCpf:
+            label: "Cadastrou CPF?"
+            yes: "Sim"
+            no: "Não"
+        authorization.createdAt: "Data da Autorização"
+        tosAccepted:
+            label: "Data de aceite dos Termos de Uso"
+            empty: "Não aceitou!"
+    3rd_party:
+        title: "Conexão com Serviços de Terceiros"
+        connected_no_username: "Conectado"
+        not_connected: "Não conectado"
 dashboard:
     active_services:
         no_entries: Você ainda não ativou nenhum serviço.
@@ -953,3 +1000,67 @@ services:
             confirm: Você quer mesmo desativar este serviço?
             yes: Sim
             no: Não
+
+email:
+    account_blocked:
+        message:
+            subject: 'Notificação de Bloqueio por Violação dos Termos de Uso'
+            text: |
+                Notificação de Bloqueio por Violação dos Termos de Uso:
+
+                Durante uma verificação de rotina, identificamos uma conta no Login Cidadão registrada sob seu email <strong>%email%</strong>.
+
+                Foi constatado que a conta em questão foi utilizada para tentar acessar informações pessoais de terceiros, o que viola os Termos de Uso do Login Cidadão e, por esse motivo, foi bloqueada permanentemente com base no texto:
+
+                    "O Login Cidadão somente pode ser utilizado para fins pessoais, não sendo permitida a utilização em nome de terceiros ou com a finalidade de obter informações de terceiros."
+                     (...)
+                    "A não observância pelo usuário dos seus deveres previstos nestes Termos de Uso ou em qualquer outra legislação aplicável, poderá acarretar a suspensão ou cancelamento do seu acesso ao Login Cidadão, ou a um ou mais serviços disponibilizados, além de outras sanções previstas em lei."
+
+                Cordialmente,
+                Equipe Login Cidadão
+            html: >
+                Notificação de Bloqueio por Violação dos Termos de Uso:<br>
+                <br>
+                Durante uma verificação de rotina, identificamos uma conta no Login Cidadão registrada sob seu email <strong>%email%</strong>.<br>
+                <br>
+                Foi constatado que a conta em questão foi utilizada para tentar acessar informações pessoais de terceiros, o que viola os Termos de Uso do Login Cidadão e, por esse motivo, foi bloqueada permanentemente com base no texto:<br>
+                <br>
+                    "O Login Cidadão somente pode ser utilizado para fins pessoais, não sendo permitida a utilização em nome de terceiros ou com a finalidade de obter informações de terceiros."<br>
+                     (...)<br>
+                    "A não observância pelo usuário dos seus deveres previstos nestes Termos de Uso ou em qualquer outra legislação aplicável, poderá acarretar a suspensão ou cancelamento do seu acesso ao Login Cidadão, ou a um ou mais serviços disponibilizados, além de outras sanções previstas em lei."<br>
+                <br>
+                Cordialmente,<br>
+                Equipe Login Cidadão
+    account_auto_blocked:
+        message:
+            subject: 'Notificação de Bloqueio por Violação dos Termos de Uso'
+            text: |
+                Notificação de Bloqueio por Violação dos Termos de Uso:
+
+                Um mecanismo automático anti-fraude identificou uma atividade suspeita em sua conta do Login Cidadão registrada sob seu email %email%.
+
+                Foi identificada que a conta em questão poderia estar sendo utilizada para tentar acessar informações pessoais de terceiros, o que viola os Termos de Uso do Login Cidadão e, por esse motivo, foi bloqueada com base no texto:
+
+                    "O Login Cidadão somente pode ser utilizado para fins pessoais, não sendo permitida a utilização em nome de terceiros ou com a finalidade de obter informações de terceiros."
+                     (...)
+                    "A não observância pelo usuário dos seus deveres previstos nestes Termos de Uso ou em qualquer outra legislação aplicável, poderá acarretar a suspensão ou cancelamento do seu acesso ao Login Cidadão, ou a um ou mais serviços disponibilizados, além de outras sanções previstas em lei."
+
+                Caso acredite que essa ação tenha sido executada por engano, é possível solicitar uma reavaliação não-automática através do forumlário de contato disponível no Login Cidadão.
+
+                Cordialmente,
+                Equipe Login Cidadão
+            html: >
+                Notificação de Bloqueio por Violação dos Termos de Uso:<br>
+                <br>
+                Um mecanismo automático anti-fraude identificou uma atividade suspeita em sua conta do Login Cidadão registrada sob seu email <strong>%email%</strong>.<br>
+                <br>
+                Foi identificada que a conta em questão poderia estar sendo utilizada para tentar acessar informações pessoais de terceiros, o que viola os Termos de Uso do Login Cidadão e, por esse motivo, foi bloqueada com base no texto:<br>
+                <br>
+                    "O Login Cidadão somente pode ser utilizado para fins pessoais, não sendo permitida a utilização em nome de terceiros ou com a finalidade de obter informações de terceiros."<br>
+                     (...)<br>
+                    "A não observância pelo usuário dos seus deveres previstos nestes Termos de Uso ou em qualquer outra legislação aplicável, poderá acarretar a suspensão ou cancelamento do seu acesso ao Login Cidadão, ou a um ou mais serviços disponibilizados, além de outras sanções previstas em lei."<br>
+                <br>
+                Caso acredite que essa ação tenha sido executada por engano, é possível solicitar uma reavaliação não-automática através do forumlário de contato disponível no Login Cidadão.<br>
+                <br>
+                Cordialmente,<br>
+                Equipe Login Cidadão

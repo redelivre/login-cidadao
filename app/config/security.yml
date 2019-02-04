@@ -18,6 +18,7 @@ security:
             - ROLE_ORGANIZATIONS_BIND_CLIENT
             - ROLE_EDIT_CLIENT_ALLOWED_SCOPES
             - FEATURE_EDIT_USERNAME
+            - FEATURE_BETA
         ROLE_SUPER:
             - ROLE_DEV
             - ROLE_ORGANIZATIONS_CREATE
@@ -30,6 +31,9 @@ security:
             - ROLE_ORGANIZATIONS_DELETE
             - ROLE_SKIP_TOS_AGREEMENT
             - ROLE_PERSON_EDIT
+            - ROLE_VIEW_3RD_PARTY_CONNECTIONS
+            - ROLE_EDIT_CLIENT_SUBJECT_TYPE
+            - ROLE_EDIT_BLOCKED_PHONES
         ROLE_SUPER_ADMIN:
             - ROLE_ADMIN
             - ROLE_ALLOWED_TO_SWITCH
@@ -43,19 +47,28 @@ security:
             - ROLE_IMPERSONATION_REPORTS_LIST_ALL
             - ROLE_VIEW_USERS_CPF
             - ROLE_AUDIT_PROFILE_VIEWS
+            - ROLE_VIEW_3RD_PARTY_CONNECTIONS_USERNAMES
+            - ROLE_PERSON_BLOCK
 
         ROLE_ALLOWED_TO_SWITCH: FEATURE_IMPERSONATION_REPORTS
         ROLE_EDIT_CLIENT_ALLOWED_RESTRICTED_SCOPES: ROLE_EDIT_CLIENT_ALLOWED_SCOPES
         ROLE_VIEW_USERS_CPF:
         ROLE_AUDIT_PROFILE_VIEWS: FEATURE_SHOW_PROFILE_VIEWS
-        FEATURE_ALPHA:  FEATURE_BETA, FEATURE_SHOW_PROFILE_VIEWS
-        FEATURE_BETA:   FEATURE_PROD, FEATURE_ORGANIZATIONS
+        ROLE_VIEW_3RD_PARTY_CONNECTIONS_USERNAMES: ROLE_VIEW_3RD_PARTY_CONNECTIONS
+        ROLE_VIEW_3RD_PARTY_CONNECTIONS:
+        ROLE_PERSON_BLOCK:
+        ROLE_EDIT_CLIENT_SUBJECT_TYPE:
+        ROLE_EDIT_BLOCKED_PHONES:
+        FEATURE_ALPHA:  FEATURE_BETA, FEATURE_SHOW_PROFILE_VIEWS, FEATURE_ORGANIZATIONS
+        FEATURE_BETA:   FEATURE_PROD, FEATURE_REMOTE_CLAIMS, FEATURE_PHONE_BLOCKLIST
         FEATURE_PROD:   FEATURE_2FACTOR_AUTH, FEATURE_INVALIDATE_SESSIONS
         FEATURE_IGP_VALIDATION:
         FEATURE_ORGANIZATIONS:
         FEATURE_IMPERSONATION_REPORTS:
         FEATURE_EDIT_USERNAME:
         FEATURE_SHOW_PROFILE_VIEWS:
+        FEATURE_REMOTE_CLAIMS:
+        FEATURE_PHONE_BLOCKLIST:
 
     providers:
         chainprovider:
@@ -150,6 +163,7 @@ security:
         - { path: ^/api/v1/address/(cities|states|countries)/search, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         - { path: ^/api/v1/public/lc_consultaCep2, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         - { path: ^/api/v1/statistics, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/api/v1/phone-verification/(update-status|average-delivery-time|not-delivered), role: IS_AUTHENTICATED_ANONYMOUSLY, ips: "%allowed_monitors%", requires_channel: https }
         - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ], requires_channel: https }
 
         - { path: ^/oauth$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
@@ -167,7 +181,7 @@ security:
         - { path: ^/connect/twitter$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         - { path: ^/connect/google$, role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
 
-        - { path: ^/monitor/health, role: IS_AUTHENTICATED_ANONYMOUSLY, ip: %allowed_monitors%, requires_channel: https }
+        - { path: ^/monitor/health, role: IS_AUTHENTICATED_ANONYMOUSLY, ips: "%allowed_monitors%", requires_channel: https }
 
         - { path: ^/nelmio/csp/report$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/(contact|privacy|about|help|register), role: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

@@ -10,46 +10,62 @@
 
 namespace LoginCidadao\CoreBundle\EventListener;
 
-use Psr\Log\LoggerAwareInterface;
+use FOS\UserBundle\Model\FosUserInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\HttpKernel\HttpKernel;
+use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-class RequestListener implements LoggerAwareInterface
+class RequestListener
 {
     /** @var LoggerInterface */
     private $logger;
 
-    public function onKernelRequest(GetResponseEvent $event)
-    {
-        if (HttpKernel::MASTER_REQUEST != $event->getRequestType()) {
-            // don't do anything if it's not the master request
-            return;
-        }
+    /** @var TokenStorageInterface */
+    private $tokenStorage;
 
-        $this->logReferer($event);
-    }
+    /** @var RouterInterface */
+    private $router;
 
     /**
-     * Sets a logger instance on the object
-     *
+     * RequestListener constructor.
      * @param LoggerInterface $logger
-     * @return null
+     * @param TokenStorageInterface $tokenStorage
+     * @param RouterInterface $router
      */
-    public function setLogger(LoggerInterface $logger)
+    public function __construct(LoggerInterface $logger, TokenStorageInterface $tokenStorage, RouterInterface $router)
     {
         $this->logger = $logger;
+        $this->tokenStorage = $tokenStorage;
+        $this->router = $router;
+    }
 
-        return;
+    public function onKernelRequest(GetResponseEvent $event)
+    {
+        if ($event->isMasterRequest()) {
+            $this->logReferer($event);
+            $this->checkUserEnabled($event);
+        }
     }
 
     private function logReferer(GetResponseEvent $event)
     {
-        $referer = $event->getRequest()->headers->get('referer', false);
-        if (!($this->logger instanceof LoggerInterface) || !$referer) {
-            return;
+        $referer = $event->getRequest()->headers->get('referer', null);
+        if (null !== $referer) {
+            $this->logger->info("Request referrer: {$referer}");
         }
+    }
 
-        $this->logger->info("Request referrer: {$referer}");
+    private function checkUserEnabled(GetResponseEvent $event)
+    {
+        if (null !== $token = $this->tokenStorage->getToken()) {
+            /** @var FosUserInterface $person */
+            if (($person = $token->getUser()) instanceof FosUserInterface && false === $person->isEnabled()) {
+                $uri = $this->router->generate('fos_user_security_logout');
+                $event->setResponse(new RedirectResponse($uri));
+                $event->stopPropagation();
+            }
+        }
     }
 }

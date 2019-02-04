@@ -11,7 +11,14 @@
 namespace LoginCidadao\CoreBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Egulias\EmailValidator\EmailValidator;
+use Egulias\EmailValidator\Validation\RFCValidation;
+use libphonenumber\PhoneNumber;
+use libphonenumber\PhoneNumberFormat;
+use libphonenumber\PhoneNumberUtil;
+use Misd\PhoneNumberBundle\Doctrine\DBAL\Types\PhoneNumberType;
 
 class PersonRepository extends EntityRepository
 {
@@ -153,6 +160,27 @@ class PersonRepository extends EntityRepository
     }
 
     /**
+     * @param PhoneNumber $phone
+     * @return int
+     */
+    public function countByPhone(PhoneNumber $phone)
+    {
+        try {
+            $phoneUtil = PhoneNumberUtil::getInstance();
+
+            return $this->createQueryBuilder('p')
+                ->select('COUNT(p)')
+                ->where('p.mobile = :mobile')
+                ->setParameter('mobile', $phoneUtil->format($phone, PhoneNumberFormat::E164))
+                ->getQuery()->getSingleScalarResult();
+        } catch (NoResultException $e) {
+            return 0;
+        } catch (NonUniqueResultException $e) {
+            return 0;
+        }
+    }
+
+    /**
      * @return \Doctrine\ORM\QueryBuilder
      */
     private function getBaseSearchQuery()
@@ -186,6 +214,13 @@ class PersonRepository extends EntityRepository
             ->setParameter('name', "%{$sanitized}%");
     }
 
+    public function getPhoneSearchQuery(PhoneNumber $phoneNumber)
+    {
+        return $this->getBaseSearchQuery()
+            ->where('p.mobile = :mobile')
+            ->setParameter('mobile', $phoneNumber, PhoneNumberType::NAME);
+    }
+
     /**
      * This will return the appropriate query for the input given.
      * @param $query
@@ -209,7 +244,7 @@ class PersonRepository extends EntityRepository
 
         // Check email
         $emailValidator = new EmailValidator();
-        if ($emailValidator->isValid($query)) {
+        if ($emailValidator->isValid($query, new RFCValidation())) {
             return $this->getEmailSearchQuery($query);
         }
 

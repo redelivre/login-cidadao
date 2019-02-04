@@ -1,8 +1,16 @@
 <?php
+/**
+ * This file is part of the login-cidadao project or it's bundles.
+ *
+ * (c) Guilherme Donato <guilhermednt on github>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace LoginCidadao\CoreBundle\Model;
 
-use Doctrine\ORM\EntityManagerInterface;
+use LoginCidadao\OAuthBundle\Model\ClientInterface;
 use LoginCidadao\BadgesControlBundle\Model\BadgeInterface;
 use LoginCidadao\CoreBundle\Entity\BackupCode;
 use LoginCidadao\CoreBundle\Tests\LongPolling\LongPollableInterface;
@@ -14,7 +22,6 @@ use LoginCidadao\CoreBundle\Entity\City;
 use LoginCidadao\CoreBundle\Entity\Country;
 use LoginCidadao\CoreBundle\Entity\State;
 use Symfony\Component\Security\Core\Encoder\EncoderAwareInterface;
-use LoginCidadao\OAuthBundle\Entity\Client;
 use JMS\Serializer\Annotation as JMS;
 
 interface PersonInterface extends EncoderAwareInterface, UserInterface, LocationAwareInterface, LongPollableInterface, TwoFactorInterface
@@ -23,14 +30,26 @@ interface PersonInterface extends EncoderAwareInterface, UserInterface, Location
 
     public function getEmail();
 
+    /**
+     * @param string $email
+     * @return self
+     */
     public function setEmail($email);
 
     public function getFirstName();
 
+    /**
+     * @param $firstName
+     * @return self
+     */
     public function setFirstName($firstName);
 
     public function getSurname();
 
+    /**
+     * @param $suname
+     * @return self
+     */
     public function setSurname($suname);
 
     /**
@@ -38,21 +57,29 @@ interface PersonInterface extends EncoderAwareInterface, UserInterface, Location
      */
     public function getBirthdate();
 
+    /**
+     * @param $birthdate
+     * @return self
+     */
     public function setBirthdate($birthdate);
 
     public function getMobile();
 
+    /**
+     * @param $mobile
+     * @return self
+     */
     public function setMobile($mobile);
 
     public function getAuthorizations();
 
     /**
      * Checks if a given Client can access this Person's specified scope.
-     * @param \LoginCidadao\OAuthBundle\Entity\Client $client
+     * @param ClientInterface $client
      * @param mixed $scope can be a single scope or an array with several.
      * @return boolean
      */
-    public function isAuthorizedClient(Client $client, $scope);
+    public function isAuthorizedClient(ClientInterface $client, $scope);
 
     /**
      * Checks if this Person has any authorization for a given Client.
@@ -61,7 +88,23 @@ interface PersonInterface extends EncoderAwareInterface, UserInterface, Location
      */
     public function hasAuthorization($client);
 
+    /**
+     * @param $facebookId
+     * @return PersonInterface
+     */
     public function setFacebookId($facebookId);
+
+    /**
+     * @param $facebookAccessToken
+     * @return PersonInterface
+     */
+    public function setFacebookAccessToken($facebookAccessToken);
+
+    /**
+     * @param $facebookUsername
+     * @return PersonInterface
+     */
+    public function setFacebookUsername($facebookUsername);
 
     public function getFacebookId();
 
@@ -86,18 +129,28 @@ interface PersonInterface extends EncoderAwareInterface, UserInterface, Location
      */
     public function getFullName();
 
+    /**
+     * @param $cpf
+     * @return self
+     */
     public function setCpf($cpf);
 
     public function getCpf();
 
     public function setCreatedAt(\DateTime $createdAt);
 
+    /**
+     * @return \DateTime
+     */
     public function getCreatedAt();
 
     public function setCreatedAtValue();
 
     public function setEmailConfirmedAt(\DateTime $emailConfirmedAt = null);
 
+    /**
+     * @return \DateTime
+     */
     public function getEmailConfirmedAt();
 
     public function getSocialNetworksPicture();
@@ -111,8 +164,6 @@ interface PersonInterface extends EncoderAwareInterface, UserInterface, Location
     public function getConfirmationToken();
 
     public function setConfirmationToken($confirmationToken);
-
-    public function setFacebookUsername($facebookUsername);
 
     public function getFacebookUsername();
 
@@ -161,22 +212,11 @@ interface PersonInterface extends EncoderAwareInterface, UserInterface, Location
      */
     public function getAgeRange();
 
-    public function hasLocalProfilePicture();
-
     public function getSuggestions();
 
     public function setSuggestions($suggestions);
 
-    public function prepareAPISerialize(
-        $imageHelper,
-        $templateHelper,
-        $isDev,
-        $request
-    );
-
     public function isClientAuthorized($app_id);
-
-    public function setUpdatedAt($var = null);
 
     public function getUpdatedAt();
 
@@ -191,10 +231,6 @@ interface PersonInterface extends EncoderAwareInterface, UserInterface, Location
     public function setGoogleAccessToken($var);
 
     public function getGoogleAccessToken();
-
-    public function setComplement($var);
-
-    public function getComplement();
 
     /**
      * @return IdCardInterface[]
@@ -252,4 +288,10 @@ interface PersonInterface extends EncoderAwareInterface, UserInterface, Location
      * @return BackupCode[]
      */
     public function getBackupCodes();
+
+    /**
+     * @param \DateTime|null $updatedAt
+     * @return PersonInterface
+     */
+    public function setUpdatedAt($updatedAt = null);
 }

@@ -1,8 +1,19 @@
 <?php
+/**
+ * This file is part of the login-cidadao project or it's bundles.
+ *
+ * (c) Guilherme Donato <guilhermednt on github>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace LoginCidadao\CoreBundle\Controller;
 
+use LoginCidadao\CoreBundle\Entity\PersonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Validator\Constraints\Length;
@@ -12,7 +23,6 @@ use Symfony\Component\Form\FormError;
 
 class TwitterController extends Controller
 {
-
     /**
      * @Route("/register/twitter", name="lc_before_register_twitter")
      * @Template()
@@ -20,14 +30,13 @@ class TwitterController extends Controller
     public function beforeRegisterAction(Request $request)
     {
         $formBuilder = $this->createFormBuilder()
-            ->add('email', 'email',
-                array(
-                'constraints' => array(
+            ->add('email', EmailType::class, [
+                'constraints' => [
                     new NotBlank(),
-                    new Length(array('min' => 3)),
-                ),
-            ))
-            ->add('save', 'submit');
+                    new Length(['min' => 3]),
+                ],
+            ])
+            ->add('save', SubmitType::class);
 
         $form = $formBuilder->getForm();
 
@@ -35,24 +44,23 @@ class TwitterController extends Controller
         if ($form->isValid()) {
             $data = $form->getData();
 
-            $person = $this->getDoctrine()
-                ->getRepository('LoginCidadaoCoreBundle:Person')
-                ->findByEmail($data['email']);
+            /** @var PersonRepository $personRepo */
+            $personRepo = $this->getDoctrine()->getRepository('LoginCidadaoCoreBundle:Person');
+            $person = $personRepo->findBy(['email' => $data['email']]);
 
             if ($person) {
                 $formError = new FormError($this->get('translator')->trans('The email is already used'));
                 $form->get('email')->addError($formError);
 
-                return array('form' => $form->createView());
+                return ['form' => $form->createView()];
             }
 
             $session = $request->getSession();
             $session->set('twitter.email', $data['email']);
 
-            return $this->redirect($this->generateUrl('hwi_oauth_service_redirect',
-                        array('service' => 'twitter')));
+            return $this->redirect($this->generateUrl('hwi_oauth_service_redirect', ['service' => 'twitter']));
         }
 
-        return array('form' => $form->createView());
+        return ['form' => $form->createView()];
     }
 }

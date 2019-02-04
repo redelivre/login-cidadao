@@ -11,12 +11,9 @@ parameters:
     database_user:     logincidadao
     # Database password (use ~ for socket)
     database_password: logincidadao
+    database_server_version: ~
 
-    # Trusted proxies (http://symfony.com/doc/current/cookbook/request/load_balancer_reverse_proxy.html)
-    trusted_proxies: []
-    # IPs allowed to access dev environment
-    dev_allowed: [ 127.0.0.0/8 ]
-    # IPs allowed to access monitoring endpoint
+    # IPs allowed to access monitoring endpoints
     allowed_monitors: [ 127.0.0.0/8 ]
 
     # Memcached server address
@@ -25,6 +22,15 @@ parameters:
     memcached_port: 11211
     # Memcached cache prefix
     memcached_prefix: lc_cache_
+
+    # Redis DSN
+    redis_dsn: redis://localhost
+    # Redis Prefix/Namespace
+    redis_prefix: lc_
+    # Redis Replication
+    redis_replication: false
+    # Redis Sentinel Service Name
+    redis_sentinel_service: ~
 
     # Session prefix
     session_prefix: lc_sess_
@@ -42,7 +48,7 @@ parameters:
     # Translation locale
     locale:            pt_BR
     # Your application's secret. Should be the same for all servers
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            ThisTokenIsNotSoSecretChangeItNow
 
     # (dev only) Show the profiler toolbar by default
     web_profiler_toolbar: true
@@ -97,7 +103,7 @@ parameters:
     mailer_receiver_mail: ~
 
     # Pictures upload directory
-    user_profile_upload_dir: %kernel.root_dir%/../web/uploads/profile-pictures
+    user_profile_upload_dir: '%kernel.root_dir%/../web/uploads/profile-pictures'
     # Client (services) pictures upload directory
     client_image_upload_dir: '%kernel.root_dir%/../web/uploads/client-pictures'
 
@@ -116,10 +122,10 @@ parameters:
     # OpenID Connect
     # JWT Config (no need to change)
     #  - it is necessary since we can't access the oidc.issuer_url in the Compiler Pass
-    jwt_iss: http://%site_domain%%base_path%
+    jwt_iss: 'http://%site_domain%%base_path%'
 
     # JWKS Config
-    jwks_dir: %kernel.root_dir%/../app/config/jwks
+    jwks_dir: '%kernel.root_dir%/../app/config/jwks'
     jwks_private_key_file: private.pem
 
     # Two Factor Auth Issuer Name
@@ -156,3 +162,6 @@ parameters:
     # The ID provided by Google Analytics to configure tracking
     # You can override the LoginCidadaoCoreBundle::analytics.html.twig entirely if you don't want the default settings
     google_analytics_trackingId: YourGoogleAnalyticsId
+
+    # Application Name to be logged on Logstash
+    logstash.application_name: login-cidadao

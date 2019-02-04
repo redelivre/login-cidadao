@@ -11,14 +11,16 @@
 namespace LoginCidadao\PhoneVerificationBundle\Tests\DependencyInjection;
 
 use LoginCidadao\PhoneVerificationBundle\DependencyInjection\Configuration;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Processor;
 
-class ConfigurationTest extends \PHPUnit_Framework_TestCase
+class ConfigurationTest extends TestCase
 {
     public static function getSampleConfig()
     {
         return [
             'enabled' => false,
+            'require_validation_threshold' => 3,
             'verification_code' => [
                 'length' => 6,
                 'use_numbers' => true,
@@ -31,6 +33,10 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
             ],
             'sms' => [
                 'resend_timeout' => '+5 minutes',
+            ],
+            'blocklist' => [
+                'enable_auto_block' => true,
+                'auto_block_limit' => 10,
             ],
         ];
     }

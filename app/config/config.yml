@@ -1,8 +1,11 @@
 imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
-    - { resource: memcached.yml }
+    - { resource: 'parameters.yml' }
+    - { resource: 'security.yml' }
+    - { resource: 'redis.yml' }
+    # Uncomment bellow to enable Logstash formatting
+    #- { resource: logstash.yml }
     - { resource: "@LoginCidadaoTOSBundle/Resources/config/config.yml" }
+    - { resource: 'workflows/*.{yml,yaml}' }
 
 framework:
     #esi:             ~
@@ -20,7 +23,6 @@ framework:
         engines: ['twig']
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
-    trusted_proxies: %trusted_proxies%
     session:         ~
     fragments:       ~
     http_method_override: true
@@ -150,6 +152,7 @@ doctrine:
                 dbname:   %database_name%
                 user:     %database_user%
                 password: %database_password%
+                server_version: %database_server_version%
                 charset:  UTF8
             logs:
                 logging:  false
@@ -159,6 +162,7 @@ doctrine:
                 dbname:   %database_name%
                 user:     %database_user%
                 password: %database_password%
+                server_version: %database_server_version%
                 charset:  UTF8
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: %kernel.root_dir%/data/data.db3
@@ -177,6 +181,7 @@ doctrine:
                       right: LoginCidadao\CoreBundle\DQL\Right
                       countif: LoginCidadao\CoreBundle\DQL\CountIf
                       lowerunaccent: LoginCidadao\CoreBundle\DQL\LowerUnaccent
+                      cast: Oro\ORM\Query\AST\Functions\Cast
 
                     datetime_functions:
                           date:       Oro\ORM\Query\AST\Functions\SimpleFunction
@@ -210,8 +215,7 @@ fos_oauth_server:
   refresh_token_class:  LoginCidadao\OAuthBundle\Entity\RefreshToken
   auth_code_class:      LoginCidadao\OAuthBundle\Entity\AuthCode
   service:
-      user_provider: fos_user.user_manager
-      client_manager: lc.oauth.client_manager
+      user_provider: fos_user.user_provider
       options:
           supported_scopes: %lc_supported_scopes%
 
@@ -239,7 +243,7 @@ fos_user:
                 address:        %mailer_sender_mail%
                 sender_name:    %mailer_sender_name%
         form:
-            type:               lc_person_resetting
+            type:               LoginCidadao\CoreBundle\Form\Type\ResettingFormType
     service:
         user_manager: lc.user_manager
         mailer: fos_user.mailer.twig_swift
@@ -279,14 +283,18 @@ simple_things_entity_audit:
         - LoginCidadao\OAuthBundle\Entity\Organization
         - LoginCidadao\OpenIDBundle\Entity\ClientMetadata
 
+        - LoginCidadao\RemoteClaimsBundle\Entity\RemoteClaim
+        - LoginCidadao\RemoteClaimsBundle\Entity\RemoteClaimAuthorization
+
         - LoginCidadao\PhoneVerificationBundle\Entity\PhoneVerification
         - LoginCidadao\PhoneVerificationBundle\Entity\SentVerification
+        - LoginCidadao\PhoneVerificationBundle\Entity\BlockedPhoneNumber
 
 hwi_oauth:
     connect:
         confirmation: false
         account_connector: lc.hwi_twitter.user_provider
-    firewall_name: main
+    firewall_names: ['main']
     failed_auth_path: fos_user_profile_edit
     fosub:
         username_iterations: 30
@@ -299,7 +307,7 @@ hwi_oauth:
             type:           facebook
             client_id:      %facebook_app_id%
             client_secret:  %facebook_app_secret%
-            scope:          "email user_about_me user_birthday user_location"
+            scope:          "email user_birthday user_location"
         twitter:
             type:           twitter
             client_id:      %twitter_app_key%
@@ -310,8 +318,6 @@ hwi_oauth:
             client_id:      %google_app_key%
             client_secret:  %google_app_secret%
             scope:          "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
-    http_client:
-        verify_peer: false
 
 parameters:
     user.class: LoginCidadao\CoreBundle\Entity\Person
@@ -361,19 +367,19 @@ vich_uploader:
     storage:    gaufrette
     mappings:
         user_image:
-            uri_prefix:         %uri_root%/uploads/profile-pictures
+            uri_prefix:         %uri_root%uploads/profile-pictures
             upload_destination: user_image_fs
             namer:              vich_uploader.namer_uniqid
             inject_on_load:     false
         client_image:
-            uri_prefix:         %uri_root%/uploads/client-pictures
+            uri_prefix:         %uri_root%uploads/client-pictures
             upload_destination: client_image_fs
             namer:              vich_uploader.namer_uniqid
             inject_on_load:     false
 
 # Disabling annotations is needed by FOS Rest Bundle
 sensio_framework_extra:
-    view: { annotations: false }
+    view: { annotations: true }
     router: { annotations: true }
     request: { converters: true }
 
@@ -453,6 +459,18 @@ nelmio_cors:
             allow_origin: ['*']
             allow_headers: ['*']
             allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+        '^/.well-known/openid-configuration':
+            allow_origin: ['*']
+            allow_headers: ['*']
+            allow_methods: ['GET']
+        '^/openid/connect/jwks':
+            allow_origin: ['*']
+            allow_headers: ['*']
+            allow_methods: ['GET']
+        '^/openid/connect/token':
+            allow_origin: ['*']
+            allow_headers: ['*']
+            allow_methods: ['POST']
 
 nelmio_security:
     # signs/verifies all cookies
@@ -532,11 +550,6 @@ nelmio_security:
 liip_monitor:
     enable_controller: true
     checks:
-        memcache:
-            main:
-                host: %memcached_host%
-                port: %memcached_port%
-
         doctrine_dbal: default
 
         readable_directory:
@@ -548,6 +561,9 @@ liip_monitor:
             - '%kernel.cache_dir%'
             - '%user_profile_upload_dir%'
             - '%client_image_upload_dir%'
+
+        security_advisory:
+            lock_file: '%kernel.root_dir%/../composer.lock'
 
 services:
     fos_user.doctrine_registry:
@@ -578,3 +594,17 @@ login_cidadao_api:
             1: [0]
         2:
             0: [0]
+
+knp_paginator:
+    page_range: 5
+    default_options:
+        page_name: page
+        sort_field_name: sort
+        sort_direction_name: direction
+        distinct: true
+        filter_field_name: filterField
+        filter_value_name: filterValue
+    template:
+        pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig'     # sliding pagination controls template
+        sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
+        filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template

@@ -11,8 +11,9 @@
 namespace LoginCidadao\PhoneVerificationBundle\Tests\Service;
 
 use LoginCidadao\PhoneVerificationBundle\Service\PhoneVerificationOptions;
+use PHPUnit\Framework\TestCase;
 
-class PhoneVerificationOptionsTest extends \PHPUnit_Framework_TestCase
+class PhoneVerificationOptionsTest extends TestCase
 {
     public function testOptions()
     {
@@ -23,6 +24,7 @@ class PhoneVerificationOptionsTest extends \PHPUnit_Framework_TestCase
         $caseSensitive = true;
         $smsResendTimeout = '+10 minutes';
         $tokenLength = 5;
+        $enforceVerificationThreshold = 2;
 
         $options = new PhoneVerificationOptions(
             $length,
@@ -31,7 +33,8 @@ class PhoneVerificationOptionsTest extends \PHPUnit_Framework_TestCase
             $useLower,
             $useUpper,
             $smsResendTimeout,
-            $tokenLength
+            $tokenLength,
+            $enforceVerificationThreshold
         );
 
         $this->assertEquals($length, $options->getLength());
@@ -41,5 +44,6 @@ class PhoneVerificationOptionsTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($options->isCaseSensitive());
         $this->assertEquals($smsResendTimeout, $options->getSmsResendTimeout());
         $this->assertEquals($tokenLength, $options->getVerificationTokenLength());
+        $this->assertEquals($enforceVerificationThreshold, $options->getEnforceVerificationThreshold());
     }
 }

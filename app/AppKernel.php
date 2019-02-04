@@ -35,7 +35,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
 
-            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+            new JMS\DiExtraBundle\JMSDiExtraBundle(),
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
@@ -63,6 +63,10 @@ class AppKernel extends Kernel
             new LoginCidadao\TaskStackBundle\LoginCidadaoTaskStackBundle(),
             new LoginCidadao\DynamicFormBundle\LoginCidadaoDynamicFormBundle(),
             new LoginCidadao\LogBundle\LoginCidadaoLogBundle(),
+            new LoginCidadao\RemoteClaimsBundle\LoginCidadaoRemoteClaimsBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Snc\RedisBundle\SncRedisBundle(),
+            new Http\HttplugBundle\HttplugBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

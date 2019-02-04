@@ -1,3 +1,9 @@
+# Remote Claims
+lc_remote_claims_remote_claim:
+    type:     rest
+    resource: LoginCidadao\RemoteClaimsBundle\Controller\RemoteClaimController
+
+# Dynamic Forms
 login_cidadao_dynamic_form:
     resource: "@LoginCidadaoDynamicFormBundle/Resources/config/routing.yml"
     prefix:   /
@@ -154,3 +160,9 @@ lc_duplicate_email:
     defaults:
         _controller: FrameworkBundle:Template:template
         template:    'LoginCidadaoCoreBundle:Info:duplicate_email.html.twig'
+
+lc_resetting_user_not_found:
+    path: /resetting/user-not-found
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    'LoginCidadaoCoreBundle:Person:resetting\user_not_found.html.twig'

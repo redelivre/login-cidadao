@@ -10,12 +10,27 @@
 
 namespace LoginCidadao\OpenIDBundle\Form;
 
+use LoginCidadao\OpenIDBundle\Entity\ClientMetadata;
+use LoginCidadao\OpenIDBundle\Manager\ClientManager;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ClientMetadataForm extends AbstractType
 {
+    /** @var ClientManager */
+    private $clientManager;
+
+    /**
+     * @inheritDoc
+     */
+    public function __construct(ClientManager $clientManager)
+    {
+        $this->clientManager = $clientManager;
+    }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -29,13 +44,13 @@ class ClientMetadataForm extends AbstractType
             ->add('application_type')
             ->add('contacts')
             ->add('client_name')
-            ->add('logo_uri', 'text')
-            ->add('client_uri', 'text')
-            ->add('policy_uri', 'text')
-            ->add('tos_uri', 'text')
+            ->add('logo_uri', TextType::class)
+            ->add('client_uri', TextType::class)
+            ->add('policy_uri', TextType::class)
+            ->add('tos_uri', TextType::class)
             ->add('jwks_uri')
             ->add('jwks')
-            ->add('sector_identifier_uri', 'text')
+            ->add('sector_identifier_uri', TextType::class)
             ->add('subject_type')
             ->add('id_token_signed_response_alg')
             ->add('id_token_encrypted_response_alg')
@@ -51,17 +66,25 @@ class ClientMetadataForm extends AbstractType
             ->add('default_max_age')
             ->add('require_auth_time')
             ->add('default_acr_values')
-            ->add('initiate_login_uri', 'text')
-            ->add('request_uris');
+            ->add('initiate_login_uri', TextType::class)
+            ->add('request_uris')
+            ->addEventListener(FormEvents::SUBMIT, [$this, 'onSubmit']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         parent::configureOptions($resolver);
-        $resolver->setDefaults(array(
-            'data_class' => 'LoginCidadao\OpenIDBundle\Entity\ClientMetadata',
-            'csrf_protection' => false
-        ));
+        $resolver->setDefaults([
+            'data_class' => ClientMetadata::class,
+            'csrf_protection' => false,
+        ]);
+    }
+
+    public function onSubmit(FormEvent $event)
+    {
+        $data = $this->clientManager->populateNewMetadata($event->getData());
+
+        $event->setData($data);
     }
 
     public function getName()

@@ -11,10 +11,11 @@
 namespace LoginCidadao\PhoneVerificationBundle\Tests\DependencyInjection;
 
 use LoginCidadao\PhoneVerificationBundle\DependencyInjection\LoginCidadaoPhoneVerificationExtension;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
-class LoginCidadaoPhoneVerificationExtensionTest extends \PHPUnit_Framework_TestCase
+class LoginCidadaoPhoneVerificationExtensionTest extends TestCase
 {
     private function createContainer()
     {
@@ -79,6 +80,10 @@ class LoginCidadaoPhoneVerificationExtensionTest extends \PHPUnit_Framework_Test
         $this->assertEquals(
             $config['verification_token']['length'],
             $container->getParameter('lc.phone_verification.options.token.length')
+        );
+        $this->assertEquals(
+            $config['require_validation_threshold'],
+            $container->getParameter('lc.phone_verification.options.require_validation_threshold')
         );
     }
 }

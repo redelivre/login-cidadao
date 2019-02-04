@@ -29,7 +29,7 @@ use LoginCidadao\OAuthBundle\Model\ClientInterface;
 use LoginCidadao\ValidationBundle\Validator\Constraints as LCAssert;
 use Donato\PathWellBundle\Validator\Constraints\PathWell;
 use Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber as AssertPhoneNumber;
-use Rollerworks\Bundle\PasswordStrengthBundle\Validator\Constraints as RollerworksPassword;
+use Rollerworks\Component\PasswordStrength\Validator\Constraints as RollerworksPassword;
 
 /**
  * @ORM\Entity(repositoryClass="LoginCidadao\CoreBundle\Entity\PersonRepository")
@@ -134,7 +134,7 @@ class Person extends BaseUser implements PersonInterface, BackupCodeInterface
      * @JMS\Expose
      * @JMS\Groups({"email"})
      * @JMS\Since("1.0")
-     * @Assert\Email(strict=true, groups={"Profile", "LoginCidadaoProfile", "Registration", "ResetPassword", "ChangePassword", "LoginCidadaoRegistration", "LoginCidadaoEmailForm"})
+     * @LCAssert\Email(strict=true, groups={"Profile", "LoginCidadaoProfile", "Registration", "ResetPassword", "ChangePassword", "LoginCidadaoRegistration", "LoginCidadaoEmailForm"})
      * @Assert\NotBlank(message="person.validation.email.not_blank", groups={"Profile", "LoginCidadaoProfile", "Registration", "ResetPassword", "ChangePassword", "LoginCidadaoRegistration", "LoginCidadaoEmailForm"})
      */
     protected $email;
@@ -402,6 +402,8 @@ class Person extends BaseUser implements PersonInterface, BackupCodeInterface
     protected $nationality;
 
     /**
+     * @var BackupCode[]|ArrayCollection
+     *
      * @JMS\Exclude
      * @ORM\OneToMany(targetEntity="BackupCode", mappedBy="person", cascade={"remove"}, orphanRemoval=true)
      */
@@ -519,7 +521,7 @@ class Person extends BaseUser implements PersonInterface, BackupCodeInterface
     }
 
     /**
-     * @return Authorization[]
+     * @return Authorization[]|ArrayCollection
      */
     public function getAuthorizations($uidToIgnore = null)
     {
@@ -537,11 +539,11 @@ class Person extends BaseUser implements PersonInterface, BackupCodeInterface
 
     /**
      * Checks if a given Client can access this Person's specified scope.
-     * @param \LoginCidadao\OAuthBundle\Entity\Client $client
+     * @param ClientInterface $client
      * @param mixed $scope can be a single scope or an array with several.
      * @return boolean
      */
-    public function isAuthorizedClient(Client $client, $scope)
+    public function isAuthorizedClient(ClientInterface $client, $scope)
     {
         $authorizations = $this->getAuthorizations();
         foreach ($authorizations as $auth) {
@@ -725,10 +727,10 @@ class Person extends BaseUser implements PersonInterface, BackupCodeInterface
     }
 
     /**
-     * @param \LoginCidadao\CoreBundle\Entity\City $city
-     * @return City
+     * @param City $city
+     * @return PersonInterface
      */
-    public function setCity(\LoginCidadao\CoreBundle\Entity\City $city = null)
+    public function setCity(City $city = null)
     {
         $this->city = $city;
 
@@ -736,7 +738,7 @@ class Person extends BaseUser implements PersonInterface, BackupCodeInterface
     }
 
     /**
-     * @return \LoginCidadao\CoreBundle\Entity\City
+     * @return City
      */
     public function getCity()
     {
@@ -954,11 +956,6 @@ class Person extends BaseUser implements PersonInterface, BackupCodeInterface
         return $range;
     }
 
-    public function hasLocalProfilePicture()
-    {
-        return !is_null($this->getImageName());
-    }
-
     public function getSuggestions()
     {
         return $this->suggestions;
@@ -969,34 +966,6 @@ class Person extends BaseUser implements PersonInterface, BackupCodeInterface
         $this->suggestions = $suggestions;
 
         return $this;
-    }
-
-    public function prepareAPISerialize(
-        $imageHelper,
-        $templateHelper,
-        $isDev,
-        $request
-    ) {
-        // User's profile picture
-        if ($this->hasLocalProfilePicture()) {
-            $picturePath = $imageHelper->asset($this, 'image');
-            $pictureUrl = $request->getUriForPath($picturePath);
-            if ($isDev) {
-                $pictureUrl = str_replace('/app_dev.php', '', $pictureUrl);
-            }
-        } else {
-            $pictureUrl = $this->getSocialNetworksPicture();
-        }
-        if (is_null($pictureUrl)) {
-            // TODO: fix this and make it comply to DRY
-            $picturePath = $templateHelper->getUrl('bundles/logincidadaocore/images/userav.png');
-            $pictureUrl = $request->getUriForPath($picturePath);
-            if ($isDev) {
-                $pictureUrl = str_replace('/app_dev.php', '', $pictureUrl);
-            }
-        }
-        $this->setProfilePictureUrl($pictureUrl);
-        $this->serialize();
     }
 
     public function isClientAuthorized($app_id)
@@ -1077,18 +1046,6 @@ class Person extends BaseUser implements PersonInterface, BackupCodeInterface
         return $this->country;
     }
 
-    public function setComplement($var)
-    {
-        $this->complement = $var;
-
-        return $this;
-    }
-
-    public function getComplement()
-    {
-        return $this->complement;
-    }
-
     public function getIdCards()
     {
         return $this->idCards;
@@ -1096,12 +1053,21 @@ class Person extends BaseUser implements PersonInterface, BackupCodeInterface
 
     public function getBadges()
     {
-        return /** @scrutinizer ignore-deprecated */ $this->badges;
+        $badges = /** @scrutinizer ignore-deprecated */
+            $this->badges;
+        $badgesMap = [];
+        foreach ($badges as $badge) {
+            $key = "{$badge->getNamespace()}.{$badge->getName()}";
+            $badgesMap[$key] = $badge;
+        }
+
+        return $badgesMap;
     }
 
     public function mergeBadges(array $badges)
     {
-        /** @scrutinizer ignore-deprecated */ $this->badges = array_merge(/** @scrutinizer ignore-deprecated */ $this->badges, $badges);
+        /** @scrutinizer ignore-deprecated */
+        $this->badges = array_unique(array_merge($this->badges, $badges));
 
         return $this;
     }
@@ -1193,7 +1159,7 @@ class Person extends BaseUser implements PersonInterface, BackupCodeInterface
 
     /**
      * @param string $code
-     * @return BackupCode
+     * @return BackupCode|false
      */
     private function findBackupCode($code)
     {

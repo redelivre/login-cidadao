@@ -11,6 +11,9 @@
 namespace LoginCidadao\CoreBundle\Controller;
 
 use LoginCidadao\APIBundle\Entity\ActionLogRepository;
+use LoginCidadao\BadgesControlBundle\Handler\BadgesHandler;
+use LoginCidadao\CoreBundle\Form\Type\ContactFormType;
+use LoginCidadao\CoreBundle\Model\PersonInterface;
 use LoginCidadao\CoreBundle\Model\SupportMessage;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -21,6 +24,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use LoginCidadao\CoreBundle\Entity\SentEmail;
 use LoginCidadao\APIBundle\Entity\LogoutKey;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class DefaultController extends Controller
 {
@@ -29,7 +33,7 @@ class DefaultController extends Controller
      * @Route("/help", name="lc_help")
      * @Template()
      */
-    public function helpAction(Request $request)
+    public function helpAction()
     {
         return $this->render('LoginCidadaoCoreBundle:Info:help.html.twig');
     }
@@ -37,17 +41,28 @@ class DefaultController extends Controller
     /**
      * @Route("/contact/{correlationId}", defaults={"correlationId" = null}, name="lc_contact")
      * @Template()
+     * @codeCoverageIgnore
      */
     public function contactAction(Request $request, $correlationId = null)
     {
-        $data = new SupportMessage();
-        $form = $this->createForm('contact_form_type', $data);
-        $form->handleRequest($request);
+        /** @var TranslatorInterface $translator */
         $translator = $this->get('translator');
+
+        $person = $this->getUser() instanceof PersonInterface ? $this->getUser() : null;
+
+        $data = new SupportMessage($person);
+        $data->setExtra('Correlation Id', $correlationId);
+
+        $form = $this->createForm(ContactFormType::class, $data, [
+            'loggedIn' => $person instanceof PersonInterface,
+            'recaptchaError' => $translator->trans('contact.form.captcha.error'),
+        ]);
+        $form->handleRequest($request);
+
         $message = $translator->trans('contact.form.sent');
 
         if ($form->isValid()) {
-            $email = $this->getEmail($data, $correlationId);
+            $email = $this->getEmail($data, $translator);
             $swiftMail = $email->getSwiftMail();
             if ($this->get('mailer')->send($swiftMail)) {
                 $em = $this->getDoctrine()->getManager();
@@ -69,6 +84,7 @@ class DefaultController extends Controller
     public function dashboardAction()
     {
         // badges
+        /** @var BadgesHandler $badgesHandler */
         $badgesHandler = $this->get('badges.handler');
         $badges = $badgesHandler->getAvailableBadges();
         $userBadges = $badgesHandler->evaluate($this->getUser())->getBadges();
@@ -150,12 +166,9 @@ class DefaultController extends Controller
         ['last_username' => $lastUsername];
     }
 
-    private function getEmail(SupportMessage $supportMessage, $correlationId = null)
+    private function getEmail(SupportMessage $supportMessage, TranslatorInterface $translator)
     {
-        $message = $supportMessage->getMessage();
-        if ($correlationId !== null) {
-            $message = "<p>$message</p><p>Correlation Id: {$correlationId}</p>";
-        }
+        $message = $supportMessage->getFormattedMessage($translator);
 
         $email = (new SentEmail())
             ->setType('contact-mail')

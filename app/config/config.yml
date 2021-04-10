@@ -39,7 +39,7 @@ twig:
         fos_csrf_provider: "@security.csrf.token_manager"
         facebook_app_id: "%facebook_app_id%"
         app_router: "@router"
-        postalcode_search_link: 
+        postalcode_search_link:
         third_party_login: %third_party_login%
         password_hint: "@password_hint"
         intl_tel_input_preferred_countries: ["br"]
@@ -203,6 +203,7 @@ doctrine:
 swiftmailer:
     transport: %mailer_transport%
     host:      %mailer_host%
+    port:      %mailer_port%
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }

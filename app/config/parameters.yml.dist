@@ -42,6 +42,7 @@ parameters:
     # Email transport (read the following doc for the following settings: http://symfony.com/doc/2.8/cookbook/email/email.html)
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
+    mailer_port:       ~
     mailer_user:       ~
     mailer_password:   ~
 
